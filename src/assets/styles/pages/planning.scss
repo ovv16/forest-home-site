@@ -1,0 +1,111 @@
+.planning {
+  position: relative;
+  .title-big {
+    padding: 0 70px;
+    @include shift-left(1);
+    @include shift-right(0);
+    @include size(11);
+  }
+  &-1 {
+    position: relative;
+    padding: 0 70px;
+    @include shift-left(1);
+    @include shift-right(1);
+    @include size(10);
+    &__img {
+      margin-top: 50px;
+      margin-bottom: 289px;
+    }
+    &__wrapper {
+      padding: 100px calc(8.33333% + 30px + 70px) 100px 150px;
+      background-color: #EBEFF4;
+      position: absolute;
+      right: calc(-8.33333% - 50px);
+      bottom: 0;
+      .text,
+      .big-text {
+        width: 573px;
+      }
+      .text {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &-2,
+  &-4,
+  &-6 {
+    position: relative;
+    min-height: 850px;
+    margin-top: 100px;
+    padding: 0 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &__wrapper {
+      @include shift-left(0);
+      @include shift-right(5);
+      @include size(7);
+      position: absolute;
+      top: 0;
+      left: -15px;
+      z-index: -1;
+      background-color: #EBEFF4;
+      padding: 0 0 0 calc(70px + 8.33333% + 15px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title-inner-page {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .title-inner-page,
+      .text,
+      .big-text {
+        width: 573px;
+      }
+      .text {
+        margin-bottom: 30px;
+      }
+      .mt20 {
+        margin-top: 20px;
+      }
+    }
+    &__img {
+      position: relative;
+    }
+  }
+  &-3,
+  &-5 {
+    min-height: 700px;
+    margin-top: 100px;
+    padding: 0 70px;
+    align-items: center;
+    @include row-flex();
+    &__img {
+      position: relative;
+      @include shift-left(0);
+      @include size(7);
+    }
+    &__wrapper {
+      @include shift-left(0);
+      @include shift-right(0);
+      @include size(5);
+      .title-inner-page {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .title-inner-page,
+      .text,
+      .big-text {
+        width: 573px;
+      }
+      .text {
+        margin-bottom: 30px;
+      }
+      .mt20 {
+        margin-top: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.breadcrumbs {
+  padding: 220px 70px 0 calc(8.33333% + 15px + 70px);
+  display: flex;
+  align-items: center;
+  .subtitle {
+    margin-bottom: 0;
+  }
+  &-item {
+    &__link {
+      position: relative;
+      margin-right: 45px;
+      color: #40414F;
+      text-decoration: none;
+      &::after {
+          content: "";
+          width: 4px;
+          height: 10px;
+          background-image: url(../images/img/breadcrumbs-line.svg);
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: absolute;
+          right: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+      }
+      // &:hover {
+      //     color: $mc3;
+      // }
+    }
+    &:last-child a {
+      margin-right: 0;
+      &::after {
+          visibility: hidden;
+      }
+      // &:hover {
+      //     text-decoration-line: underline;
+      // }
+    }
+    // &:last-child a {
+    //     color: $mc2;
+    // }
+  }
+}

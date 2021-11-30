@@ -1,0 +1,124 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'complex'
+    var id_page = 'id-page-complex'
+    var class_page = 'class-page-complex'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Комплекс',
+        link: pagesLink[0].complex
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description' content='')
+block head
+  link(rel='stylesheet' href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/header.js')
+  //- script(defer src='./assets/scripts/complex.js')
+  //- script(defer src='./assets/scripts/animation.js')
+block content
+  include ../includes/breadcrumbs.pug
+  .complex#up
+    .title-big Комплекс
+    section.complex-1
+      .title-inner-page Особливості
+      img.complex-1__img(src="./assets/images/img/complex-1-img.jpg", alt="complex-1-img")
+      .complex-1__wrapper
+        .text Кожна деталь, у 
+          i.italic-bold «Forest Home» дарує комфорт та 
+          | створює 
+          i.italic-bold затишок, 
+          | ніби безліч яскравих кольорів, які складаються у барвисту веселку.
+        .big-text Житловий комплекс «Forest Home» — місце, яке стане новим обличчям мікрорайону. Архітектори врахували всі побажання майбутніх мешканців, тому розробили унікальний дизайн для 8 та 10 поверхових будівель.
+        .button.button-green Обрати квартиру
+      img.complex-1-bg(src="./assets/images/img/complex-1-bg.svg", alt="complex-1-bg")
+
+    section.complex-2
+      .complex-2__wrapper-big
+        .title-inner-page Переваги
+        img.complex-2__img(src="./assets/images/img/complex-2-img.jpg", alt="complex-2-img")
+        .complex-2__wrapper
+          .text У ЖК «Forest Home» Ви
+            i.italic-bold  зможете 
+            | дихати свіжим повітрям, а також
+            i.italic-bold  насолоджуватися
+            |  усіма
+            i.italic-bold  перевагами
+            |  міського життя.
+      .complex-2__items
+        .complex-2__item
+          img(src="./assets/images/img/complex-2-item-img-1.jpg", alt="complex-2-item-img-1")
+        .complex-2__item
+          .complex-2__text
+            .italic-title
+              i 01/ Місцезнаходження
+            .big-text Житловий комплекс стане справжнім порятунком від міської метушні та галасливих автомагістралей.
+        .complex-2__item.ml82
+          .complex-2__text
+            .italic-title
+              i 02/ Сучасне розумне планування
+            .big-text У кожного мешканця є чудова можливість стати архітектором і самостійно спланувати своє житло.
+        .complex-2__item
+          img(src="./assets/images/img/complex-2-item-img-2.jpg", alt="complex-2-item-img-2")
+        .complex-2__item
+          img(src="./assets/images/img/complex-2-item-img-3.jpg", alt="complex-2-item-img-3")
+        .complex-2__item
+          .complex-2__text
+            .italic-title
+              i 03/ Величезний паркінг
+            .big-text Зона для автомобілів представлена 600 підземними паркомісцями та сучасно обладнаними  гаражами на першому поверсі у кожній секції.
+        .complex-2__item.ml82
+          .complex-2__text
+            .italic-title
+              i 04/ Дизайн
+            .big-text Архітектори врахували всі побажання майбутніх мешканців, тому винайшли унікальний дизайн для 10 та 8 поверхових будівель.
+        .complex-2__item
+          img(src="./assets/images/img/complex-2-item-img-4.jpg", alt="complex-2-item-img-4")
+    section.complex-3
+      .title-inner-page Архітектура
+      img.complex-3__img(src="./assets/images/img/complex-3-img.jpg", alt="complex-3-img")
+      .complex-3__wrapper
+        .text Нестандартна архітектура та модерні фасадні
+          i.italic-bold   рішення привертають увагу
+          |   майбутніх мешканців.
+        .big-text При плануванні архітектори вирішили додати новобудові нестандартної форми виконані в світлих теплих кольорах, що символізують весну та все зелене. Тобто у кожного будинку — окремий задум.
+        .button.button-green Обрати квартиру
+      img.complex-3-bg(src="./assets/images/img/complex-3-bg.svg", alt="complex-3-bg")
+    section.complex-4
+      .title-inner-page розташування
+      img.complex-4__img(src="./assets/images/img/complex-4-img.jpg", alt="complex-4-img")
+      .complex-4__wrapper
+        .text
+          i.italic-bold Житловий комплекс
+          |  розкинувся в мальовничому місці м. Вінниця
+          i.italic-bold  подалі від
+          |  галасливих доріг і
+          i.italic-bold  метушні.
+        .big-text Мешканці комплексу можуть з легкістю прогулятися в спеціально обладнаній парковій зоні для відпочинку. Для дітей на території є ціла низка розваг – від звичайних турніків до сучасних тренажерів. Спеціальні майданчики та велосипедні доріжки також передбачені архітекторами.
+    section.complex-5
+      .title-inner-page Переваги
+      img.complex-5__img(src="./assets/images/img/complex-5-img.jpg", alt="complex-5-img")
+      .complex-5__wrapper
+        .text Тільки-но уявіть:
+          i.italic-bold  все, що треба
+          |  для життя –
+          i.italic-bold  поруч
+          |  з вами, не треба далеко від’їжджати.
+        .big-text Житловий комплекс «Forest Home» — той випадок, коли архітектори передбачили всі побажання і зуміли виконати їх. Так на території комплексу облаштовані сучасні дитячі та спортивні майданчики, а також зручні озеленені, квітучі зони відпочинку для всієї родини. Поряд з комплексом розташовані дитячі садочки, школи, паркова зона, торговий центр і ринок «Пасаж». 
+      img.complex-5-bg(src="./assets/images/img/complex-5-bg.svg", alt="complex-5-bg")
+
+
+
+
+block footer
+  include ../includes/footer.pug
+block header
+  include ../includes/header.pug

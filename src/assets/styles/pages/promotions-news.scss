@@ -1,0 +1,79 @@
+.promotions-news {
+  @include row-flex();
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0 70px 150px 70px;
+  &__wrapper {
+    @include shift-left(1);
+    @include shift-right(1);
+    @include size(10);
+    .button-green {
+      margin: 0 auto;
+    }
+  }
+  &__tabs {
+    display: flex;
+    margin: 30px 0;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #40414F;
+  }
+  &__tab {
+    margin-right: 35px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__content {
+    @include row-flex();
+  }
+  &__item {
+    @include shift-left(0);
+    @include shift-right(0);
+    @include size(6);
+    margin-bottom: 50px;
+    position: relative;
+    text-decoration: none;
+    &:hover .promotions-news__img img {
+      transform: scale(1.1);
+    }
+    &:hover .promotions-news__title {
+      text-decoration: 1px;
+      text-decoration-color: #40414F;
+      text-decoration-style: solid;
+      text-decoration-line: underline;
+      text-underline-position: under;
+    }
+  }
+  &__img {
+    overflow: hidden;
+    img {
+      transition: transform .5s ease-in-out;
+    }
+  }
+  &__text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 19px;
+    line-height: 160%;
+    color: #40414F;
+  }
+  &__tab-name {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    min-width: 140px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8BB514;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #EBEFF4;
+  }
+}

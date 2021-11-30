@@ -1,0 +1,55 @@
+footer
+  .footer-contacts
+    .footer-contacts__left
+      form.home-contact--width(data-home-popup='' autocomplete='off')
+        h2.title.home-contact--width Контакти
+        .small-text.mb50.home-contact--width Отримайте детальний прорахунок від нашого менеджера всього за 5 хвилин
+        .form-field.form-field-input.mb30(data-field-input='' data-field-name='' data-status='field--inactive' data-animation='none')
+          .form-field-message Ваше ім`я:
+          input.form-field__input(type='text' name='name' placeholder='Ім`я*' maxlength='31')
+          .input-message(data-input-message='')
+        .form-field.disabled.form-field-input(data-field-input='' data-field-phone='' data-status='field--inactive' data-animation='none')
+          .form-field-message Телефон
+          input.form-field__input.input-tel-pop-up(type='tel' name='phone' placeholder='' inputmode='tel')
+          span.place-holder + 38 ___-___-__-__
+          .mask-absolute.js-mask-absolute
+          .input-message(data-input-message='')
+        .small-text.mt50.home-contact--width Натискаючи на кнопку, Ви погоджуєтесь з обробкою персональних даних. 
+        .form-btn-wrap.df.jcsb.aic
+          button.button.button-green.home-contact-btn--size(type='submit' data-btn-submit='data-btn-submit') Надіслати
+            div(data-btn-submit-text='' style='display:none')
+    .footer-contacts__right
+      .footer-contacts__right-item
+        h3.subtitle відділ продажу:
+        .text м. Вінниця, вул. Максимовича, 6
+      .footer-contacts__right-item
+        h3.subtitle будівництво:
+        .text м. Вінниця, вул. Максимовича, 21
+      .footer-contacts__right-item
+        h3.subtitle графік роботи:
+        .text.mb10 Пн-Сб: 09:00-19:00
+        .text Нд: 10:00-17:00
+      .footer-contacts__right-item
+        h3.subtitle телефон:
+        .text
+          a(href="tel:+380671106104") +38 067 110 61 04 
+      .footer-contacts__right-item
+        h3.subtitle e-mail:
+        .text
+          a(href='mailto:zkforesthome@gmail.com') zkforesthome@gmail.com
+      .footer-contacts__right-item
+        h3.subtitle Соціальні мережі:
+        .text
+          a.mr20(href='https://www.facebook.com' target='_blank') facebook
+          a(href='https://www.instagram.com/' target='_blank') instagram
+  .footer
+    .footer__wrapper
+      .footer__content
+        .footer__content-item.small-text
+          span.year
+          a(href="#")  ЖК Forest home.
+          span  Всі права захищені.
+        .footer__content-item
+          .footer__content-item-img
+            a(href="https://smarto.agency/" target="_blank") 
+              img(src="./assets/images/img/smartorange.svg" alt="smartorange")
