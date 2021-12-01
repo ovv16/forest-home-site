@@ -89,19 +89,33 @@ export default function animation(scroller) {
         function buttonMenuEffect(selector) {
         //     border-radius: 15px;
         // transform: scaleX(2.8);
-
+            
             const button = document.querySelector(selector);
+            const parent = button.parentElement;
+            let scaleCoef = parent.getBoundingClientRect().width / button.getBoundingClientRect().width;
+            if (isNaN(scaleCoef)) scaleCoef = 3.25;
+            console.log(scaleCoef);
             button.addEventListener('mouseenter', () => {
-                gsap.to(button, {
-                    borderRadius: 0,
-                    scaleX: 2.8,
+                gsap.timeline()
+                .to(button.querySelector('svg'), {
+                    scaleX: 0.4,
+                    duration: 0.2
                 })
+                .to(button, {
+                    borderRadius: 0,
+                    scaleX: scaleCoef,
+                },'<')
             })
             button.addEventListener('mouseleave', () => {
-                gsap.to(button, {
+                gsap.timeline()
+                .to(button.querySelector('svg'), {
+                    scaleX: 1,
+                    duration: 0.2
+                })
+                .to(button, {
                     borderRadius: '50%',
                     scaleX: 1,
-                })
+                },'<')
             })
 
         }
