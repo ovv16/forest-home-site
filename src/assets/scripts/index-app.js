@@ -5,6 +5,8 @@ import axios from 'axios';
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
 import SexyInput from '../../pug/components/input/input';
+import animation from './modules/animation/animation.js';
+
 
 /** ******************************* */
 /*
@@ -24,6 +26,9 @@ const locoScroll = new LocomotiveScroll({
 });
 // locoScroll.destroy();
 global.locoScroll = locoScroll;
+
+
+animation(locoScroll);
 /*
  * smooth scroll end
  */
@@ -211,7 +216,7 @@ function disableScroll() {
 
 document.addEventListener('DOMContentLoaded', () => {
   disableScroll();
-  locoScroll.update();
+  // locoScroll.update();
 });
 /** ******************************* */
 

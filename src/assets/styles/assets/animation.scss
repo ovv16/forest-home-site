@@ -140,3 +140,27 @@
           opacity: 1;
         }
       }
+
+
+
+.header__right-button-menu {
+        overflow: hidden;
+}
+.menu-top__right-burg,
+.header__right-burg {
+        transform-origin: center right;
+}
+.section-1:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255,255,255,0.5);
+        transition: .3s ease-in-out;
+        opacity: 0;
+}
+.section-1.switching:after {
+        opacity: 1;
+}
