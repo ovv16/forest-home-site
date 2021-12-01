@@ -63,11 +63,36 @@
       align-items: center;
 
       &-tel {
+        position: relative;
+        width: max-content;
         font-weight: 500;
         font-size: 30px;
         letter-spacing: -0.05em;
         color: var(--white);
         text-decoration: none;
+        transition: color 0.3s;
+
+        &:after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: -10px;
+          left: 0;
+          background-color: #649732;
+          transform: scaleX(0);
+          transform-origin: bottom right;
+          transition: transform .3s;
+        }
+
+        &:hover {
+          color: #649732;
+
+          &:after {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+          }
+        }
       }
     }
 
@@ -96,6 +121,10 @@
         align-items: center;
         background-color: var(--green);
         border-radius: 35px;
+        transition: background-color .3s;
+        &:hover {
+          background-color: transparent;
+        }
       }
 
       &-text {

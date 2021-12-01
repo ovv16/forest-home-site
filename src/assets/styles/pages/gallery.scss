@@ -1,7 +1,7 @@
 .gallery {
   position: relative;
   height: calc(100vh - 230px);
-  z-index: 0;
+  z-index: -1;
   &__title {
     position: absolute;
     top: 0;
@@ -25,6 +25,7 @@
     background: linear-gradient(180deg, rgba(20, 20, 22, 0) 0%, rgba(20, 20, 22, 0.8) 72.4%);
   }
   .slider {
+    pointer-events: none;
     position: absolute;
     top: -230px;
     left: 0;
@@ -53,6 +54,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      pointer-events: all;
     }
     .slider-count {
       position: absolute;

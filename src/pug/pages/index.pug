@@ -20,7 +20,7 @@ block scripts
   script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/libs.js')
-  //- script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/footer.js')
   script(defer src='./assets/scripts/slick.min.js')
   script(defer src='./assets/scripts/home.js')
@@ -91,7 +91,8 @@ block content
     .section-4__left
       img.section-4__left-bg(src='./assets/images/img/section-4__left-bg.jpg' alt='section-4__left-bg')
       img.section-4__left-img(src='./assets/images/img/section-4__left-img.jpg' alt='section-4__left-img')
-      img.section-4__left-bg-2(src='./assets/images/img/section-4__left-bg-2.svg' alt='section-4__left-bg-2')
+      .section-4__left-bg-2
+        img(src='./assets/images/img/section-4__left-bg-2.svg' alt='section-4__left-bg-2')
     .section-4__right
       h3.subtitle характеристики
       .section-4__right-items

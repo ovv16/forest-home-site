@@ -8,7 +8,7 @@
     @include shift-right(1);
     @include size(10);
     .button-green {
-      margin: 0 auto;
+      margin: 50px auto 0 auto;
     }
   }
   &__tabs {
@@ -30,13 +30,11 @@
     font-weight: 500;
   }
   &__content {
-    @include row-flex();
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
   }
   &__item {
-    @include shift-left(0);
-    @include shift-right(0);
-    @include size(6);
-    margin-bottom: 50px;
     position: relative;
     text-decoration: none;
     &:hover .promotions-news__img img {

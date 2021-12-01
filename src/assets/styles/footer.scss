@@ -174,13 +174,14 @@ footer {
     }
   }
   .pageup {
+    pointer-events: all;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 150px;
     right: calc(8.33333% + 10px);
-    z-index: 3;
+    z-index: 5;
     width: 55px;
     height: 55px;
     background-color: #89AB26;

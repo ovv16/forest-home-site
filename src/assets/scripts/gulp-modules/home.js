@@ -26,3 +26,11 @@ $(document).ready(() => {
     // ],
   });
 });
+window.addEventListener('load', () => {
+  locoScroll.update();
+});
+
+window.addEventListener('resize', () => {
+  console.log('--', locoScroll);
+  locoScroll.update();
+});
