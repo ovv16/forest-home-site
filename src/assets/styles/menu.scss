@@ -152,6 +152,11 @@
         text-decoration: none;
         cursor: pointer;
       }
+      &-list {
+        display: grid;
+        grid-template-columns: 23px auto;
+        column-gap: 17px;
+      }
     }
 
     &__right {
@@ -161,19 +166,24 @@
       display: grid;
       grid-template-columns: 100%;
       row-gap: 40px;
+      height: 82%;
+      align-self: center;
 
       &-item {
         .subtitle {
-          margin-bottom: 14px;
-          color: #96969F;
+          margin-bottom: 10px;
+          color: #717386;
         }
 
         .text {
           margin-bottom: 0;
+          font-weight: 400;
+          font-size: 19px;
           line-height: 100%;
-
+          color: #40414F;
           a {
             text-decoration: none;
+            color: #40414F;
           }
         }
 

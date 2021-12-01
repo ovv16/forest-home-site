@@ -158,7 +158,7 @@ body {
 }
 .section-1 {
   position: relative;
-  background: url("../images/img/section-1-bg.jpg") left center / cover no-repeat;
+  background: url("../images/img/section-1-bg.jpg") left center / 100% 100% no-repeat;
   width: 100%;
   height: 100vh;
   &__text {
@@ -171,12 +171,10 @@ body {
     line-height: 110%;
     text-transform: uppercase;
     color: var(--white);
+    &-bold {
+      font-weight: 500;
+    }
   }
-  // &__phone {
-  //   position: absolute;
-  //   right: 70px;
-  //   bottom: 70px;
-  // }
   &__scroll {
     position: absolute;
     right: 26%;
@@ -187,8 +185,22 @@ body {
     letter-spacing: 0.7em;
     text-transform: uppercase;
     color: var(--white);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     span {
       margin-left: 25px;
+    }
+  }
+  &__social {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 70px;
+    display: grid;
+    row-gap: 40px;
+    a {
+      justify-self: center;
     }
   }
 }
@@ -288,7 +300,7 @@ body {
     }
     &-img {
       position: absolute;
-      top: -70px;
+      top: -90px;
       left: 151px;
     }
   }
@@ -508,21 +520,4 @@ body {
       }
     }
   }
-}
-.pageup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 20%;
-  right: calc(8.33333% + 10px);
-  z-index: 3;
-  width: 55px;
-  height: 55px;
-  background-color: #89AB26;
-  border-radius: 50%;
-  // transition: all 2s linear;
-  // svg {
-  //   mix-blend-mode: difference;
-  // }
 }

@@ -1,7 +1,7 @@
 $(document).ready(() => {
   $('.slider').on('init', function(event, slick) {
     $(this).append(
-      '<div class="slider-count"><span id="current">1</span>/<span id="total">' +
+      '<div class="slider-count"> <span id="current">1</span><svg width="21" height="42" viewBox="0 0 21 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 41.5L18 0H21L3 41.5H0Z" fill="white"/></svg><span id="total">' +
         slick.slideCount +
       '</span></div>');
 
