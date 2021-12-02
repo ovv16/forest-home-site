@@ -255,3 +255,12 @@
 // header .header {
 //         z-index: 2000 !important;
 // }
+
+[data-menu-canvas] {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+}
