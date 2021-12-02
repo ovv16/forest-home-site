@@ -164,3 +164,24 @@
 .section-1.switching:after {
         opacity: 1;
 }
+
+.section-6 {
+        position: relative;
+        &:before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 100vw;
+                height: 100vh;
+                transform: translate(-50%,-50%);
+                background-color: #26262C;
+                z-index: -1;
+                opacity: 1;
+                transition: opacity .5s ease-in-out;
+                transition-delay: 0.5s;
+        }
+        &.in-view:before {
+                opacity: 0;
+        }
+}

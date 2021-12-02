@@ -19,6 +19,7 @@ export default function animation(scroller) {
     ScrollTrigger.addEventListener('refresh', () => window.locoScroll.update());
     ScrollTrigger.refresh();
     splitToLinesAndFadeUp('.section-1__text, .title, .section-4__right .text');
+    splitToLinesAndFadeUp('.section-7__item a');
 
     
     window.ttl1 = gsap.timeline({
@@ -63,8 +64,7 @@ export default function animation(scroller) {
 
 
         function screen1Transition(index){
-            gsap.timeline()
-                
+            window.screen1Tl = gsap.timeline()
                 .fromTo(section1, {
                     backgroundSize: '100% 100%'
                 }, {
@@ -83,13 +83,20 @@ export default function animation(scroller) {
                     section1.classList.remove('switching')
                 }, '<+0.5')
         }
+
+        ScrollTrigger.create({
+            trigger: '.section-1',
+            onToggle: ({isActive}) => {
+                console.log(window.screen1Tl);
+                (isActive) ? 
+                window.screen1Tl !== undefined && window.screen1Tl.play() :
+                window.screen1Tl !== undefined && window.screen1Tl.pause();
+            }
+        })
         screen1Transition(0);
 
 
         function buttonMenuEffect(selector) {
-        //     border-radius: 15px;
-        // transform: scaleX(2.8);
-            
             const button = document.querySelector(selector);
             const parent = button.parentElement;
             let scaleCoef = parent.getBoundingClientRect().width / button.getBoundingClientRect().width;
@@ -121,4 +128,38 @@ export default function animation(scroller) {
         }
         buttonMenuEffect('.header__right-burg');
         buttonMenuEffect('.menu-top__right-burg');
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.section-4__left',
+                scrub: true,
+            }
+        })
+        .from('.section-4__left-img', {
+            yPercent: 100
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.section-3__right',
+                scrub: true,
+            }
+        })
+        .from('.section-3__right-img', {
+            yPercent: 100
+        })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.section-6',
+                onToggle: ({isActive}) => {
+                    isActive ? 
+                        document.querySelector('.section-6').classList.add('in-view') :
+                        document.querySelector('.section-6').classList.remove('in-view') ;
+                },
+                onEnter: () => {
+
+                }
+            },
+            
+        })
+        
 }
