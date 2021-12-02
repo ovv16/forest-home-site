@@ -20,19 +20,28 @@ block scripts
   script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/libs.js')
-  //- script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/footer.js')
   script(defer src='./assets/scripts/slick.min.js')
   script(defer src='./assets/scripts/home.js')
   //- script(defer src='./assets/scripts/animation.js')
 block content
   section#up.section-1
-    h1.section-1__text Forest Home - стирає кордони між містом та природою!
+    h1.section-1__text 
+      span.section-1__text-bold Forest Home 
+      |- стирає кордони між містом та природою!
     .section-1__scroll
       svg(width='24' height='40' viewbox='0 0 24 40' fill='none' xmlns='http://www.w3.org/2000/svg')
         rect(x='0.5' y='0.5' width='23' height='39' rx='11.5' stroke='white')
         circle(cx='12' cy='9' r='2' fill='white')
       span гортай
+    .section-1__social
+      a(href='https://www.facebook.com/' target='_blank')
+        svg(width='15' height='30' viewbox='0 0 15 30' fill='none' xmlns='http://www.w3.org/2000/svg')
+          path(d='M11.6776 4.98125H14.2857V0.21125C13.8358 0.14625 12.2883 0 10.486 0C6.72563 0 4.14965 2.48375 4.14965 7.04875V11.25H0V16.5825H4.14965V30H9.23733V16.5837H13.2191L13.8512 11.2513H9.23614V7.5775C9.23733 6.03625 9.63253 4.98125 11.6776 4.98125Z' fill='white')
+      a(href='https://www.instagram.com/' target='_blank')
+        svg(width='25' height='25' viewbox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg')
+          path(fill-rule='evenodd' clip-rule='evenodd' d='M7.53919 0.070741C8.82885 0.0140911 9.24495 0 12.5024 0C15.7589 0 16.1764 0.0140766 17.4713 0.075539C18.794 0.133935 19.7199 0.349533 20.539 0.665959C21.4029 0.991483 22.1898 1.50425 22.8399 2.16348L22.8363 2.15999L22.4773 2.52743L22.8434 2.167L22.8399 2.16348C23.5056 2.81493 24.0134 3.59775 24.3433 4.46959C24.6602 5.28544 24.8757 6.21656 24.934 7.53911C24.9907 8.83029 24.9954 9.24821 24.9954 12.5024C24.9954 15.7598 24.9813 16.1759 24.9247 17.4656C24.8663 18.79 24.6501 19.7166 24.3334 20.5364C23.6584 22.2821 22.2781 23.6626 20.5323 24.3378C19.7161 24.6552 18.7846 24.8709 17.4611 24.9293C16.1713 24.9861 15.7552 25 12.4978 25C9.24045 25 8.8241 24.9861 7.53453 24.9293C6.21115 24.8709 5.28522 24.6553 4.46584 24.3388C3.60159 24.0132 2.81445 23.5002 2.16418 22.8406L2.167 22.8434L2.52743 22.4773L2.16139 22.8378L2.16418 22.8406C1.50502 22.1907 0.992176 21.4087 0.661681 20.5352C0.34472 19.7194 0.129059 18.7883 0.0707447 17.4657C0.0140948 16.176 0 15.7598 0 12.5024C0 9.24582 0.0140766 8.82831 0.0755388 7.53349C0.133936 6.2107 0.349548 5.28498 0.665967 4.46575C0.991634 3.60194 1.50418 2.81506 2.16346 2.16487L2.15999 2.16843L2.52743 2.52743L2.167 2.16139L2.16346 2.16487C2.81492 1.49915 3.59775 0.991341 4.4698 0.66148C5.28538 0.344721 6.21656 0.129056 7.53919 0.070741ZM5.84387 12.5011C5.84387 8.82494 8.82618 5.84283 12.5021 5.84283C16.1782 5.84283 19.1604 8.82495 19.1604 12.5011C19.1604 16.1772 16.1782 19.1593 12.5021 19.1593C8.82618 19.1593 5.84387 16.1772 5.84387 12.5011ZM12.5021 6.84283C9.37845 6.84283 6.84387 9.37724 6.84387 12.5011C6.84387 15.6249 9.37845 18.1593 12.5021 18.1593C15.626 18.1593 18.1604 15.6249 18.1604 12.5011C18.1604 9.37724 15.626 6.84283 12.5021 6.84283ZM19.3544 3.44708C18.3517 3.44708 17.5387 4.25991 17.5387 5.26287C17.5387 6.26563 18.3517 7.07866 19.3544 7.07866C20.3572 7.07866 21.1703 6.26571 21.1703 5.26287C21.1703 4.25984 20.3572 3.44708 19.3544 3.44708ZM18.5387 5.26287C18.5387 4.81224 18.904 4.44708 19.3544 4.44708C19.805 4.44708 20.1703 4.81226 20.1703 5.26287C20.1703 5.71338 19.805 6.07866 19.3544 6.07866C18.904 6.07866 18.5387 5.71339 18.5387 5.26287Z' fill='white')
   section.section-2
     .section-2__left
       h3.subtitle Сучасний і стильний
@@ -54,13 +63,13 @@ block content
           .section-2__right-slider-title Екологічність
           .section-2__right-slider-text Навколо комплексу — ліс. Жодного шуму та забрудненості від великого міста, свіже повітря, тиша та затишок. Найбільший парк міста знаходиться за декілька кроків від житлових секцій.
         .section-2__right-slider-item
-          img(src='./assets/images/img/parking.jpg' alt='developer')
+          img(src='./assets/images/img/developer.jpg' alt='developer')
           .section-2__right-slider-title Забудовник
           .section-2__right-slider-text «Forest Home» це нерухомість від надійного забудовника з бездоганною репутацією. Наші об'єкти по місту здаються вчасно та чітко відповідають заявленим візуалізаціям.
         .section-2__right-slider-item
-          img(src='./assets/images/img/parking.jpg' alt='parking')
-          .section-2__right-slider-title Величезний паркінг
-          .section-2__right-slider-text У кожній секції для авто побудовані гаражі з індивідуальними електроролетами, а також підземний паркінг та гістьові паркомісця на вулиці.
+          img(src='./assets/images/img/safety-comfort.jpg' alt='safety-comfort')
+          .section-2__right-slider-title Безпека та комфорт
+          .section-2__right-slider-text Незважаючи на те, що будинки височіють неподалік від шосе, комплекс чудово захищений від дорожнього трафіку та оточений віковими деревами.
       button.slick-next(type='button')
       button.slick-prev(type='button')
   section.section-3
@@ -82,7 +91,8 @@ block content
     .section-4__left
       img.section-4__left-bg(src='./assets/images/img/section-4__left-bg.jpg' alt='section-4__left-bg')
       img.section-4__left-img(src='./assets/images/img/section-4__left-img.jpg' alt='section-4__left-img')
-      img.section-4__left-bg-2(src='./assets/images/img/section-4__left-bg-2.svg' alt='section-4__left-bg-2')
+      .section-4__left-bg-2
+        img(src='./assets/images/img/section-4__left-bg-2.svg' alt='section-4__left-bg-2')
     .section-4__right
       h3.subtitle характеристики
       .section-4__right-items
@@ -133,7 +143,7 @@ block content
             path(d='M14.2543 124H27.5497L74.1861 31.1364V19.2727H7.09517V30.5227H61.0952V31.3409L14.2543 124ZM125.182 17.8409C103.909 17.5852 90.2045 33.5909 90.2045 52.8182C90.2045 73.0682 105.136 87.5909 123.136 87.5909C133.977 87.5909 143.182 82.2727 148.909 73.6818H149.727C149.727 99.4545 139.705 114.182 123.545 114.182C112.5 114.182 105.75 107.227 103.5 97.6136H91.0227C93.4773 114.182 105.955 125.432 123.545 125.432C147.068 125.432 161.591 104.568 161.591 67.3409C161.591 28.8864 142.364 18.0454 125.182 17.8409ZM125.182 29.0909C138.273 29.0909 147.886 40.3409 147.886 52.6136C147.886 65.0909 137.659 76.3409 124.773 76.3409C111.886 76.3409 102.477 65.9091 102.477 52.8182C102.477 39.7273 112.295 29.0909 125.182 29.0909ZM215.859 125.432C238.973 125.432 252.268 105.847 252.268 71.6364C252.268 37.6818 238.768 17.8409 215.859 17.8409C192.95 17.8409 179.45 37.6818 179.45 71.6364C179.45 105.847 192.746 125.432 215.859 125.432ZM215.859 114.182C200.621 114.182 191.723 98.892 191.723 71.6364C191.723 44.4318 200.723 28.8864 215.859 28.8864C230.996 28.8864 239.996 44.4318 239.996 71.6364C239.996 98.892 231.098 114.182 215.859 114.182Z' fill='#B6B8C8')
       .section-6__center
         img(src="./assets/images/img/section-6__center-img.jpg", alt="section-6__center-img")
-        a.section-6__center-link(href='https://andriyivsky.space/' target='_blank')
+        a.section-6__center-link(href='#' target='_blank')
           svg(width='160' height='160' viewbox='0 0 160 160' fill='none' xmlns='http://www.w3.org/2000/svg')
             circle(cx='79.9999' cy='79.9999' r='79.9999' fill='#26262C')
             g.rotate

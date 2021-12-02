@@ -1,4 +1,5 @@
 footer {
+  position: relative;
   width: 100%;
   height: 100%;
   background: url('../images/img/footer-bg.png') bottom left / 100% auto no-repeat,
@@ -106,6 +107,8 @@ footer {
       display: grid;
       grid-template-columns: 100%;
       row-gap: 50px;
+      height: 80%;
+      align-self: center;
       &-item {
         .subtitle {
           margin-bottom: 14px;
@@ -169,5 +172,19 @@ footer {
         }
       }
     }
+  }
+  .pageup {
+    pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    right: calc(8.33333% + 10px);
+    z-index: 5;
+    width: 55px;
+    height: 55px;
+    background-color: #89AB26;
+    border-radius: 50%;
   }
 }

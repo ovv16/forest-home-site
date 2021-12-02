@@ -8,35 +8,37 @@
     @include shift-right(1);
     @include size(10);
     .button-green {
-      margin: 0 auto;
+      margin: 50px auto 0 auto;
     }
   }
   &__tabs {
     display: flex;
     margin: 30px 0;
-    font-weight: 500;
+    font-weight: 300;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #40414F;
   }
   &__tab {
     margin-right: 35px;
+    cursor: pointer;
     &:last-child {
       margin-right: 0;
     }
   }
+  &-active {
+    font-weight: 500;
+  }
   &__content {
-    @include row-flex();
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
   }
   &__item {
-    @include shift-left(0);
-    @include shift-right(0);
-    @include size(6);
-    margin-bottom: 50px;
     position: relative;
     text-decoration: none;
     &:hover .promotions-news__img img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     &:hover .promotions-news__title {
       text-decoration: 1px;
