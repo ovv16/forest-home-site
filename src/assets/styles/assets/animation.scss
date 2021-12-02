@@ -201,6 +201,7 @@
         background-color: rgba(255,255,255,0.5);
         transition: .3s ease-in-out;
         opacity: 0;
+        pointer-events: none;
 }
 .section-1.switching:after {
         opacity: 1;

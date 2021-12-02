@@ -5,6 +5,7 @@ import paralax from './effect/paralax.js';
 import {throttle} from '../helpers/helpers';
 import paralaxNoOverflow from './effect/paralaxNoOverflow';
 import clipPathEntry from './effect/clipPathEntry';
+import menuLinksEffect from './menu';
 
 export default function animation(scroller) {
     gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +23,7 @@ export default function animation(scroller) {
     ScrollTrigger.addEventListener('refresh', () => window.locoScroll.update());
     ScrollTrigger.refresh();
 
-
+    menuLinksEffect();
     splitToLinesAndFadeUp('.section-1__text, .title, .section-4__right .text');
     splitToLinesAndFadeUp('.section-7__item a');
     splitToLinesAndFadeUp('.italic-title i, .big-text');
@@ -50,48 +51,51 @@ export default function animation(scroller) {
 
     }
     // loaderAnimation();
-    
-    window.ttl1 = gsap.timeline({
-        defaults: {
-            ease: 'power3.out',
-            duration : 2.5
-        }
-    })
-        .add(loaderAnimation())
-        
-        .fromTo('.header__left>*', { 
-            xPercent: -100,autoAlpha:0
-        }, {
-            xPercent: 0,
-            autoAlpha: 1
-        },"<75%")
-        .fromTo('.header__right>*', { 
-            xPercent: 100,autoAlpha:0
-        }, {
-            xPercent: 0,
-            autoAlpha: 1
-        },'<')
-        .fromTo('.section-1__text', { 
-            xPercent: -100,autoAlpha:0
-        }, {
-            xPercent: 0,
-            autoAlpha: 1
-        },'<')
-        .fromTo('.header__logo svg', { 
-            yPercent: 300,
-            // autoAlpha:0
-        }, {
-            yPercent: 0,
-            scale: 1,
-            // autoAlpha: 1
-        },'<');
+    if (sessionStorage.getItem('loader') === null) {
+        window.ttl1 = gsap.timeline({
+            defaults: {
+                ease: 'power3.out',
+                duration : 2.5
+            }
+        })
+            .add(loaderAnimation())
+            
+            .fromTo('.header__left>*', { 
+                xPercent: -100,autoAlpha:0
+            }, {
+                xPercent: 0,
+                autoAlpha: 1
+            },"<75%")
+            .fromTo('.header__right>*', { 
+                xPercent: 100,autoAlpha:0
+            }, {
+                xPercent: 0,
+                autoAlpha: 1
+            },'<')
+            .fromTo('.section-1__text', { 
+                xPercent: -100,autoAlpha:0
+            }, {
+                xPercent: 0,
+                autoAlpha: 1
+            },'<')
+            .fromTo('.header__logo svg', { 
+                yPercent: 300,
+                // autoAlpha:0
+            }, {
+                yPercent: 0,
+                scale: 1,
+                // autoAlpha: 1
+            },'<');
+    } else {
+        document.querySelector('.loader-wrap') && document.querySelector('.loader-wrap').remove();
+    }
 
-        const images = [
-            './assets/images/home/screen1/1920/2.jpg',
-            './assets/images/home/screen1/1920/3.jpg',
-            './assets/images/home/screen1/1920/4.jpg',
-            './assets/images/home/screen1/1920/6.jpg',
-        ];
+    const images = [
+        './assets/images/home/screen1/1920/2.jpg',
+        './assets/images/home/screen1/1920/3.jpg',
+        './assets/images/home/screen1/1920/4.jpg',
+        './assets/images/home/screen1/1920/6.jpg',
+    ];
 
     function screen1ChangeSlider() {
         const section1 = document.querySelector('.section-1');
@@ -370,6 +374,23 @@ export default function animation(scroller) {
     blockComplexAnim('.complex-5','.complex-5__img','.complex-5__wrapper');
     clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, complex-4__item img, complex-5__item img');
     paralaxNoOverflow('.complex-5-bg, .complex-1-bg, .complex-2-bg, .complex-3-bg, .complex-4-bg');
-
-    
+    function socialIconsParalax(selector) {
+        const $links = document.querySelectorAll(selector);
+        $links.forEach(link => {
+            const linkPosY = link.getBoundingClientRect().top;
+            const linkPosX = link.getBoundingClientRect().left;
+            const {width, height} =  link.getBoundingClientRect();
+            link.addEventListener('mousemove',function(evt){
+                const fromCenterOfEl = (linkPosX - evt.clientX) + (width / 2);
+                const fromCenterOfElY = (linkPosY - evt.clientY) + (height / 2);
+                gsap.to(link.querySelector('svg'), { y: fromCenterOfElY, x: fromCenterOfEl, duration: 1/60 })
+            });
+            link.addEventListener('mouseleave',function(evt){
+                gsap.to(link.querySelector('svg'), {
+                    x: 0, y: 0
+                })
+            });
+        })
+    }
+    socialIconsParalax('.section-1__social a');
 }

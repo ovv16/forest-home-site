@@ -3,6 +3,7 @@
     <img class="loader-wrap__text" src="./assets/images/loader-text.svg" alt="">
 </div>
 <script>
+    // !sessionStorage.getItem('loader') && document.querySelector('.loader-wrap').remove();
 if (sessionStorage.getItem('loader') !== null) {
     document.querySelector('.loader-wrap').remove();
 }
