@@ -25,36 +25,33 @@ block scripts
   script(defer src='./assets/scripts/footer.js')
 block content
   include ../includes/breadcrumbs.pug
-  .inner-page
-    .inner-page__wrapper-big
-      .title-inner-page Осінній цінопад
-      .inner-page__wrapper-small
-        .inner-page__content
-          .inner-page__left
-            .text
-              i.italic-bold Обирай
-              |  комфортне
-              i.italic-bold  житло 
-              |  без переплат
-              i.italic-bold  у Вінниці.
-            .big-text Житловий комплекс «Forest Home» — той випадок, коли архітектори передбачили всі побажання і зуміли виконати їх. Так на території комплексу облаштовані сучасні дитячі та спортивні майданчики, а також зручні озеленені, квітучі зони відпочинку для всієї родини. Поряд з комплексом розташовані дитячі садочки, школи, паркова зона, торговий центр і ринок «Пасаж». 
-            .big-text.mt30.mb20 Forest Home має ряд переваг:
-            ul
-              li.inner-page__left-list.big-text Розташований в затишному та спокійному районі
-              li.inner-page__left-list.big-text Велика кількість паркомісць
-              li.inner-page__left-list.big-text Поруч паркова зона для прогулянок і відпочинку
-              li.inner-page__left-list.big-text Безліч дитячих та спортивних майданчиків, зон відпочинку
-              li.inner-page__left-list.big-text Розташований в затишному та спокійному районі
-              li.inner-page__left-list.big-text Безліч дитячих та спортивних майданчиків, зон відпочинку
-              li.inner-page__left-list.big-text Поруч паркова зона для прогулянок і відпочинку
-              li.inner-page__left-list.big-text Однокімнатні квартири від 41м
-                sub 2
-                |, двокімнатні квартири від 58м
-                sub 2
-            .button.button-green Обрати квартиру
-        .inner-page__date 25.10.2021
-        .inner-page__img
-          img(src="./assets/images/img/inner-page-img-1.jpg", alt="inner-page-img-1")
+  .inner-page.row-flex.container-side-padding
+    .title-inner-page Осінній цінопад
+    .inner-page__content
+      .text
+        i.italic-bold Обирай
+        |  комфортне
+        i.italic-bold  житло 
+        |  без переплат
+        i.italic-bold  у Вінниці.
+      .big-text Житловий комплекс «Forest Home» — той випадок, коли архітектори передбачили всі побажання і зуміли виконати їх. Так на території комплексу облаштовані сучасні дитячі та спортивні майданчики, а також зручні озеленені, квітучі зони відпочинку для всієї родини. Поряд з комплексом розташовані дитячі садочки, школи, паркова зона, торговий центр і ринок «Пасаж». 
+      .big-text.mt30.mb20 Forest Home має ряд переваг:
+      ul
+        li.inner-page__content-list.big-text Розташований в затишному та спокійному районі
+        li.inner-page__content-list.big-text Велика кількість паркомісць
+        li.inner-page__content-list.big-text Поруч паркова зона для прогулянок і відпочинку
+        li.inner-page__content-list.big-text Безліч дитячих та спортивних майданчиків, зон відпочинку
+        li.inner-page__content-list.big-text Розташований в затишному та спокійному районі
+        li.inner-page__content-list.big-text Безліч дитячих та спортивних майданчиків, зон відпочинку
+        li.inner-page__content-list.big-text Поруч паркова зона для прогулянок і відпочинку
+        li.inner-page__content-list.big-text Однокімнатні квартири від 41м
+          sub 2
+          |, двокімнатні квартири від 58м
+          sub 2
+      .button.button-green Обрати квартиру
+    .inner-page__date 25.10.2021
+    .inner-page__img
+      img(src="./assets/images/img/inner-page-img-1.jpg", alt="inner-page-img-1")
 
 
 block footer

@@ -26,25 +26,11 @@ body {
     transform: rotate(360deg);
   }
 }
-// .page__content {
-//   position: relative;
-//   .footer-bg {
-//        position: absolute;
-//        left: 0;
-//        bottom: 0;
-//        z-index: -1;
-//   }
-// }
-
-
-
-
 .button {
   pointer-events: auto;
   cursor: pointer;
   position: relative;
 }
-
 .button::before,
 .button::after {
   position: absolute;
@@ -53,11 +39,9 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .button--calypso {
   overflow: hidden;
 }
-
 .button--calypso span {
   display: block;
   position: relative;
@@ -232,12 +216,6 @@ body {
   font-size: 24px;
   color: var(--white);
 }
-.phone {
-  position: fixed;
-  right: 70px;
-  bottom: 7vh;
-  z-index: 3;
-}
 .section-1 {
   position: relative;
   background: url("../images/img/section-1-bg.jpg") left center / 100% 100% no-repeat;
@@ -288,16 +266,20 @@ body {
 }
 .section-2 {
   position: relative;
-  padding: 150px 0;
-  display: flex;
+  --v-padding: 150px;
+  padding-bottom: var(--v-padding);
+  padding-top: var(--v-padding);
+  @include row-flex();
   &__left {
+    padding-left: var(--page-side-fields);
     @include shift-left(1);
     @include shift-right(2);
     @include size(3);
-    justify-self: center;
   }
   &__right {
-    width: 50%;
+    @include shift-left(0);
+    @include shift-right(0);
+    @include size(6);
     &-slider {
       &-item {
         margin-right: 30px;
@@ -329,7 +311,7 @@ body {
       .slick-next,
       .slick-prev {
         position: absolute;
-        left: calc(8.33333% + 10px);
+        left: calc(8.33333% + 15px + var(--page-side-fields));
         bottom: 150px;
         width: 55px;
         height: 55px;
@@ -352,14 +334,14 @@ body {
 }
 .section-3 {
   padding: 170px 0 100px 0;
-  display: flex;
-  align-items: center;
+  @include row-flex();
   background-color: #26262C;
   &__left {
+    align-self: center;
+    padding-left: var(--page-side-fields);
     @include shift-left(1);
     @include shift-right(2);
     @include size(3);
-    justify-self: center;
     .subtitle {
       color: #96969F;
     }
@@ -391,14 +373,12 @@ body {
   }
 }
 .section-4 {
-  padding: 0 70px;
-  align-items: center;
   background: #26262C;
   @include row-flex();
   &__left {
     @include shift-left(0);
-    @include shift-right(2);
-    @include size(4);
+    @include shift-right(1);
+    @include size(5);
     position: relative;
     &-bg {
       width: 100%;
@@ -410,23 +390,18 @@ body {
     }
     &-bg-2 {
       position: absolute;
-      left: 160%;
+      right: calc(-100% - 8.33333% - 15px - var(--page-side-fields));
       bottom: -100px;
-      width: 724px;
-      height: 939px;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-      }
-      
+      z-index: 0;
     }
   }
   &__right {
     position: relative;
+    z-index: 1;
     @include shift-left(1);
     @include shift-right(2);
     @include size(3);
+    align-self: center;
     .subtitle {
       color: #96969F;
     }
@@ -448,15 +423,15 @@ body {
   }
 }
 .section-5 {
-  padding: 100px 0 ;
-  display: flex;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @include row-flex();
   align-items: center;
   background-color: #26262C;
   &__left {
     @include shift-left(1);
     @include shift-right(2);
     @include size(3);
-    justify-self: center;
     .subtitle {
       color: #96969F;
     }
@@ -509,46 +484,18 @@ body {
         align-items: flex-start;
       }
     }
-    // .green-round {
-    //   width: 150px;
-    //   height: 150px;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    //   border-radius: 50%;
-    //   background-color: #89AB26;
-    //   font-size: 24px;
-    //   color: var(--white);
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    // }
-    // .img-text {
-    //   position: absolute;
-    //   left: 50%;
-    //   transform: translateX(-50%);
-    //   bottom: 30px;
-    //   font-size: 24px;
-    //   color: var(--white);
-    // }
   }
 }
 .section-6 {
-  padding: 150px 0 80px 0;
-  @include shift-left(1);
-  @include shift-right(1);
-  @include size(10);
+  padding-top: 150px;
+  padding-bottom: 80px;
+  @include row-flex();
+  text-align: center;
   .title {
     margin-bottom: 100px;
-    text-align: center;
-  }
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    @include shift-left(0);
+    @include shift-right(0);
+    @include size(12);
   }
   &__left,
   &__right {
@@ -559,8 +506,21 @@ body {
       margin-bottom: 0;
     }
   }
+  &__left {
+    @include shift-left(1);
+    @include shift-right(0);
+    @include size(2);
+  }
+  &__right {
+    @include shift-left(0);
+    @include shift-right(1);
+    @include size(2);
+  }
   &__center {
     position: relative;
+    @include shift-left(0);
+    @include shift-right(0);
+    @include size(6);
     &-link {
       position: absolute;
       top: 50%;
@@ -588,7 +548,9 @@ body {
   }
 }
 .section-7 {
-  padding: 140px 0;
+  --v-padding: 140px;
+  padding-bottom: var(--v-padding);
+  padding-top: var(--v-padding);
   text-align: center;
   &__item {
     margin-bottom: 50px;

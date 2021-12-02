@@ -1,43 +1,67 @@
-.breadcrumbs {
-  padding: 220px 70px 0 calc(8.33333% + 15px + 70px);
-  display: flex;
-  align-items: center;
-  .subtitle {
-    margin-bottom: 0;
+.wrapper-breadcrumbs {
+  position: relative;
+  z-index: 2;
+  --v-padding: 220px;
+  padding-top: var(--v-padding);
+  @include row-flex();
+  &-inner-page-contact {
+    background-color: #26262C;
   }
-  &-item {
-    &__link {
-      position: relative;
-      margin-right: 45px;
-      color: #40414F;
-      text-decoration: none;
-      &::after {
-          content: "";
-          width: 4px;
-          height: 10px;
-          background-image: url(../images/img/breadcrumbs-line.svg);
-          background-size: contain;
-          background-repeat: no-repeat;
-          position: absolute;
-          right: -20px;
-          top: 50%;
-          transform: translateY(-50%);
+  .breadcrumbs {
+    display: flex;
+    @include shift-left(1);
+    @include shift-right(0);
+    @include size(11);
+    &-item {
+      &__link {
+        position: relative;
+        margin-right: 45px;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 10px;
+        letter-spacing: 0.7em;
+        text-transform: uppercase;
+        color: #717386;
+        .inner-page-contact {
+          color: #96969F;
+        }
+        .inner-page-gallery {
+          color: #96969F;
+        }
+        &::after {
+            content: "";
+            width: 4px;
+            height: 10px;
+            background-image: url(../images/img/breadcrumbs-line.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        // &:hover {
+        //     color: $mc3;
+        // }
       }
-      // &:hover {
-      //     color: $mc3;
-      // }
-    }
-    &:last-child a {
-      margin-right: 0;
-      &::after {
-          visibility: hidden;
+      &:last-child a {
+        margin-right: 0;
+        &::after {
+            visibility: hidden;
+        }
+        // &:hover {
+        //     text-decoration-line: underline;
+        // }
       }
-      // &:hover {
-      //     text-decoration-line: underline;
-      // }
+      &:first-child a {
+          color: #40414F;
+      }
+      &:first-child a.inner-page-contact {
+        color: #EBEFF4;
+      }
+      &:first-child a.inner-page-gallery {
+        color: #EBEFF4;
+      }
     }
-    // &:last-child a {
-    //     color: $mc2;
-    // }
   }
 }

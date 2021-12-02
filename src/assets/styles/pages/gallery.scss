@@ -1,7 +1,7 @@
 .gallery {
   position: relative;
   height: calc(100vh - 230px);
-  z-index: -1;
+  z-index: 0;
   &__title {
     position: absolute;
     top: 0;
@@ -72,8 +72,6 @@
         }
 
         &:last-child {
-          // position: relative;
-          // margin-left: 5px;
           font-family: Inter;
           font-style: normal;
           font-weight: 300;
@@ -81,19 +79,9 @@
           line-height: 100%;
           color: #FFFFFF;
         }
-        // &:last-child span::before {
-        //   content: '';
-        //   position: absolute;
-        //   top: 50%;
-        //   transform: translateY(-50%);
-        //   left: 0;
-        //   background-image: url('../images/img/gallery-number-divider.svg');
-        //   width: 21px;
-        //   height: 41px;
-        // }
       }
       svg {
-        margin: 0 5px;
+        margin: 0 4px -5px 2px;
       }
     }
     .slick-list {

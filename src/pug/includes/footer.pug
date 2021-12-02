@@ -1,5 +1,5 @@
 footer
-  .footer-contacts
+  .footer-contacts.row-flex.container-side-padding
     .footer-contacts__left
       form.home-contact--width(data-home-popup='' autocomplete='off')
         h2.title.home-contact--width Контакти
@@ -42,17 +42,16 @@ footer
         .text
           a.mr20(href='https://www.facebook.com' target='_blank') facebook
           a(href='https://www.instagram.com/' target='_blank') instagram
-  .footer
-    .footer__wrapper
-      .footer__content
-        .footer__content-item.small-text
-          span.year
-          a(href="#")  ЖК Forest home.
-          span  Всі права захищені.
-        .footer__content-item
-          .footer__content-item-img
-            a(href="https://smarto.agency/" target="_blank") 
-              img(src="./assets/images/img/smartorange.svg" alt="smartorange")
+  .footer.row-flex.container-side-padding
+    .footer__content
+      .footer__content-item.small-text
+        span.year
+        a(href="#")  ЖК Forest home.
+        span  Всі права захищені.
+      .footer__content-item
+        .footer__content-item-img
+          a(href="https://smarto.agency/" target="_blank") 
+            img(src="./assets/images/img/smartorange.svg" alt="smartorange")
   a.pageup(href='#up' style='opacity: 1;')
     svg(width='16' height='11' viewbox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg')
       path(d='M1 10L8 2L15 10' stroke='white' stroke-width='2')
