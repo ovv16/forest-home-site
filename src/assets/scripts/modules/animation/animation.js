@@ -330,7 +330,7 @@ export default function animation(scroller) {
                 }
             })
             // .from('.complex-2__wrapper', { yPercent: -50 })
-            .from(elemToAnim, { y: -250 })
+            .from(elemToAnim, { y: -100 })
         }
         blockComplexAnim('.complex-2','.complex-2__img','.complex-2__wrapper');
         blockComplexAnim('.complex-3','.complex-3__img','.complex-3__wrapper');
@@ -349,15 +349,29 @@ export default function animation(scroller) {
                 })
                 .fromTo(el, 
                     {
-                        clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)'
+                        clipPath: 'polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%)'
                     }, 
                     {
-                        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                        clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%)',
                         duration: 1.75,
                         ease: 'power4.out'
                     }
                 )
             })
         }
-        clipPathEntry('.complex-2__item img, complex-3__item img, complex-4__item img, complex-5__item img')
+        clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, complex-4__item img, complex-5__item img');
+
+        function paralaxNoOverflow(selector) {
+            const selectors = document.querySelectorAll(selector);
+            selectors.forEach(el => {
+                gsap.timeline({
+                    scrollTrigger: {
+                        trigger: el,
+                        scrub: true
+                    }
+                })
+                .fromTo(el, { y: -150 }, { y: 0 })
+            })
+        }
+        paralaxNoOverflow('.complex-5-bg, .complex-1-bg, .complex-2-bg, .complex-3-bg, .complex-4-bg')
 }

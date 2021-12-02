@@ -21,8 +21,8 @@ const locoScroll = new LocomotiveScroll({
   smooth: true,
   // lerp: 1.05,
   smoothMobile: false,
-  multiplier: 0.85,
-  // inertia: 1.05,
+  multiplier: 0.5,
+  lerp: 0.05,
 });
 // locoScroll.destroy();
 global.locoScroll = locoScroll;
