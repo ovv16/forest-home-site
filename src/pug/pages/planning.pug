@@ -27,8 +27,9 @@ block scripts
   //- script(defer src='./assets/scripts/animation.js')
 block content
   include ../includes/breadcrumbs.pug
-  .planning#up
-    .title-big 3D планування
+  .planning#up.container-side-padding
+    .planning__title.row-flex
+      .title-big 3D планування
     section.planning-1
       img.planning-1__img(src="./assets/images/img/planning-1-img.jpg", alt="planning-1-img")
       .planning-1__wrapper

@@ -1,8 +1,10 @@
 .promotions-news {
+  --v-padding: 150px;
+  padding-bottom: var(--v-padding);
   @include row-flex();
-  margin-right: 0;
-  margin-left: 0;
-  padding: 0 70px 150px 70px;
+  // margin-right: 0;
+  // margin-left: 0;
+  // padding: 0 70px 150px 70px;
   &__wrapper {
     @include shift-left(1);
     @include shift-right(1);
@@ -51,6 +53,7 @@
   &__img {
     overflow: hidden;
     img {
+      width: 100%;
       transition: transform .5s ease-in-out;
     }
   }

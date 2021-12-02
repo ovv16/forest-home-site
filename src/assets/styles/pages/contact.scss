@@ -5,13 +5,8 @@
     #26262C;
   &__wrapper {
     @include row-flex();
-    padding: 30px 70px 80px 70px;
-    width: 100%;
-    height: 100%;
-    margin-right: 0;
-    margin-left: 0;
+    margin-bottom: 80px;
     .title-big {
-      margin-top: 0;
       margin-bottom: 30px;
       @include shift-left(1);
       @include shift-right(0);
@@ -147,23 +142,12 @@
       }
     }
   }
-
   .footer {
-    &__bg {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      z-index: -1;
-    }
-
-    &__wrapper {
+    @include row-flex();
+    &__content {
       @include shift-left(0);
       @include shift-right(1);
       @include size(11);
-      padding-left: 70px;
-    }
-
-    &__content {
       background: linear-gradient(90deg, #38383C 0%, rgba(56, 56, 60, 0) 100%);
       background-position: top left;
       background-size: 100% 1px;

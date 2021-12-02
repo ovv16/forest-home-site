@@ -27,8 +27,8 @@ block scripts
   //- script(defer src='./assets/scripts/animation.js')
 block content
   include ../includes/breadcrumbs.pug
-  .contact#up
-    .contact__wrapper
+  .contact#up.container-side-padding
+    .contact__wrapper.row-flex
       .title-big Контакти
       .contact__left
         form.home-contact--width(data-home-popup='' autocomplete='off')
@@ -77,17 +77,16 @@ block content
               a.mb10(href='https://www.facebook.com' target='_blank') facebook 
               br
               a(href='https://www.instagram.com/' target='_blank') instagram
-    .footer
-      .footer__wrapper
-        .footer__content
-          .footer__content-item.small-text
-            span.year
-            a(href="#")  ЖК Forest home.
-            span  Всі права захищені.
-          .footer__content-item
-            .footer__content-item-img
-              a(href="https://smarto.agency/" target="_blank") 
-                img(src="./assets/images/img/smartorange.svg" alt="smartorange")
+    .footer.row-flex.container-side-padding
+      .footer__content
+        .footer__content-item.small-text
+          span.year
+          a(href="#")  ЖК Forest home.
+          span  Всі права захищені.
+        .footer__content-item
+          .footer__content-item-img
+            a(href="https://smarto.agency/" target="_blank") 
+              img(src="./assets/images/img/smartorange.svg" alt="smartorange")
 
 //- block footer
 //-   include ../includes/footer.pug

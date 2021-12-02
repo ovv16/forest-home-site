@@ -1,5 +1,6 @@
 .complex {
-  position: relative;
+  --v-padding: 150px;
+  padding-bottom: var(--v-padding);
   &__title {
     @include row-flex();
     .title-big {
@@ -45,19 +46,10 @@
    }
    &-1,
    &-4 {
-    // position: relative;
-    // @include row-flex();
-    // .title-inner-page {
-    //   @include shift-left(1);
-    //   @include shift-right(0);
-    //   @include size(11);
-    // }
-    // &__img {
-    //   @include shift-left(1);
-    //   @include shift-right(1);
-    //   @include size(10);
-    // }
     &__wrapper {
+      @include shift-left(0);
+      @include shift-right(5.5);
+      @include size(6.5);
       padding: 150px 150px 150px calc(8.33333% + 15px + var(--page-side-fields));
       background-color: #EBEFF4;
       position: absolute;
@@ -65,7 +57,7 @@
       bottom: 0;
       .text, 
       .big-text {
-        width: 573px;
+        max-width: 573px;
       }
       .text {
         margin-bottom: 30px;
@@ -105,13 +97,16 @@
       @include size(10);
     }
     &__wrapper {
-      padding: 150px calc(8.33333% + 15px + var(--page-side-fields)) 150px 150px;
+      @include shift-left(4.5);
+      @include shift-right(0);
+      @include size(7.5);
+      padding: 150px 0 150px 150px;
       background-color: #EBEFF4;
       position: absolute;
       right: -70px;
       bottom: 0;
       .text {
-        width: 573px;
+        max-width: 573px;
         margin-bottom: 0;
       }
     }
@@ -129,10 +124,9 @@
     }
     &__item-2, 
     &__item-6 {
-      padding-left: 150px;
       @include shift-left(0);
-      @include shift-right(0);
-      @include size(6);
+      @include shift-right(3);
+      @include size(3);
     }
     &__item-3,
     &__item-7 {
@@ -142,24 +136,23 @@
     }
     &__item-4,
     &__item-8 {
-      padding-left: 150px;
       @include shift-left(0);
-      @include shift-right(1);
-      width: calc(33.33333% - 30px + 150px);
+      @include shift-right(2);
+      @include size(4);
     }
     &__item {
       margin-top: 50px;
     }
     &__text {
-      width: 423px;
-    }
-    .ml82 {
-      margin-left: 82px;
+      max-width: 423px;
     }
   }
   &-3,
   &-5 {
     &__wrapper {
+      @include shift-left(4.5);
+      @include shift-right(0);
+      @include size(7.5);
       padding: 150px calc(8.33333% + 15px + var(--page-side-fields)) 150px 150px;
       background-color: #EBEFF4;
       position: absolute;
@@ -167,7 +160,7 @@
       bottom: 0;
       .text,
       .big-text {
-        width: 573px;
+        max-width: 573px;
       }
     }
     &-bg {
@@ -188,7 +181,6 @@
     }
   }
   &-5 {
-    margin-bottom: 150px;
     &__img {
       margin-bottom: 412px;
     }

@@ -1,17 +1,15 @@
 .gallery {
   position: relative;
-  height: calc(100vh - 230px);
+  height: calc(100vh - 237px);
   z-index: 0;
   &__title {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include row-flex();
+    position: relative;
     z-index: 2;
-    @include shift-left(1);
-    @include shift-right(0);
-    @include size(11);
-    padding: 0 70px;
     .title-big {
+      @include shift-left(1);
+      @include shift-right(0);
+      @include size(11);
       color: #EBEFF4;
     }
   }
@@ -27,9 +25,8 @@
   .slider {
     pointer-events: none;
     position: absolute;
-    top: -230px;
+    top: -237px;
     left: 0;
-    // z-index: 1;
     width: 100vw;
     &__image {
       height: 100vh;
