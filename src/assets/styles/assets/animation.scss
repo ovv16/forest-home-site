@@ -215,7 +215,7 @@
                 top: 50%;
                 width: 100vw;
                 height: 100vh;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%,-55%);
                 background-color: #26262C;
                 z-index: -1;
                 opacity: 1;
@@ -238,6 +238,10 @@
                 background-color: aqua;
                 z-index: -1; 
         }
+        &__item a {
+                position: relative;
+                z-index: 1;
+        }
 
 }
         
@@ -245,7 +249,8 @@
         position: fixed;
         left: 0;
         top: 0;
+        z-index: 1;
 }
-header .header {
-        z-index: 2000 !important;
-}
+// header .header {
+//         z-index: 2000 !important;
+// }

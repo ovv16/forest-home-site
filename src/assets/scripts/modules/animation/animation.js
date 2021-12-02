@@ -237,10 +237,12 @@ export default function animation(scroller) {
         elements.forEach((el, index) => {
             const imageToEdit = document.querySelectorAll('.distort image')[index];
             el.addEventListener('mouseenter', () => {
-                gsap.to(imageToEdit, { opacity: 1 })
+                gsap.to(imageToEdit, { opacity: 1 });
+                gsap.to(el, { zIndex: 3 })
             })
             el.addEventListener('mouseleave', () => {
                 gsap.to(imageToEdit, { opacity: 0 })
+                gsap.to(el, { zIndex: 0 })
             })
         })
     }
@@ -283,6 +285,7 @@ export default function animation(scroller) {
     function handleHeader(e) {
         const direction = scroller.lastDeltaY > e.delta.y ? -1 : 1;
         console.log(scroller.lastDeltaY, e.delta.y);
+        if (scroller.lastDeltaY === e.delta.y) return;
         if (e.delta.y < 150)  {
             showHeader();
             return;
