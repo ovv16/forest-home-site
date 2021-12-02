@@ -1,4 +1,10 @@
 <div class='loader-wrap'>
     <img class="loader-wrap__img" src="./assets/images/loader.svg" alt="">
-    <img src="./assets/images/loader-text.svg" alt="">
+    <img class="loader-wrap__text" src="./assets/images/loader-text.svg" alt="">
 </div>
+<script>
+if (sessionStorage.getItem('loader') !== null) {
+    document.querySelector('.loader-wrap').remove();
+}
+
+</script>
