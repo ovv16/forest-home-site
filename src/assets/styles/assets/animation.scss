@@ -141,7 +141,25 @@
         }
       }
 
+      @keyframes scroll {
+        0%,
+        20% {
+            transform: translateY(0) scaleY(1);
+        }
+        100% {
+            transform: translateY(36px) scaleY(2);
+            opacity: 0;
+        }
+    }
 
+
+    .section-1__scroll circle {
+        animation-name: scroll;
+        animation-duration: 1.5s;
+        animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+        animation-iteration-count: infinite;
+        transform-origin: 50% 20.5px;
+    }
 .menu-top__right-button-menu,
 .header__right-button-menu {
         overflow: hidden;
@@ -149,6 +167,29 @@
 .menu-top__right-burg,
 .header__right-burg {
         transform-origin: center right;
+}
+
+.menu-main__right-item {
+        overflow: hidden;
+}
+.menu-main__left-links li {
+        overflow: hidden;
+        a {
+                display: inline-block;
+        }
+}
+.section-1 {
+        position: relative;
+        background: none !important;
+        [data-screen-canvas] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1;
+        }
 }
 .section-1:after {
         content: '';
@@ -204,5 +245,4 @@
         position: fixed;
         left: 0;
         top: 0;
-        
 }
