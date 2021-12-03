@@ -599,5 +599,20 @@ body {
       width: 200px;
       height: 45px;
     }
+    &-transparent {
+      width: 200px;
+      height: 45px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.1em;
+      border: 1px solid #8BB514;
+      background-color: transparent;
+    }
   }
+}
+@media (max-width: 576px) {
+  .title-big {
+    margin-top: 10px;
+  }
+   
 }

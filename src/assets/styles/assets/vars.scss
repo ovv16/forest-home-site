@@ -79,39 +79,20 @@ $gold: #cfa46e;
 
 @media (max-width: 992px) {
   :root {
+    --fz-1: 44px;
     --fz-5: 24px;
+    --fz-8: 14px;
     --fz-9: 14px;
     --fz-13: 10px;
 
     --page-side-fields: 28px;
   }
 }
-
-// @media (max-width: 576px) {
-//   :root {
-//     // --h1-size: 30px;
-//     --h2-size: 24px;
-//     --h3-size: 18px;
-//     --h4-size: 16px;
-//     --h5-size: 14px;
-//     --h6-size: 8px;
-
-//     --page-side-fields: 20px;
-
-//     --header-h: 56px;
-//     --sliceFigure: 100px;
-//     --sliceFigure-big: 100px;
-//   }
-// }
-
-// @media (max-width: 576px) {
-//   :root {
-//     --h1-size: 38px;
-//   }
-// }
-
-// @media (max-width: 420px) {
-//   :root {
-//     --h1-size: 30px;
-//   }
-// }
+@media (max-width: 576px) {
+  :root {
+    --fz-1: 36px;
+    --fz-5: 22px;
+    --fz-15: 9px;
+    --page-side-fields: 20px;
+  }
+}
