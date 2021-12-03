@@ -337,3 +337,24 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 }
         }
 }
+
+
+
+
+.image-with-curtain-in {
+        position: relative;
+        .curtain,
+        &:before {
+                content: '';
+                transform-origin: bottom center;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #26262C;
+                transform: scaleY(0);
+                z-index: 2;
+                
+        }
+}
