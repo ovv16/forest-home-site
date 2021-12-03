@@ -358,3 +358,7 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 
         }
 }
+
+.button--calypso span {
+        mix-blend-mode: initial !important;
+}
