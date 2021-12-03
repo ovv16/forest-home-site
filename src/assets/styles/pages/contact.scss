@@ -52,7 +52,7 @@
       .form-field {
         &-message {
           margin-bottom: 9px;
-          font-size: var(--fz-13);
+          font-size: 14px;
           line-height: 100%;
           color: #717386;
         }
@@ -218,6 +218,7 @@
         .form-field {
           &-message { 
             margin-bottom: 8px;
+            font-size: 12px;
           }
           &__input {
             height: 50px;
@@ -266,6 +267,48 @@
 // @media (max-width: 1200px) {
 
 // }
-// @media (max-width: 992px) {
-
-// }
+@media (max-width: 992px) {
+  .contact {
+    &__wrapper {
+      @include row-flex();
+      margin-bottom: 170px;
+      .title-big {
+        @include shift-left(0);
+        @include shift-right(0);
+        @include size(12);
+      }
+    }
+    &__left {
+      @include shift-left(0);
+      @include shift-right(0);
+      @include size(6);
+      padding: 50px 40px;
+      form {
+        .mb50 {
+          margin-bottom: 30px;
+        }
+        .mt50 {
+          margin-top: 30px;
+        }
+        .form-field:not(#t) {
+          height: 65px;
+        }
+        .form-field {
+          &__input,
+          .place-holder {
+            height: 45px;
+            padding: 12px 20px;
+          }
+        }
+      }
+    }
+    &__right {
+      @include shift-left(1);
+      @include shift-right(0);
+      @include size(5);
+    }
+    &-map {
+      display: none;
+    }
+  }
+}

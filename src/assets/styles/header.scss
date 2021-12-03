@@ -89,6 +89,9 @@ header {
     &__right {
       display: flex;
       align-items: center;
+      &-popup-320 {
+        display: none;
+      }
       &-button-menu {
         display: flex;
         justify-content: center;
@@ -101,7 +104,10 @@ header {
         }
       }
       &-text {
-        padding: 20px 20px 20px 30px;
+        display: flex;
+        align-items: center;
+        height: 55px;
+        padding: 0 20px 0 30px;
         font-size: var(--fz-12);
         text-transform: uppercase;
         color: var(--white);
@@ -117,7 +123,7 @@ header {
         background-color: var(--white);
         border-radius: 50%;
         &-line {
-          margin: 3px 0 3px 0;
+          margin: 3px 0;
           width: 16px;
           height: 2px;
           background-color: var(--very-dark-blue);
@@ -158,15 +164,16 @@ header {
       }
       &__right {
         &-text {
-          padding: 15px 15px 14px 20px;
+          height: 40px;
+          padding: 0 15px 0 20px;
         }
         &-burg {
           width: 40px;
           height: 40px;
           &-line {
-            margin: 2px 0 2px 0;
-            width: 12px;
-            height: 1.5px;
+            margin: 2.18px 0;
+            width: 11.64px;
+            height: 1.45px;
           }
         }
       }
@@ -194,6 +201,29 @@ header {
       &__right {
         &-button {
           display: none;
+        }
+        &-popup-320 {
+          margin-right: 27px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+        }
+        &-text {
+          height: 45px;
+          padding: 0 15px 0 30px;
+        }
+        &-burg {
+          width: 45px;
+          height: 45px;
+          &-line {
+            margin: 2.45 0;
+            width: 13.09px;
+            height: 1.64px;
+          }
         }
       }
     }

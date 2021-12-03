@@ -124,7 +124,7 @@ body {
     margin-top: 50px;
     background-color: #89AB26;
     font-weight: 500;
-    font-size: var(--fz-13);
+    font-size: 14px;
     letter-spacing: 0.1em;
     color: var(--white);
   }
@@ -190,7 +190,7 @@ body {
   line-height: 160%;
   color: #717386;
   &-1 {
-    font-size: var(--fz-1);
+    font-size: var(--fz-10);
   }
 }
 .green-round {
@@ -587,7 +587,17 @@ body {
     &-green {
       width: 214px;
       height: 50px;
-      margin-top: 40px;
+      font-size: 12px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .button {
+    height: 45px;
+    margin-right: 0;
+    &-green {
+      width: 200px;
+      height: 45px;
     }
   }
 }

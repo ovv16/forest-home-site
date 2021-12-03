@@ -70,3 +70,15 @@
     --v-padding: 150px;
   }
 }
+// @media (max-width: 1200px) {
+
+// }
+@media (max-width: 992px) {
+  .wrapper-breadcrumbs {
+    .breadcrumbs {
+      @include shift-left(0);
+      @include shift-right(0);
+      @include size(12);
+    }
+  }
+}
