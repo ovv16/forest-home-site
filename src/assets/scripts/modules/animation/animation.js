@@ -114,7 +114,7 @@ export default function animation(scroller) {
         sec1Canvases.next.src = images[0];
         section1.append(sec1Canvases.prev);
         section1.append(sec1Canvases.next);
-        const frameDurationScreen1 = 5;
+        const frameDurationScreen1 = 4.5 ;
         function screen1Transition(index){
             const elToAnim = sec1Canvases.active;
             const innactiveEl = sec1Canvases.innactive;
@@ -126,6 +126,7 @@ export default function animation(scroller) {
                 .to(elToAnim, {scale: 1, autoAlpha: 1, duration: 1.5 })
                 .fromTo(innactiveEl, {autoAlpha: 1,}, { autoAlpha: 0, duration: 1.5 }, '<')
                 .fromTo(elToAnim, { scale: 1 }, { scale: 1.1, duration: frameDurationScreen1 },'<')
+                .fromTo(elToAnim, { scale: 1.1 }, { scale: 1, duration: frameDurationScreen1 })
                 .add(() => {
                     const nextIndex = index === images.length - 1 ? 0 : index+1;
                     screen1Transition(nextIndex);
@@ -213,6 +214,9 @@ export default function animation(scroller) {
         
     });
     paralax('.section-4__left-bg, .section-3__right-bg');
+    paralax('.section-4__left-bg, .section-3__right-bg');
+    paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
+    paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
     
     const section7HoverImage = function() {
         const images = [

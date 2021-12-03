@@ -263,4 +263,70 @@
         width: 50%;
         height: 100%;
         object-fit: cover;
+        pointer-events: none;
+}
+
+section {
+        margin-top: -1px;
+}
+
+.section-6__wrapper {
+--moveDuration: 10s;
+}
+
+.section-6__left-item, svg,
+.little-move {
+animation: littleMove var(--moveDuration) linear infinite;
+}
+.section-6__right-item, svg,
+.little-move-r {
+animation: littleMoveR var(--moveDuration) linear infinite;
+}
+@keyframes littleMove {
+0% {
+        transform: translateY(0);
+}
+50% {
+        transform: translateY(15px);
+}
+100% {
+        transform: translateY(0px);
+}
+}
+@keyframes littleMoveR {
+0% {
+        transform: translateY(15px);
+}
+50% {
+        transform: translateY(0);
+}
+100% {
+        transform: translateY(15px);
+}
+}
+
+.menu .menu-main__left-link {
+        position: relative;
+        transition: color .3s ease-out;
+        
+        &:before {
+                font-style: italic;
+                position: absolute;
+                left: 0;
+                top: 0;
+                content: attr(data-title);
+                -webkit-text-stroke: #40414F;
+                -webkit-text-stroke-width: 1px;
+                color: transparent;
+                transition: opacity .3s ease-in;
+                opacity: 0;
+        }
+        @include from(951px){
+                &:hover {
+                        color: rgba(255,255,255,0);
+                }
+                &:hover:before {
+                        opacity: 1;
+                }
+        }
 }
