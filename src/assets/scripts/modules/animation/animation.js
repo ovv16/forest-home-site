@@ -421,5 +421,14 @@ export default function animation(scroller) {
             }
         })
     }
-    footerColorEffect()
+    footerColorEffect();
+    
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: '.section-7',
+            scrub: true,
+        }
+    })
+    .fromTo('.section-7 .section-7__item', { skewX: 25 }, { skewX: -25 })
 }
