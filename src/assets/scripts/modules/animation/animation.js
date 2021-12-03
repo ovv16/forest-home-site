@@ -405,4 +405,21 @@ export default function animation(scroller) {
         })
     }
     socialIconsParalax('.section-1__social a');
+
+
+
+    function footerColorEffect(){
+        const footer = document.querySelector('.footer-contacts')
+        ScrollTrigger.create({
+            trigger: footer,
+            start: '20% bottom',
+            onEnter: () => {
+                gsap.fromTo(footer, { backgroundColor: 'rgba(255,255,255,1)' }, { ease: 'power4.out', duration: 1.75, backgroundColor: 'rgba(255,255,255,0)' })
+            },
+            onLeaveBack: () => {
+                gsap.fromTo(footer, { backgroundColor: 'rgba(255,255,255,0)' }, { ease: 'power4.out', duration: 1.75, backgroundColor: 'rgba(255,255,255,1)' })
+            }
+        })
+    }
+    footerColorEffect()
 }
