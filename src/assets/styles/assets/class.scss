@@ -67,10 +67,10 @@
 //       }
 //     }
 //     @include to(1440px) {
-//       font-size: 48px;
+//       font-size: var(--fz-4);
 //     }
 //     @include to(573px) {
-//       font-size: 30px;
+//       font-size: var(--fz-6);
 //     }
 //     @include to(360px) {
 //       font-size: 24px;
@@ -333,7 +333,7 @@
 //   @include to(1440px) {
 //     padding: 0 0 20px;
 //     margin: 15px 0 0;
-//     font-size: 30px;
+//     font-size: var(--fz-6);
 //   }
 //   @include to(992px) {
 //     padding: 0 0 20px;
@@ -460,7 +460,7 @@
 //     letter-spacing: 0.03em;
 //     color: $dark;
 //     @include to(1440px) {
-//       font-size: 48px;
+//       font-size: var(--fz-4);
 //     }
 //     @include to(576px) {
 //       font-size: max(vw(20, 320), 20px);
@@ -536,7 +536,7 @@
 //     font-size: min(vw(58, 1920), 58px);
 //     @include to(1440px) {
 //       top: 30px;
-//       font-size: 48px;
+//       font-size: var(--fz-4);
 //     }
 //     @include to(576px) {
 //       top: 30px;

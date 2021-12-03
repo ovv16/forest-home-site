@@ -14,7 +14,7 @@ body {
   font-family: $default-font;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fz-11);
   line-height: 100%;
   color: var(--very-dark-blue);
 }
@@ -124,7 +124,7 @@ body {
     margin-top: 50px;
     background-color: #89AB26;
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--fz-13);
     letter-spacing: 0.1em;
     color: var(--white);
   }
@@ -132,7 +132,7 @@ body {
 .subtitle {
   margin-bottom: 30px;
   font-weight: 300;
-  font-size: 10px;
+  font-size: var(--fz-15);
   line-height: 100%;
   letter-spacing: 0.7em;
   text-transform: uppercase;
@@ -141,7 +141,7 @@ body {
 .title {
   margin-bottom: 30px;
   font-weight: 300;
-  font-size: 64px;
+  font-size: var(--fz-3);
   line-height: 100%;
   text-transform: uppercase;
   color: #40414F;
@@ -149,7 +149,7 @@ body {
 .text {
   margin-bottom: 20px;
   font-weight: 300;
-  font-size: 24px;
+  font-size: var(--fz-7);
   line-height: 150%;
   color: #717386;
 }
@@ -158,13 +158,13 @@ body {
   color: #40414F;
 }
 .small-text {
-  font-size: 14px;
+  font-size: var(--fz-13);
   line-height: 150%;
   color: #40414F;
 }
 .italic-title {
   margin-bottom: 15px;
-  font-size: 24px;
+  font-size: var(--fz-7);
   line-height: 130%;
   text-transform: uppercase;
   color: #40414F;
@@ -172,7 +172,7 @@ body {
 .title-big {
   margin-top: 30px;
   font-weight: 300;
-  font-size: 96px;
+  font-size: var(--fz-1);
   line-height: 110%;
   text-transform: uppercase;
   color: #40414F;
@@ -180,17 +180,17 @@ body {
 .title-inner-page {
   margin-top: 30px;
   font-weight: 300;
-  font-size: 42px;
+  font-size: var(--fz-5);
   line-height: 100%;
   text-transform: uppercase;
   color: #40414F;
 }
 .big-text {
-  font-size: 19px;
+  font-size: var(--fz-9);
   line-height: 160%;
   color: #717386;
   &-1 {
-    font-size: 18px;
+    font-size: var(--fz-1);
   }
 }
 .green-round {
@@ -202,7 +202,7 @@ body {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: #89AB26;
-  font-size: 24px;
+  font-size: var(--fz-7);
   color: var(--white);
   display: flex;
   justify-content: center;
@@ -213,7 +213,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   bottom: 30px;
-  font-size: 24px;
+  font-size: var(--fz-7);
   color: var(--white);
 }
 .section-1 {
@@ -227,7 +227,7 @@ body {
     left: 70px;
     bottom: 70px;
     font-weight: 300;
-    font-size: 64px;
+    font-size: var(--fz-3);
     line-height: 110%;
     text-transform: uppercase;
     color: var(--white);
@@ -240,7 +240,7 @@ body {
     right: 26%;
     bottom: 82px;
     font-weight: 300;
-    font-size: 10px;
+    font-size: var(--fz-15);
     line-height: 200%;
     letter-spacing: 0.7em;
     text-transform: uppercase;
@@ -292,13 +292,13 @@ body {
       &-title {
         width: 340px;
         margin-top: 30px;
-        font-size: 24px;
+        font-size: var(--fz-7);
         color: #40414F;
       }
       &-text {
         width: 340px;
         margin-top: 15px;
-        font-size: 14px;
+        font-size: var(--fz-13);
         line-height: 150%;
         color: #717386;
       }
@@ -561,7 +561,7 @@ body {
       font-family: Inter;
       font-style: normal;
       font-weight: 300;
-      font-size: 72px;
+      font-size: var(--fz-2);
       line-height: 100%;
       text-align: center;
       -webkit-text-stroke: #40414F;
@@ -572,6 +572,22 @@ body {
       &:hover {
         color: #40414F;
       }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .title-big {
+    margin-top: 20px;
+  }
+  .button {
+    width: 180px;
+    height: 40px;
+    margin-right: 40px;
+    &-green {
+      width: 214px;
+      height: 50px;
+      margin-top: 40px;
     }
   }
 }

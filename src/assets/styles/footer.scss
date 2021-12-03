@@ -45,7 +45,7 @@ footer {
         .form-field {
           &-message {
             margin-bottom: 9px;
-            font-size: 14px;
+            font-size: var(--fz-13);
             line-height: 100%;
             color: #717386;
           }
@@ -57,13 +57,13 @@ footer {
             background-color: #F7F5FB;
             border: 1px solid #C8C8C8;
             font-weight: normal;
-            font-size: 19px;
+            font-size: var(--fz-9);
             line-height: 150%;
             color: #40414F;
 
             &::placeholder {
               font-weight: normal;
-              font-size: 19px;
+              font-size: var(--fz-9);
               line-height: 150%;
               color: #40414F;
             }
@@ -79,7 +79,7 @@ footer {
             left: 0;
             cursor: text;
             font-weight: normal;
-            font-size: 19px;
+            font-size: var(--fz-9);
             line-height: 150%;
             color: #40414F;
             background-color: #F7F5FB;
@@ -88,13 +88,13 @@ footer {
           .mask-absolute,
           .js-mask-absolute {
             font-weight: normal;
-            font-size: 19px;
+            font-size: var(--fz-9);
             line-height: 150%;
             color: #40414F;
           }
           .input-message {
             margin-top: 5px;
-            font-size: 10px;
+            font-size: var(--fz-15);
             line-height: 140%;
             color: #FE3838;
           }

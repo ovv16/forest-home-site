@@ -62,7 +62,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    font-size: 19px;
+    font-size: var(--fz-9);
     line-height: 160%;
     color: #40414F;
   }
@@ -76,7 +76,7 @@
     justify-content: center;
     align-items: center;
     background-color: #8BB514;
-    font-size: 12px;
+    font-size: var(--fz-14);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #EBEFF4;

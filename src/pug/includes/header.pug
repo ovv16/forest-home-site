@@ -4,8 +4,11 @@ header
       a#header-popup.header__left-button.button.button--calypso(data-modal='consultation' href='#')
         span Замовити дзвінок
       a.header__left-tel(href='tel:+380671106104') +38 067 110 61 04
+      a#header-button.header__left-button-mobile.button.button--calypso
+        span Обрати квартиру
     a.header__logo(href='index.html')
-      svg(width='114' height='117' viewbox='0 0 114 117' fill='none' xmlns='http://www.w3.org/2000/svg')
+      img(src="./assets/images/img/logo.svg", alt="logo")
+      //- svg(width='114' height='117' viewbox='0 0 114 117' fill='none' xmlns='http://www.w3.org/2000/svg')
         path(d='M25.2772 112.397H24.341V114.454H23.4704V112.397H22.5342L21.2001 114.454H20.1562L21.818 111.94L20.2826 109.587H21.2188L22.5248 111.644H23.461V109.587H24.341V111.644H25.2772L26.5832 109.587H27.5194L25.9887 111.94L27.6458 114.444H26.6253L25.2772 112.397Z' fill='#3D352F')
         path(d='M28.6335 109.592H29.4902V113.131L32.4579 109.592H33.249V114.454H32.3923V110.914L29.4387 114.454H28.6335V109.592Z' fill='#3D352F')
         path(d='M38.571 110.364H36.8016V114.454H35.9263V110.364H34.1709V109.592H38.571V110.364Z' fill='#3D352F')
@@ -165,6 +168,8 @@ header
     .header__right
       a#header-right-button.header__right-button.button.button--calypso
         span Обрати квартиру
+      a.header-mobile__right-popup-320(data-call-mobile-callback-popup='')
+        img(src='./assets/images/icons/popup-320.svg' alt='popup-320' data-modal='consultation')
       #header-right-button-menu.header__right-button-menu
         span.header__right-text Меню
         button.header__right-burg

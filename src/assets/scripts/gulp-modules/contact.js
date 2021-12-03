@@ -226,7 +226,7 @@
 //     //   background: #1798D5;
 //     //   padding:5px 10px;
 //     //   font-weight: 500;
-//     //   font-size: 14px;
+//     //   font-size: var(--fz-13);
 //     //   line-height: 22px;"
 //     //  `;
 //     /* beautify preserve:start */
