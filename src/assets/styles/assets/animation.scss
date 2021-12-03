@@ -307,7 +307,7 @@ animation: littleMoveR var(--moveDuration) linear infinite;
 
 .menu .menu-main__left-link {
         position: relative;
-        transition: color .3s ease-out;
+        transition: .3s ease-out;
         
         &:before {
                 font-style: italic;
@@ -318,12 +318,13 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 -webkit-text-stroke: #40414F;
                 -webkit-text-stroke-width: 1px;
                 color: transparent;
-                transition: opacity .3s ease-in;
+                transition: all .3s ease-in;
                 opacity: 0;
         }
         @include from(951px){
                 &:hover {
                         color: rgba(255,255,255,0);
+                        transform: skewX(-10deg) !important;
                 }
                 &:hover:before {
                         opacity: 1;

@@ -17,13 +17,13 @@ export default function menuLinksEffect() {
     links.forEach((link, index) => {
         link.addEventListener('mouseenter',function(evt){
             gsap.to(link, { x: 20 });
-            gsap.to(canvas, { xPercent: 0 });
+            gsap.to(canvas, { duration: 1.65, xPercent: 0, ease: 'power4.out' });
             
             canvas.src = images[index];
         });
         link.addEventListener('mouseleave',function(evt){
             gsap.to(link, { x: 0 })
-            gsap.to(canvas, { xPercent: 100 });
+            gsap.to(canvas, { duration: 1.65, xPercent: 100, ease: 'power4.out' });
         });
     })
 }
