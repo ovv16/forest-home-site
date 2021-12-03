@@ -181,6 +181,7 @@
 .section-1 {
         position: relative;
         background: none !important;
+        overflow: hidden;
         [data-screen-canvas] {
                 position: absolute;
                 left: 0;
@@ -190,6 +191,11 @@
                 object-fit: cover;
                 z-index: -1;
         }
+        &__social,
+        &__scroll,
+        &__text {
+                z-index: 4;
+        }
 }
 .section-1:after {
         content: '';
@@ -198,9 +204,9 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255,255,255,0.5);
+        background:  linear-gradient(180deg, rgba(38, 38, 44, 0) 0%, #26262C 100%);
         transition: .3s ease-in-out;
-        opacity: 0;
+        opacity: 1;
         pointer-events: none;
 }
 .section-1.switching:after {
