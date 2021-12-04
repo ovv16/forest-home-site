@@ -5,11 +5,10 @@ footer {
   background: url('../images/img/footer-bg.png') bottom left / 100% auto no-repeat,
   #26262C;
   .footer-contacts {
-    width: 100%;
-    height: 100%;
     padding-top: 110px;
     padding-bottom: 80px;
     @include row-flex();
+    align-items: center;
     &__left {
       @include shift-left(1);
       @include shift-right(1);
@@ -19,6 +18,7 @@ footer {
       form {
         .title {
           margin-bottom: 10px;
+          font-size: 64px;
         }
         .small-text {
           line-height: 140%;
@@ -108,8 +108,6 @@ footer {
       display: grid;
       grid-template-columns: 100%;
       row-gap: 50px;
-      height: 80%;
-      align-self: center;
       &-item {
         .subtitle {
           margin-bottom: 14px;
@@ -179,5 +177,191 @@ footer {
     height: 55px;
     background-color: #89AB26;
     border-radius: 50%;
+  }
+}
+@media (max-width: 1600px) {
+  footer {
+    .footer-contacts {
+      padding-top: 100px;
+      padding-bottom: 40px;
+      &__left {
+        padding: 60px;
+        form {
+          .title {
+            font-size: 44px;
+          }
+          .mb50 {
+            margin-bottom: 40px;
+            width: 100%;
+          }
+          .mb30 {
+            margin-bottom: 20px;
+          }
+          .mt50 {
+            margin-top: 40px;
+          }
+          .form-field:not(#t) {
+            height: 70px;
+          }
+          .button-green {
+            margin-top: 10px;
+          }
+          .form-field {
+            &-message {
+              margin-bottom: 8px;
+              font-size: 12px;
+            }
+            &__input {
+              height: 50px;
+              padding: 13px 20px;
+            }
+            .place-holder {
+              height: 50px;
+              margin-top: 20px;
+              padding: 13px 20px;
+            }
+          }
+        }
+      }
+      &__right {
+        row-gap: 40px;
+        &-item {
+          .subtitle {
+            margin-bottom: 8px;
+          }
+          .mb10 {
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+    .footer {
+      &__content {
+        padding-top: 21px;
+        .small-text {
+          font-size: 12px;
+        }
+        &-item {
+          &-img {
+            width: 46px;
+            height: 50px;
+            img {
+              max-width: 35px;
+              height: 37px;
+            }
+          }
+        }
+      }
+    }
+    .pageup {
+      top: 100px;
+      width: 40px;
+      height: 40px;
+      svg {
+        height: 5px; 
+        width: 10px;
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  footer {
+    .footer-contacts {
+      &__left {
+        padding: 50px 40px;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  footer {
+    background: url('../images/img/footer-bg-768.svg') bottom left / 100% auto no-repeat,
+    #26262C;
+    .footer-contacts {
+      &__left {
+        @include shift-left(0);
+        @include shift-right(0);
+        @include size(6);
+        padding: 30px;
+        form {
+          .title {
+            font-size: 38px;
+          }
+          .mb50 {
+            margin-bottom: 30px;
+          }
+          .mt50 {
+            margin-top: 30px;
+          }
+          .form-field:not(#t) {
+            height: 65px;
+          }
+          .form-field {
+            &__input,
+            .place-holder {
+              height: 45px;
+              padding: 12px 20px;
+            }
+          }
+        }
+      }
+      &__right {
+        @include shift-left(1);
+        @include shift-right(0);
+        @include size(5);
+        row-gap: 30px;
+        &-item {
+          .mr20 {
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+    .pageup {
+      top: 76px;
+      right: var(--page-side-fields);
+    }
+  }
+}
+@media (max-width: 576px) {
+  footer {
+    background: url('../images/img/footer-bg-360.svg') bottom left / 100% auto no-repeat,
+      #26262C;
+    .footer-contacts {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      &__left,
+      &__right {
+        @include shift-left(0);
+        @include shift-right(0);
+        @include size(12);
+      }
+      &__left {
+        form {
+          .mb50 {
+            margin-bottom: 20px;
+          }
+          .mt50 {
+            margin-top: 20px;
+          }
+        }
+      }
+      &__right {
+        margin-top: 60px;
+      }
+    }  
+    .footer {
+      &__content {
+        @include shift-left(0);
+        @include shift-right(0);
+        @include size(12);
+        .small-text {
+          font-size: 10px;
+        }
+      }
+    }
+    .pageup {
+      top: 52%;
+    }
   }
 }
