@@ -2,9 +2,6 @@
   --v-padding: 150px;
   padding-bottom: var(--v-padding);
   @include row-flex();
-  // margin-right: 0;
-  // margin-left: 0;
-  // padding: 0 70px 150px 70px;
   &__wrapper {
     @include shift-left(1);
     @include shift-right(1);
@@ -17,6 +14,7 @@
     display: flex;
     margin: 30px 0;
     font-weight: 300;
+    font-size: 16px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #40414F;
@@ -60,17 +58,25 @@
   &__text {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+  }
+  &__title {
     margin-top: 20px;
-    font-size: var(--fz-9);
+    font-size: 19px;
     line-height: 160%;
     color: #40414F;
+  }
+  &__date {
+    margin-top: 27px;
+    font-weight: 300;
+    font-size: var(--fz-11);
+    letter-spacing: 0.1em;
+    color: #717386;
   }
   &__tab-name {
     position: absolute;
     top: 30px;
     right: 0;
-    min-width: 140px;
+    width: 140px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -80,5 +86,74 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #EBEFF4;
+  }
+}
+@media (max-width: 1600px) {
+  .promotions-news {
+    --v-padding: 100px;
+    &__wrapper {
+      .button-green {
+        margin: 40px auto 0 auto;
+      }
+    }
+    &__tabs {
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    &__tab {
+      margin-right: 30px;
+    }
+    &__content {
+      gap: 40px;
+    }
+    &__title {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    &__date {
+      margin-top: 20px;
+    }
+    &__tab-name {
+      top: 20px;
+      width: 110px;
+      height: 30px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .promotions-news {
+    &__wrapper {
+      @include shift-left(0);
+      @include shift-right(0);
+      @include size(12);
+      .button-green {
+        margin: 30px auto 0 auto;
+      }
+    }
+    &__content {
+      gap: 30px;
+    }
+    &__title {
+      margin-top: 10px;
+    }
+    &__date {
+      margin-top: 15px;
+    }
+    &__tab-name {
+      width: 100px;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .promotions-news {
+    --v-padding: 60px;
+    &__tab {
+      margin-right: 20px;
+    }
+    &__content {
+      grid-template-columns: 100%;
+      row-gap: 40px;
+      column-gap: 0;
+    }
   }
 }
