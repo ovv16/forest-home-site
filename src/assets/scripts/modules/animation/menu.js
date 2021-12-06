@@ -11,19 +11,23 @@ export default function menuLinksEffect() {
         './assets/images/menu/Rectangle 4.jpg',
     ];
     const menu = document.querySelector('.menu');
+    canvas.src = images[0];
+    
     menu.append(canvas);
-    const links = document.querySelectorAll('.menu-main__left-list:nth-child(-n+5)');
+    gsap.set(canvas, {xPercent: 100,});
+    const links = document.querySelectorAll('.menu-main__left-list:nth-child(-n+5) .menu-main__left-link');
     console.log(links);
     links.forEach((link, index) => {
         link.addEventListener('mouseenter',function(evt){
             gsap.to(link, { x: 20 });
             gsap.to(canvas, { duration: 1.65, xPercent: 0, ease: 'power4.out' });
-            
+            gsap.to('.menu-main__right', { autoAlpha: 0, ease: 'power4.out' })
             canvas.src = images[index];
         });
         link.addEventListener('mouseleave',function(evt){
             gsap.to(link, { x: 0 })
             gsap.to(canvas, { duration: 1.65, xPercent: 100, ease: 'power4.out' });
+            gsap.to('.menu-main__right', { autoAlpha: 1, ease: 'power4.out' })
         });
     })
 }

@@ -1,3 +1,5 @@
+import gsap from "gsap/all";
+
 export default function section7HoverImage() {
     const images = [
         './assets/images/home/screen7/1.jpg',
@@ -24,9 +26,17 @@ export default function section7HoverImage() {
     });
     elements.forEach((el, index) => {
         const imageToEdit = document.querySelectorAll('.distort image')[index];
+        const lettersAmplitude = 40;
+        el.innerHTML = el.textContent.split('').map(el => `<span style="display: inline-block;">${el.replace(' ', '&nbsp;')}</span>`).join('');
         el.addEventListener('mouseenter', () => {
             gsap.to(imageToEdit, { opacity: 1 });
-            gsap.to(el, { zIndex: 3 })
+            gsap.to(el, { zIndex: 3 });
+
+            gsap.timeline({
+                // ease: 'power4.inOut'
+            })
+                .to(el.querySelectorAll('span'), { duration: 0.25, y: -lettersAmplitude, ease: 'expo.out', opacity: 0, stagger: { from: 'center',each: 0.01, } })
+                .to(el.querySelectorAll('span'), { duration: 0.25, y: 0, opacity: 1, ease: 'expo.in',stagger: { from: "edges",each: 0.01, } })
         })
         el.addEventListener('mouseleave', () => {
             gsap.to(imageToEdit, { opacity: 0 })

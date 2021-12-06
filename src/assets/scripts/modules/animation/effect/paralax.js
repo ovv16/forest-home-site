@@ -9,15 +9,15 @@ export default function paralax(selector) {
         wrap.style.overflow = 'hidden';
         const curtain = document.createElement('div');
         wrap.classList.add('image-with-curtain-in');
-        gsap.set(wrap, { 
-            position: 'relative',
+        // console.log();
+        gsap.set(curtain, { 
+            // position: 'relative',
             // width: image.getBoundingClientRect().width,
         })
         curtain.classList.add('curtain');
         wrap.append(curtain);
         const imageMarginLeft = getComputedStyle(image).marginLeft;
-        const imageMarginTop = getComputedStyle(image).marginTop;
-
+        // const imageMarginTop = getComputedStyle(image).marginTop;
         console.log(imageMarginLeft);
         if (complexInnerTitle === null) {
             image.parentElement.prepend(wrap);
@@ -25,7 +25,7 @@ export default function paralax(selector) {
             complexInnerTitle.insertAdjacentElement('afterend', wrap);
         }
         gsap.set(image, { scale: 1.1 });
-        gsap.set(curtain, { marginTop: imageMarginTop })
+        // gsap.set(curtain, { marginTop: imageMarginTop })
         wrap.prepend(image);
         gsap.set(wrap, { marginLeft: imageMarginLeft, willChange: 'transform' });
         gsap.set(image, { marginLeft: 0, autoAlpha: 0 })
@@ -39,7 +39,7 @@ export default function paralax(selector) {
         .to(curtain, { scaleY: 1 })
         .to(curtain, { scaleY: 0, transformOrigin: '50% 0%' })
         .to(image, { autoAlpha: 1 }, '<')
-        .add(() => curtain.remove())
+        // .add(() => curtain.remove())
         gsap.timeline({
             ease: 'none',
             scrollTrigger: {

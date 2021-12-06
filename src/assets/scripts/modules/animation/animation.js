@@ -29,10 +29,10 @@ export default function animation(scroller) {
 
     menuLinksEffect();
     splitToLinesAndFadeUp('.section-1__text', 2.35);
-    splitToLinesAndFadeUp('.title, .section-4__right .text, .section-3__left .small-text');
-    splitToLinesAndFadeUp('.section-7__item a');
-    // fadeInUp('.italic-title i, .big-text');
-    fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text');
+    splitToLinesAndFadeUp('.title, .section-4__right .text');
+
+
+    fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text, .section-3__left .small-text');
     fadeInUp('footer form .form-field, footer form .small-text, footer form .form-btn-wrap');
     if (window.location.pathname.match(/planning/g)) {
         paralax('.planning-1__img');
@@ -124,10 +124,11 @@ export default function animation(scroller) {
             x: 0,
             autoAlpha: 1
         },'<')
-        .fromTo('.section-1__social a', { 
+        .fromTo('.section-1__social', { 
             x: 100,autoAlpha:0
         }, {
             x: 0,
+            clearProps: 'all',
             autoAlpha: 1
         },'<')
         ;
@@ -250,6 +251,8 @@ export default function animation(scroller) {
     document.querySelector('.section-6') && gsap.timeline({
         scrollTrigger: {
             trigger: '.section-6',
+            start: '0% 50%',
+            // end: '0% 50%',
             onToggle: ({isActive}) => {
                 const delay = 0;
                 // isActive ? 
@@ -409,12 +412,6 @@ export default function animation(scroller) {
         let some = 0;
         let isAnim = false;
         const maxSkewValue = -25;
-        // const resetSome = function() {
-            
-        //     some = 0;
-        //     gsap.to('.section-7__item', { skewX: some * 0.15, duration: 0.5, ease: 'power4.out' })
-        // }
-        // const someDeb = debounce(resetSome, 250);
         scroller.on('scroll', () => {
             if (isAnim === true) return;
             gsap.timeline()
@@ -423,8 +420,10 @@ export default function animation(scroller) {
                 .to('.section-7__item', { duration: 1,  skewX: 0,delay: 0.5 })
                 .add(() => isAnim = false)
             some += 1;
-            someDeb();
+            // someDeb();
         })
     }
+
+    // function screen7LinksHoverEffect
     scrollInnertia(scroller)
 }
