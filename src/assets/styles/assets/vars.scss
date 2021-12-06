@@ -23,6 +23,9 @@ $gold: #cfa46e;
   --fz-subtitle: 10px;
   --fz-text: 24px;
   --fz-small-text: 14px;
+  --fz-big-text: 19px;
+  --fz-title-inner-page: 42px;
+  --fz-big-text-1: 18px;
 
   --fz-1: 96px;
   --fz-2: 72px;
@@ -60,6 +63,9 @@ $gold: #cfa46e;
     --fz-subtitle: 9px;
     --fz-text: 17px;
     --fz-small-text: 12.5222px;
+    --fz-big-text: 14px;
+    --fz-title-inner-page: 30px;
+    --fz-big-text-1: 14px;
 
     --fz-1: 60px;
     --fz-2: 52px;
@@ -94,7 +100,6 @@ $gold: #cfa46e;
     --fz-small-text: 12px;
     
     --fz-1: 44px;
-    // --fz-3: 41px;
     --fz-5: 24px;
     --fz-7: 14px;
     --fz-8: 14px;
@@ -106,11 +111,16 @@ $gold: #cfa46e;
 }
 @media (max-width: 576px) {
   :root {
+    --fz-big-text: 12px;
+    --fz-title-inner-page: 24px;
+    --fz-big-text-1: 12px;
+
     --fz-1: 36px;
     --fz-2: 38px;
     --fz-3: 38px;
     --fz-5: 22px;
     --fz-15: 9px;
+
     --page-side-fields: 20px;
   }
 }
