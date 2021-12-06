@@ -170,7 +170,7 @@
 }
 
 .menu-main__right-item {
-        overflow: hidden;
+        // overflow: hidden;
 }
 .menu-main__left-links li {
         overflow: hidden;
@@ -232,7 +232,7 @@
                 background-color: #26262C;
                 z-index: -1;
                 opacity: 1;
-                transition: opacity .5s ease-in-out;
+                transition: opacity .5s;
                 transition-delay: 0.5s;
         }
         &.in-view:before {
@@ -242,6 +242,7 @@
 
 .section-7 {
         position: relative;
+        will-change: transform;
         canvas {
                 position: absolute;
                 left: 0;
@@ -349,8 +350,8 @@ animation: littleMoveR var(--moveDuration) linear infinite;
 
 .image-with-curtain-in {
         position: relative;
-        .curtain,
-        &:before {
+        .curtain
+        /*&:before*/ {
                 content: '';
                 transform-origin: bottom center;
                 position: absolute;
@@ -361,6 +362,7 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 background-color: #26262C;
                 transform: scaleY(0);
                 z-index: 0;
+                will-change: transform;
                 
         }
 }

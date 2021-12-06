@@ -31,7 +31,7 @@ export default function animation(scroller) {
     splitToLinesAndFadeUp('.section-1__text', 2.35);
     splitToLinesAndFadeUp('.title, .section-4__right .text, .section-3__left .small-text');
     splitToLinesAndFadeUp('.section-7__item a');
-    fadeInUp('.italic-title i, .big-text');
+    // fadeInUp('.italic-title i, .big-text');
     fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text');
     fadeInUp('footer form .form-field, footer form .small-text, footer form .form-btn-wrap');
     if (window.location.pathname.match(/planning/g)) {
@@ -54,14 +54,17 @@ export default function animation(scroller) {
             }
         })
         // .from('.complex-2__wrapper', { yPercent: -50 })
-        .fromTo(elemToAnim, { y: -100 }, { y: 100 })
+        .fromTo(elemToAnim, { y: -80 }, { y: 20 })
     }
     if (window.location.pathname.match(/complex/g)) {
         blockComplexAnim('.complex-2','.complex-2__img','.complex-2__wrapper');
         blockComplexAnim('.complex-3','.complex-3__img','.complex-3__wrapper');
         blockComplexAnim('.complex-4','.complex-4__img','.complex-4__wrapper');
         blockComplexAnim('.complex-5','.complex-5__img','.complex-5__wrapper');
-        fadeInUp('.italic-title, .text, .big-text');
+        fadeInUp('.complex-2 .italic-title, .complex-2 .text, .complex-2 .big-text');
+        fadeInUp('.complex-3 .italic-title, .complex-3 .text, .complex-3 .big-text');
+        fadeInUp('.complex-4 .italic-title, .complex-4 .text, .complex-4 .big-text');
+        fadeInUp('.complex-5 .italic-title, .complex-5 .text, .complex-5 .big-text');
     }
 
 
@@ -114,7 +117,20 @@ export default function animation(scroller) {
         }, {
             xPercent: 0,
             autoAlpha: 1
-        },'<');
+        },'<')
+        .fromTo('.section-1__scroll', { 
+            x: '30vw',autoAlpha:0
+        }, {
+            x: 0,
+            autoAlpha: 1
+        },'<')
+        .fromTo('.section-1__social a', { 
+            x: 100,autoAlpha:0
+        }, {
+            x: 0,
+            autoAlpha: 1
+        },'<')
+        ;
     if (sessionStorage.getItem('loader') === null) {
         window.ttl1 = gsap.timeline({
             defaults: {
@@ -140,6 +156,13 @@ export default function animation(scroller) {
                 xPercent: -100,autoAlpha:0
             }, {
                 xPercent: 0,
+                autoAlpha: 1
+            },'<')
+            .fromTo('.header__logo img', { 
+                yPercent: 300,
+            }, {
+                yPercent: 0,
+                scale: 1,
                 autoAlpha: 1
             },'<');
     } else {
@@ -228,15 +251,19 @@ export default function animation(scroller) {
         scrollTrigger: {
             trigger: '.section-6',
             onToggle: ({isActive}) => {
+                const delay = 0;
+                // isActive ? 
+                //     document.querySelector('.section-6').classList.add('in-view') :
+                //     document.querySelector('.section-6').classList.remove('in-view') ;
                 isActive ? 
-                    document.querySelector('.section-6').classList.add('in-view') :
-                    document.querySelector('.section-6').classList.remove('in-view') ;
+                    gsap.to('.section-6', { backgroundColor:  '#fff',delay }) :
+                    gsap.to('.section-6', { backgroundColor:   '#26262C',delay}) ;
                 isActive ? 
-                    gsap.to('.section-6 .title', { color: '#26262C', delay: 0.5 }) :
-                    gsap.to('.section-6 .title', { color: '#fff', delay: 0.5 }) ;
+                    gsap.to('.section-6 .title', { color: '#26262C', delay}) :
+                    gsap.to('.section-6 .title', { color: '#fff', delay }) ;
                 isActive ? 
-                    gsap.to('.section-5', { backgroundColor: '#fff', delay: 0.5 }) :
-                    gsap.to('.section-5', { backgroundColor: '#26262C' }) ;
+                    gsap.to('.section-5', { backgroundColor: '#fff', delay}) :
+                    gsap.to('.section-5', { backgroundColor: '#26262C', delay }) ;
             },
             onEnter: () => {
 
@@ -256,7 +283,7 @@ export default function animation(scroller) {
             trigger: '.section-3',
             scrub: true,
             start: '20% bottom',
-            end: '75% bottom'
+            end: '40% bottom'
         }
     })
     .from('.section-3', {
@@ -380,14 +407,21 @@ export default function animation(scroller) {
     function scrollInnertia(scroller) {
         if (document.querySelector('.section-7__item') === null) return;
         let some = 0;
+        let isAnim = false;
         const maxSkewValue = -25;
-        const resetSome = function() {
-            some = 0;
-            gsap.to('.section-7__item', { skewX: some * 0.15, duration: 0.5, ease: 'power4.out' })
-        }
-        const someDeb = debounce(resetSome, 250);
+        // const resetSome = function() {
+            
+        //     some = 0;
+        //     gsap.to('.section-7__item', { skewX: some * 0.15, duration: 0.5, ease: 'power4.out' })
+        // }
+        // const someDeb = debounce(resetSome, 250);
         scroller.on('scroll', () => {
-            gsap.to('.section-7__item', { skewX: Math.max(some * -0.5, maxSkewValue) })
+            if (isAnim === true) return;
+            gsap.timeline()
+                .add(() => isAnim = true)
+                .to('.section-7__item', { duration: 1,  skewX: maxSkewValue })
+                .to('.section-7__item', { duration: 1,  skewX: 0,delay: 0.5 })
+                .add(() => isAnim = false)
             some += 1;
             someDeb();
         })

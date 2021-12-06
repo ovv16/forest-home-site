@@ -14,8 +14,8 @@ export default function fadeInUp(selector) {
           })
           .fromTo(
             text,
-            { yPercent: -100, autoAlpha: 0 },
-            { yPercent: 0, autoAlpha: 1, duration: 1.95, ease: 'power4.out' },
+            { y: -100, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.95, ease: 'power4.out' },
           );
       });
 }
