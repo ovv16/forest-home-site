@@ -191,6 +191,10 @@
                 object-fit: cover;
                 z-index: -1;
         }
+        [data-screen-canvas]:last-child {
+                visibility: hidden;
+                opacity: 0;
+        }
         &__social,
         &__scroll,
         &__text {
@@ -212,7 +216,9 @@
 .section-1.switching:after {
         opacity: 1;
 }
-
+.section-3 {
+        will-change: transform;
+}
 .section-6 {
         position: relative;
         &:before {
@@ -220,7 +226,7 @@
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                width: 100vw;
+                width: 105vw;
                 height: 100vh;
                 transform: translate(-50%,-55%);
                 background-color: #26262C;
@@ -273,7 +279,7 @@
 }
 
 section {
-        margin-top: -2px;
+        margin-top: -1px;
 }
 
 .section-6__wrapper {
@@ -348,10 +354,10 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 content: '';
                 transform-origin: bottom center;
                 position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
+                left: -2px;
+                top: -5px;
+                width: 102%;
+                height: 102%;
                 background-color: #26262C;
                 transform: scaleY(0);
                 z-index: 0;

@@ -9,14 +9,18 @@ export default function paralax(selector) {
         wrap.classList.add('image-with-curtain-in');
         gsap.set(wrap, { 
             position: 'relative',
-            width: image.getBoundingClientRect().width,
+            // width: image.getBoundingClientRect().width,
         })
         curtain.classList.add('curtain');
         wrap.append(curtain);
+        const imageMarginLeft = getComputedStyle(image).marginLeft;
+
+        console.log(imageMarginLeft);
         image.parentElement.prepend(wrap);
-        gsap.set(image, { willChange: 'transform', scale: 1.1 });
+        gsap.set(image, { scale: 1.1 });
         wrap.prepend(image);
-        gsap.set(image, { autoAlpha: 0 })
+        gsap.set(wrap, { marginLeft: imageMarginLeft, willChange: 'transform' });
+        gsap.set(image, { marginLeft: 0, autoAlpha: 0 })
         gsap.timeline({
             scrollTrigger: {
                 trigger: image,

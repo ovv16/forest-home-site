@@ -6,10 +6,12 @@ import {throttle, debounce} from '../helpers/helpers';
 import paralaxNoOverflow from './effect/paralaxNoOverflow';
 import clipPathEntry from './effect/clipPathEntry';
 import menuLinksEffect from './menu';
+import fadeInUp from './effect/fadeInUp';
 
 export default function animation(scroller) {
     gsap.registerPlugin(ScrollTrigger);
     scroller.on("scroll", ScrollTrigger.update);
+    
     ScrollTrigger.scrollerProxy(document.body, {
         scrollTop(value) {
             return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
@@ -23,10 +25,16 @@ export default function animation(scroller) {
     ScrollTrigger.refresh();
 
     menuLinksEffect();
-    splitToLinesAndFadeUp('.section-1__text, .title, .section-4__right .text');
+    splitToLinesAndFadeUp('.section-1__text', 2.35);
+    splitToLinesAndFadeUp('.title, .section-4__right .text, .section-3__left .small-text');
     splitToLinesAndFadeUp('.section-7__item a');
     splitToLinesAndFadeUp('.italic-title i, .big-text');
+    fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text');
+    fadeInUp('footer form .form-field, footer form .small-text, footer form .form-btn-wrap');
     
+    window.location.pathname.match(/complex/g) && fadeInUp('.complex-1__wrapper .text, .complex-2__wrapper .text, .complex-3__wrapper .text, .complex-4__wrapper .text');
+
+
     function loaderAnimation() {
         if (sessionStorage.getItem('loader') !== null) {
             return undefined;
@@ -40,7 +48,7 @@ export default function animation(scroller) {
             .to(loader.querySelector('img'), {
                 clipPath: 'polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%)',
                 ease: 'power4.out',
-                duration: 1.85
+                duration: 2.35
             })
             .to(loader, { yPercent: -100 })
             .to('.loader-wrap img', { autoAlpha: 0, duration:0.1 }, '<')
@@ -51,6 +59,32 @@ export default function animation(scroller) {
 
     }
     // loaderAnimation();
+
+    const headerAnimWithoutPreloader = gsap.timeline({ 
+        paused: true,
+        defaults: {
+            ease: 'power3.out',
+            duration : 2.5
+        }
+    })
+        .fromTo('.header__left>*', { 
+            xPercent: -100,autoAlpha:0
+        }, {
+            xPercent: 0,
+            autoAlpha: 1
+        },"<75%")
+        .fromTo('.header__right>*', { 
+            xPercent: 100,autoAlpha:0
+        }, {
+            xPercent: 0,
+            autoAlpha: 1
+        },'<')
+        .fromTo('.section-1__text', { 
+            xPercent: -100,autoAlpha:0
+        }, {
+            xPercent: 0,
+            autoAlpha: 1
+        },'<');
     if (sessionStorage.getItem('loader') === null) {
         window.ttl1 = gsap.timeline({
             defaults: {
@@ -78,16 +112,17 @@ export default function animation(scroller) {
                 xPercent: 0,
                 autoAlpha: 1
             },'<')
-            .fromTo('.header__logo img', { 
-                yPercent: 300,
-                // autoAlpha:0
-            }, {
-                yPercent: 0,
-                scale: 1,
-                // autoAlpha: 1
-            },'<');
+            // .fromTo('.header__logo img', { 
+            //     yPercent: 300,
+            //     // autoAlpha:0
+            // }, {
+            //     yPercent: 0,
+            //     scale: 1,
+            //     // autoAlpha: 1
+            // },'<');
     } else {
         document.querySelector('.loader-wrap') && document.querySelector('.loader-wrap').remove();
+        headerAnimWithoutPreloader.play();
     }
 
     const images = [
@@ -110,7 +145,7 @@ export default function animation(scroller) {
         sec1Canvases.next.setAttribute('data-screen-canvas', '');
         sec1Canvases.active = sec1Canvases.prev;
         sec1Canvases.innactive = sec1Canvases.next;
-        sec1Canvases.prev.src = images[0];
+        sec1Canvases.prev.src = images[1];
         sec1Canvases.next.src = images[0];
         section1.append(sec1Canvases.prev);
         section1.append(sec1Canvases.next);
@@ -124,7 +159,7 @@ export default function animation(scroller) {
                     elToAnim.src = images[index];
                 })
                 .to(elToAnim, {scale: 1, autoAlpha: 1, duration: 1.5 })
-                .fromTo(innactiveEl, {autoAlpha: 1,}, { autoAlpha: 0, duration: 1.5 }, '<')
+                .to(innactiveEl, { autoAlpha: 0, duration: 1.5 }, '<')
                 .fromTo(elToAnim, { scale: 1 }, { scale: 1.1, duration: frameDurationScreen1 },'<')
                 .fromTo(elToAnim, { scale: 1.1 }, { scale: 1, duration: frameDurationScreen1 })
                 .add(() => {
@@ -233,6 +268,9 @@ export default function animation(scroller) {
                 isActive ? 
                     gsap.to('.section-6 .title', { color: '#26262C', delay: 0.5 }) :
                     gsap.to('.section-6 .title', { color: '#fff', delay: 0.5 }) ;
+                isActive ? 
+                    gsap.to('.section-5', { backgroundColor: '#fff', delay: 0.5 }) :
+                    gsap.to('.section-5', { backgroundColor: '#26262C' }) ;
             },
             onEnter: () => {
 
@@ -315,6 +353,9 @@ export default function animation(scroller) {
     .from('.section-3', {
         backgroundColor: '#fff'
     })
+    .to('.section-2', {
+        backgroundColor: '#26262C'
+    }, '<')
 
 
     function handleHeader(e) {
@@ -457,14 +498,14 @@ export default function animation(scroller) {
     function scrollInnertia(scroller) {
         if (document.querySelector('.section-7__item') === null) return;
         let some = 0;
-        const maxSkewValue = -15;
+        const maxSkewValue = -25;
         const resetSome = function() {
             some = 0;
             gsap.to('.section-7__item', { skewX: some * 0.15, duration: 0.5, ease: 'power4.out' })
         }
-        const someDeb = debounce(resetSome, 500);
+        const someDeb = debounce(resetSome, 250);
         scroller.on('scroll', () => {
-            gsap.set('.section-7__item', { skewX: Math.max(some * -0.1, maxSkewValue) })
+            gsap.to('.section-7__item', { skewX: Math.max(some * -0.5, maxSkewValue) })
             some += 1;
             someDeb();
         })
