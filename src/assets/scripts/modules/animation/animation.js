@@ -118,7 +118,7 @@ export default function animation(scroller) {
         function screen1Transition(index){
             const elToAnim = sec1Canvases.active;
             const innactiveEl = sec1Canvases.innactive;
-            console.log(elToAnim ===  innactiveEl);
+            // console.log(elToAnim ===  innactiveEl);
             window.screen1Tl = gsap.timeline()
                 .add(() => {
                     elToAnim.src = images[index];
@@ -153,7 +153,7 @@ export default function animation(scroller) {
         const parent = button.parentElement;
         let scaleCoef = parent.getBoundingClientRect().width / button.getBoundingClientRect().width;
         if (isNaN(scaleCoef)) scaleCoef = 3.25;
-        console.log(scaleCoef);
+        // console.log(scaleCoef);
         button.addEventListener('mouseenter', () => {
             gsap.timeline({
                 defaults: {
@@ -319,7 +319,7 @@ export default function animation(scroller) {
 
     function handleHeader(e) {
         const direction = scroller.lastDeltaY > e.delta.y ? -1 : 1;
-        console.log(scroller.lastDeltaY, e.delta.y);
+        // console.log(scroller.lastDeltaY, e.delta.y);
         if (scroller.lastDeltaY === e.delta.y) return;
         if (e.delta.y < 150)  {
             showHeader();
@@ -449,6 +449,7 @@ export default function animation(scroller) {
             scroller.scrollTo(section1.closest('section').nextElementSibling)
         })
     function scrollInnertia(scroller) {
+        if (document.querySelector('.section-7__item') === null) return;
         let some = 0;
         const maxSkewValue = -15;
         const resetSome = function() {
