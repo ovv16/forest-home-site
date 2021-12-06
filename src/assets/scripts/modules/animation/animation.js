@@ -7,6 +7,9 @@ import paralaxNoOverflow from './effect/paralaxNoOverflow';
 import clipPathEntry from './effect/clipPathEntry';
 import menuLinksEffect from './menu';
 import fadeInUp from './effect/fadeInUp';
+import screen1ChangeSlider from './screen1ChangeSlider';
+import section7HoverImage from './section7HoverImage';
+import socialIconsParalax from './socialIconsParalax';
 
 export default function animation(scroller) {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,11 +31,16 @@ export default function animation(scroller) {
     splitToLinesAndFadeUp('.section-1__text', 2.35);
     splitToLinesAndFadeUp('.title, .section-4__right .text, .section-3__left .small-text');
     splitToLinesAndFadeUp('.section-7__item a');
-    splitToLinesAndFadeUp('.italic-title i, .big-text');
+    fadeInUp('.italic-title i, .big-text');
     fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text');
     fadeInUp('footer form .form-field, footer form .small-text, footer form .form-btn-wrap');
-    
-    window.location.pathname.match(/complex/g) && fadeInUp('.complex-1__wrapper .text, .complex-2__wrapper .text, .complex-3__wrapper .text, .complex-4__wrapper .text');
+    if (window.location.pathname.match(/planning/g)) {
+        paralax('.planning-1__img');
+        splitToLinesAndFadeUp('.title-inner-page');
+        fadeInUp('.planning-2 .text, .planning-3 .text');
+    }
+
+    window.location.pathname.match(/complex/g) && fadeInUp('.italic-title, .text, .big-text');
 
 
     function loaderAnimation() {
@@ -111,76 +119,12 @@ export default function animation(scroller) {
             }, {
                 xPercent: 0,
                 autoAlpha: 1
-            },'<')
-            // .fromTo('.header__logo img', { 
-            //     yPercent: 300,
-            //     // autoAlpha:0
-            // }, {
-            //     yPercent: 0,
-            //     scale: 1,
-            //     // autoAlpha: 1
-            // },'<');
+            },'<');
     } else {
         document.querySelector('.loader-wrap') && document.querySelector('.loader-wrap').remove();
         headerAnimWithoutPreloader.play();
     }
 
-    const images = [
-        './assets/images/home/screen1/1920/2.jpg',
-        './assets/images/home/screen1/1920/3.jpg',
-        './assets/images/home/screen1/1920/4.jpg',
-        './assets/images/home/screen1/1920/6.jpg',
-    ];
-
-    function screen1ChangeSlider() {
-        const section1 = document.querySelector('.section-1');
-        if (section1 === null) return;
-        const sec1Canvases = {
-            prev: document.createElement('img'),
-            next: document.createElement('img'),
-            active: undefined,
-            innactive: undefined,
-        };
-        sec1Canvases.prev.setAttribute('data-screen-canvas', '');
-        sec1Canvases.next.setAttribute('data-screen-canvas', '');
-        sec1Canvases.active = sec1Canvases.prev;
-        sec1Canvases.innactive = sec1Canvases.next;
-        sec1Canvases.prev.src = images[1];
-        sec1Canvases.next.src = images[0];
-        section1.append(sec1Canvases.prev);
-        section1.append(sec1Canvases.next);
-        const frameDurationScreen1 = 4.5 ;
-        function screen1Transition(index){
-            const elToAnim = sec1Canvases.active;
-            const innactiveEl = sec1Canvases.innactive;
-            // console.log(elToAnim ===  innactiveEl);
-            window.screen1Tl = gsap.timeline()
-                .add(() => {
-                    elToAnim.src = images[index];
-                })
-                .to(elToAnim, {scale: 1, autoAlpha: 1, duration: 1.5 })
-                .to(innactiveEl, { autoAlpha: 0, duration: 1.5 }, '<')
-                .fromTo(elToAnim, { scale: 1 }, { scale: 1.1, duration: frameDurationScreen1 },'<')
-                .fromTo(elToAnim, { scale: 1.1 }, { scale: 1, duration: frameDurationScreen1 })
-                .add(() => {
-                    const nextIndex = index === images.length - 1 ? 0 : index+1;
-                    screen1Transition(nextIndex);
-                    sec1Canvases.active = sec1Canvases.active === sec1Canvases.next ? sec1Canvases.prev : sec1Canvases.next;
-                    sec1Canvases.innactive = sec1Canvases.active === sec1Canvases.next ? sec1Canvases.prev : sec1Canvases.next;
-                    // section1.classList.remove('switching')
-                })
-        }
-        screen1Transition(0);
-        ScrollTrigger.create({
-            trigger: '.section-1',
-            onToggle: ({isActive}) => {
-                // console.log(window.screen1Tl);
-                (isActive) ? 
-                window.screen1Tl !== undefined && window.screen1Tl.play() :
-                window.screen1Tl !== undefined && window.screen1Tl.pause();
-            }
-        })
-    }
     screen1ChangeSlider();
 
     function buttonMenuEffect(selector) {
@@ -282,63 +226,6 @@ export default function animation(scroller) {
     paralax('.section-4__left-bg, .section-3__right-bg');
     paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
     paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
-    
-    const section7HoverImage = function() {
-        const images = [
-            './assets/images/home/screen7/1.jpg',
-            './assets/images/home/screen7/2.jpg',
-            './assets/images/home/screen7/3.jpg',
-            './assets/images/home/screen7/4.jpg',
-            './assets/images/home/screen7/5.jpg',
-            './assets/images/home/screen7/6.jpg',
-        ];
-        const section = document.querySelector('.section-7');
-        if (section === null) return;
-        const canvas = getSvgForFilter(images);
-        document.body.insertAdjacentHTML('beforeend', canvas);
-        const svg = document.querySelector('.distort');
-        const svgYCorrectionValue = svg.getBoundingClientRect().height / 2;
-        const svgXCorrectionValue = 30;
-        const elements = document.querySelectorAll('.section-7__item a');
-        section.addEventListener('mousemove',function(evt){
-            gsap.to(svg, {
-                duration: 1 / 60,
-                x: evt.clientX + svgXCorrectionValue,
-                y: evt.clientY - svgYCorrectionValue
-            })
-        });
-        elements.forEach((el, index) => {
-            const imageToEdit = document.querySelectorAll('.distort image')[index];
-            el.addEventListener('mouseenter', () => {
-                gsap.to(imageToEdit, { opacity: 1 });
-                gsap.to(el, { zIndex: 3 })
-            })
-            el.addEventListener('mouseleave', () => {
-                gsap.to(imageToEdit, { opacity: 0 })
-                gsap.to(el, { zIndex: 0 })
-            })
-        })
-    }
-
-    function getSvgForFilter(images){
-        return `
-            <svg xmlns="http://www.w3.org/2000/svg" class="distort" width="300" height="320" viewBox="0 0 300 320" style="transform: translateX(339.5px) translateY(103.2px);">
-                <filter id="distortionFilter">
-                    <feTurbulence type="turbulence" baseFrequency="0.01 0.01" numOctaves="0" seed="0" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="noise"></feTurbulence>
-                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="5.13585e-13" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" filterUnits="userSpaceOnUse"></feDisplacementMap>
-                </filter>
-                <g filter="url(#distortionFilter)">
-                    ${(function(){
-                        const acc = [];
-                        images.forEach(el => {
-                            acc.push(`<image y="50" class="distort__img" xlink:href="${el}" width="300" height="220" style="opacity: 0;"></image>`)
-                        });
-                        return acc.join('');
-                    })()}
-                </g>
-            </svg>
-        `;
-    }
     section7HoverImage();
 
 
@@ -446,48 +333,38 @@ export default function animation(scroller) {
     blockComplexAnim('.complex-5','.complex-5__img','.complex-5__wrapper');
     clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, complex-4__item img, complex-5__item img');
     paralaxNoOverflow('.complex-5-bg, .complex-1-bg, .complex-2-bg, .complex-3-bg, .complex-4-bg');
-    function socialIconsParalax(selector, scroller) {
-        let scrollerOffset = 0;
-        if (scroller) {
-            scroller.on('scroll', (e) => {
-                scrollerOffset = e.scroll.y;
-            })
-        }
-        const $links = document.querySelectorAll(selector);
-        $links.forEach(link => {
-            const linkPosY = link.getBoundingClientRect().top;
-            const linkPosX = link.getBoundingClientRect().left;
-            const {width, height} =  link.getBoundingClientRect();
-            link.addEventListener('mousemove',function(evt){
-                const fromCenterOfEl = (linkPosX - evt.clientX) + (width / 2);
-                const fromCenterOfElY = (linkPosY - evt.clientY) + (height / 2);
-                gsap.to(link.querySelector('svg'), { y: fromCenterOfElY  - scrollerOffset, x: fromCenterOfEl, duration: 1/60 })
-            });
-            link.addEventListener('mouseleave',function(evt){
-                gsap.to(link.querySelector('svg'), {
-                    x: 0, y: 0
-                })
-            });
-        })
-    }
+    
     socialIconsParalax('.section-1__social a', scroller);
 
 
 
     function footerColorEffect(){
         const footer = document.querySelector('.footer-contacts')
-        ScrollTrigger.create({
-            trigger: footer,
-            start: '20% bottom',
-            onEnter: () => {
-                gsap.fromTo(footer, { backgroundColor: 'rgba(255,255,255,1)' }, { ease: 'power4.out', duration: 1.75, backgroundColor: 'rgba(255,255,255,0)' })
-            },
-            onLeaveBack: () => {
-                gsap.fromTo(footer, { backgroundColor: 'rgba(255,255,255,0)' }, { ease: 'power4.out', duration: 1.75, backgroundColor: 'rgba(255,255,255,1)' })
+        if (footer === null) return;
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: footer,
+                scrub: true,
+                start: '0% bottom',
+                end: '50% bottom',
             }
         })
+        .fromTo(footer, { backgroundColor: 'rgba(255,255,255,1)' }, { ease: 'power4.out', backgroundColor: 'rgba(255,255,255,0)' })
+        // ScrollTrigger.create({
+        //     trigger: footer,
+        //     start: '20% bottom',
+        //     onEnter: () => {
+        //         gsap.fromTo(footer, { backgroundColor: 'rgba(255,255,255,1)' }, { ease: 'power4.out', duration: 1.75, backgroundColor: 'rgba(255,255,255,0)' })
+        //     },
+        //     onLeaveBack: () => {
+        //         gsap.fromTo(footer, { backgroundColor: 'rgba(255,255,255,0)' }, { ease: 'power4.out', duration: 1.75, backgroundColor: 'rgba(255,255,255,1)' })
+        //     }
+        // })
     }
-    footerColorEffect();
+
+    if (!window.location.pathname.match(/complex/g)) {
+        footerColorEffect();
+    }
     
 
     const section1 = document.querySelector('.section-1__scroll');
