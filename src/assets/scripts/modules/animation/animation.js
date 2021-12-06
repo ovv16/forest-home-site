@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import splitToLinesAndFadeUp from './effect/splitToLinesAndFadeUp';
 import paralax from './effect/paralax.js';
-import {throttle} from '../helpers/helpers';
+import {throttle, debounce} from '../helpers/helpers';
 import paralaxNoOverflow from './effect/paralaxNoOverflow';
 import clipPathEntry from './effect/clipPathEntry';
 import menuLinksEffect from './menu';
@@ -206,7 +206,23 @@ export default function animation(scroller) {
     })
     .from('.section-3__right-img', {
         yPercent: 100
+    });
+
+
+    document.querySelector('.section-3') && gsap.timeline({
+        scrollTrigger: {
+            trigger: '.section-3',
+            scrub: true,
+            start: '20% bottom',
+            end: '50% bottom',
+        }
     })
+        .fromTo(
+            '.section-3 .title span, .section-3 .subtitle', 
+            {   color: '#26262C'     },
+            { color: '#fff' }
+        )
+    
     document.querySelector('.section-6') && gsap.timeline({
         scrollTrigger: {
             trigger: '.section-6',
@@ -214,6 +230,9 @@ export default function animation(scroller) {
                 isActive ? 
                     document.querySelector('.section-6').classList.add('in-view') :
                     document.querySelector('.section-6').classList.remove('in-view') ;
+                isActive ? 
+                    gsap.to('.section-6 .title', { color: '#26262C', delay: 0.5 }) :
+                    gsap.to('.section-6 .title', { color: '#fff', delay: 0.5 }) ;
             },
             onEnter: () => {
 
@@ -424,11 +443,24 @@ export default function animation(scroller) {
     footerColorEffect();
     
 
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.section-7',
-            scrub: true,
+    const section1 = document.querySelector('.section-1__scroll');
+    section1 && section1
+        .addEventListener('click', () => {
+            scroller.scrollTo(section1.closest('section').nextElementSibling)
+        })
+    function scrollInnertia(scroller) {
+        let some = 0;
+        const maxSkewValue = -15;
+        const resetSome = function() {
+            some = 0;
+            gsap.to('.section-7__item', { skewX: some * 0.15, duration: 0.5, ease: 'power4.out' })
         }
-    })
-    .fromTo('.section-7 .section-7__item', { skewX: 25 }, { skewX: -25 })
+        const someDeb = debounce(resetSome, 500);
+        scroller.on('scroll', () => {
+            gsap.set('.section-7__item', { skewX: Math.max(some * -0.1, maxSkewValue) })
+            some += 1;
+            someDeb();
+        })
+    }
+    scrollInnertia(scroller)
 }
