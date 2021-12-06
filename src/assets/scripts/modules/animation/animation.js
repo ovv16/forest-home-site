@@ -40,7 +40,29 @@ export default function animation(scroller) {
         fadeInUp('.planning-2 .text, .planning-3 .text');
     }
 
-    window.location.pathname.match(/complex/g) && fadeInUp('.italic-title, .text, .big-text');
+
+    /**Complex blocksAnim */
+    function blockComplexAnim(wrapper, trigger, elemToAnim) {
+        // const block2 = document.querySelector('.complex-2');
+        const block2 = document.querySelector(wrapper);
+        gsap.timeline({
+            scrollTrigger: {
+                // trigger: '.complex-2__img',
+                trigger: trigger,
+                scrub: true,
+                // end: '50% 50%'
+            }
+        })
+        // .from('.complex-2__wrapper', { yPercent: -50 })
+        .fromTo(elemToAnim, { y: -100 }, { y: 100 })
+    }
+    if (window.location.pathname.match(/complex/g)) {
+        blockComplexAnim('.complex-2','.complex-2__img','.complex-2__wrapper');
+        blockComplexAnim('.complex-3','.complex-3__img','.complex-3__wrapper');
+        blockComplexAnim('.complex-4','.complex-4__img','.complex-4__wrapper');
+        blockComplexAnim('.complex-5','.complex-5__img','.complex-5__wrapper');
+        fadeInUp('.italic-title, .text, .big-text');
+    }
 
 
     function loaderAnimation() {
@@ -312,25 +334,8 @@ export default function animation(scroller) {
     }
     menuHandler();
     /**Menu Anim END */
-    /**Complex blocksAnim */
-    function blockComplexAnim(wrapper, trigger, elemToAnim) {
-        // const block2 = document.querySelector('.complex-2');
-        const block2 = document.querySelector(wrapper);
-        gsap.timeline({
-            scrollTrigger: {
-                // trigger: '.complex-2__img',
-                trigger: trigger,
-                scrub: true,
-                end: '50% 50%'
-            }
-        })
-        // .from('.complex-2__wrapper', { yPercent: -50 })
-        .from(elemToAnim, { y: -100 })
-    }
-    blockComplexAnim('.complex-2','.complex-2__img','.complex-2__wrapper');
-    blockComplexAnim('.complex-3','.complex-3__img','.complex-3__wrapper');
-    blockComplexAnim('.complex-4','.complex-4__img','.complex-4__wrapper');
-    blockComplexAnim('.complex-5','.complex-5__img','.complex-5__wrapper');
+
+    
     clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, complex-4__item img, complex-5__item img');
     paralaxNoOverflow('.complex-5-bg, .complex-1-bg, .complex-2-bg, .complex-3-bg, .complex-4-bg');
     
