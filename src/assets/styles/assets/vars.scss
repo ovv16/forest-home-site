@@ -21,6 +21,8 @@ $gold: #cfa46e;
   --green: #89AB26;
 
   --fz-subtitle: 10px;
+  --fz-text: 24px;
+  --fz-small-text: 14px;
 
   --fz-1: 96px;
   --fz-2: 72px;
@@ -56,6 +58,8 @@ $gold: #cfa46e;
 @media (max-width: 1600px) {
   :root {
     --fz-subtitle: 9px;
+    --fz-text: 17px;
+    --fz-small-text: 12.5222px;
 
     --fz-1: 60px;
     --fz-2: 52px;
@@ -87,7 +91,10 @@ $gold: #cfa46e;
 
 @media (max-width: 992px) {
   :root {
+    --fz-small-text: 12px;
+    
     --fz-1: 44px;
+    // --fz-3: 41px;
     --fz-5: 24px;
     --fz-7: 14px;
     --fz-8: 14px;
@@ -100,6 +107,8 @@ $gold: #cfa46e;
 @media (max-width: 576px) {
   :root {
     --fz-1: 36px;
+    --fz-2: 38px;
+    --fz-3: 38px;
     --fz-5: 22px;
     --fz-15: 9px;
     --page-side-fields: 20px;
