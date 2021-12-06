@@ -280,7 +280,7 @@ export default function animation(scroller) {
     paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
     section7HoverImage();
 
-
+    
     gsap.timeline({
         scrollTrigger: {
             trigger: '.section-3',

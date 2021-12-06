@@ -338,15 +338,15 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 transition: all .3s ease-in;
                 opacity: 0;
         }
-        @include from(951px){
-                &:hover {
-                        color: rgba(255,255,255,0);
-                        transform: skewX(-10deg) !important;
-                }
-                &:hover:before {
-                        opacity: 1;
-                }
-        }
+        // @include from(951px){
+        //         &:hover {
+        //                 color: rgba(255,255,255,0);
+        //                 transform: skewX(-10deg) !important;
+        //         }
+        //         &:hover:before {
+        //                 opacity: 1;
+        //         }
+        // }
 }
 
 

@@ -1,5 +1,5 @@
 import gsap from "gsap/all";
-
+import { TweenMax } from "gsap/gsap-core";
 export default function section7HoverImage() {
     const images = [
         './assets/images/home/screen7/1.jpg',
@@ -28,15 +28,24 @@ export default function section7HoverImage() {
         const imageToEdit = document.querySelectorAll('.distort image')[index];
         const lettersAmplitude = 40;
         el.innerHTML = el.textContent.split('').map(el => `<span style="display: inline-block;">${el.replace(' ', '&nbsp;')}</span>`).join('');
+        const letters = el.querySelectorAll('span');
         el.addEventListener('mouseenter', () => {
             gsap.to(imageToEdit, { opacity: 1 });
             gsap.to(el, { zIndex: 3 });
-
-            gsap.timeline({
-                // ease: 'power4.inOut'
-            })
-                .to(el.querySelectorAll('span'), { duration: 0.25, y: -lettersAmplitude, ease: 'expo.out', opacity: 0, stagger: { from: 'center',each: 0.01, } })
-                .to(el.querySelectorAll('span'), { duration: 0.25, y: 0, opacity: 1, ease: 'expo.in',stagger: { from: "edges",each: 0.01, } })
+            gsap.timeline().staggerTo( letters, 0.2, {
+                ease: 'sine.easeInOut',
+                y: -30,
+                startAt: { opacity: 1, y: 0 },
+                opacity: 0,
+                yoyo: true,
+                yoyoEase: 'back.easeOut',
+                repeat: 1,
+                stagger: {
+                    grid: [1, letters.length - 1],
+                    from: 'center',
+                    amount: 0.12
+                }
+            } );
         })
         el.addEventListener('mouseleave', () => {
             gsap.to(imageToEdit, { opacity: 0 })
@@ -44,7 +53,6 @@ export default function section7HoverImage() {
         })
     })
 }
-
 
 function getSvgForFilter(images){
     return `
