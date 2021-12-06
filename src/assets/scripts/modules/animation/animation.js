@@ -405,7 +405,13 @@ export default function animation(scroller) {
     blockComplexAnim('.complex-5','.complex-5__img','.complex-5__wrapper');
     clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, complex-4__item img, complex-5__item img');
     paralaxNoOverflow('.complex-5-bg, .complex-1-bg, .complex-2-bg, .complex-3-bg, .complex-4-bg');
-    function socialIconsParalax(selector) {
+    function socialIconsParalax(selector, scroller) {
+        let scrollerOffset = 0;
+        if (scroller) {
+            scroller.on('scroll', (e) => {
+                scrollerOffset = e.scroll.y;
+            })
+        }
         const $links = document.querySelectorAll(selector);
         $links.forEach(link => {
             const linkPosY = link.getBoundingClientRect().top;
@@ -414,7 +420,7 @@ export default function animation(scroller) {
             link.addEventListener('mousemove',function(evt){
                 const fromCenterOfEl = (linkPosX - evt.clientX) + (width / 2);
                 const fromCenterOfElY = (linkPosY - evt.clientY) + (height / 2);
-                gsap.to(link.querySelector('svg'), { y: fromCenterOfElY, x: fromCenterOfEl, duration: 1/60 })
+                gsap.to(link.querySelector('svg'), { y: fromCenterOfElY  - scrollerOffset, x: fromCenterOfEl, duration: 1/60 })
             });
             link.addEventListener('mouseleave',function(evt){
                 gsap.to(link.querySelector('svg'), {
@@ -423,7 +429,7 @@ export default function animation(scroller) {
             });
         })
     }
-    socialIconsParalax('.section-1__social a');
+    socialIconsParalax('.section-1__social a', scroller);
 
 
 
