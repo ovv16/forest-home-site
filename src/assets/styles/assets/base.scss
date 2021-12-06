@@ -189,3 +189,11 @@ input[type=number]::-webkit-outer-spin-button {
 .c-scrollbar {
   z-index: 1000;
 }
+
+.row-flex {
+	@include row-flex();
+}
+.container-side-padding {
+	padding-left: var(--page-side-fields);
+	padding-right: var(--page-side-fields);
+}

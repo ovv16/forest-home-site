@@ -32,7 +32,7 @@ export default function animation(scroller) {
             return undefined;
         }
         const loader = document.querySelector('.loader-wrap');
-        const headerLogo = document.querySelector('.header__logo svg');
+        const headerLogo = document.querySelector('.header__logo img');
         const loaderText = loader.querySelector('.loader-wrap__text');
         const headerScaleCoef = loaderText.getBoundingClientRect().width / headerLogo.getBoundingClientRect().width;
         return gsap.timeline()
@@ -44,7 +44,7 @@ export default function animation(scroller) {
             })
             .to(loader, { yPercent: -100 })
             .to('.loader-wrap img', { autoAlpha: 0, duration:0.1 }, '<')
-            .to('.header__logo svg', { autoAlpha: 1, duration:0.1 }, '<')
+            .to('.header__logo img', { autoAlpha: 1, duration:0.1 }, '<')
             .add(() => {
                 sessionStorage.setItem('loader', true);
             }, '<')
@@ -78,7 +78,7 @@ export default function animation(scroller) {
                 xPercent: 0,
                 autoAlpha: 1
             },'<')
-            .fromTo('.header__logo svg', { 
+            .fromTo('.header__logo img', { 
                 yPercent: 300,
                 // autoAlpha:0
             }, {

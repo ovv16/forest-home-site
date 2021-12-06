@@ -20,15 +20,25 @@ $gold: #cfa46e;
   --white: #fff;
   --green: #89AB26;
 
-  // --text1-size: 96px;;
+  --fz-subtitle: 10px;
 
-  --text2-size: 64px;
-  --text3-size: 24px;
-  --text4-size: 16px;
-  --text5-size: 14px;
-  --text6-size: 10px;
+  --fz-1: 96px;
+  --fz-2: 72px;
+  --fz-3: 64px;
+  --fz-4: 48px;
+  --fz-5: 42px;
+  --fz-6: 30px;
+  --fz-7: 24px;
+  --fz-8: 22px;
+  --fz-9: 19px;
+  --fz-10: 18px;
+  --fz-11: 16px;
+  --fz-12: 15px;
+  --fz-13: 14px;
+  --fz-14: 12px;
+  --fz-15: 10px;
 
-  --page-side-fields: 100px;
+  --page-side-fields: 70px;
 }
 
 // @media (max-width: 1920px) {
@@ -43,22 +53,27 @@ $gold: #cfa46e;
 //   }
 // }
 
-// @media (max-width: 1600px) {
-//   :root {
-//     --h1-size: 64px;
-//     --h2-size: 36px;
-//     --h3-size: 24px;
-//     --h4-size: 18px;
-//     --h5-size: 16px;
-//     --h6-size: 12px;
+@media (max-width: 1600px) {
+  :root {
+    --fz-subtitle: 9px;
 
-//     --page-side-fields: 75px;
+    --fz-1: 60px;
+    --fz-2: 52px;
+    --fz-3: 44px;
+    --fz-4: 32px;
+    --fz-5: 28px;
+    --fz-6: 20px;
+    --fz-7: 17px;
+    --fz-8: 17px;
+    --fz-9: 16px;
+    --fz-11: 12px;
+    --fz-12: 11px;
+    --fz-13: 12px;
+    --fz-14: 10px;
 
-//     --header-h: 100px;
-//     --logo-w: 60px;
-//     --sliceFigure-big: 362px;
-//   }
-// }
+    --page-side-fields: 50px;
+  }
+}
 
 // @media (max-width: 1200px) {
 //   :root {
@@ -70,46 +85,23 @@ $gold: #cfa46e;
 //   }
 // }
 
-// @media (max-width: 992px) {
-//   :root {
-//     --h1-size: 58px;
-//     --h2-size: 30px;
-//     --h3-size: 20px;
-//     --h4-size: 18px;
-//     --h5-size: 14px;
-//     --h6-size: 10px;
+@media (max-width: 992px) {
+  :root {
+    --fz-1: 44px;
+    --fz-5: 24px;
+    --fz-7: 14px;
+    --fz-8: 14px;
+    --fz-9: 14px;
+    --fz-13: 10px;
 
-//     --page-side-fields: 50px;
-
-//     --sliceFigure-big: 44px;
-//   }
-// }
-
-// @media (max-width: 576px) {
-//   :root {
-//     // --h1-size: 30px;
-//     --h2-size: 24px;
-//     --h3-size: 18px;
-//     --h4-size: 16px;
-//     --h5-size: 14px;
-//     --h6-size: 8px;
-
-//     --page-side-fields: 20px;
-
-//     --header-h: 56px;
-//     --sliceFigure: 100px;
-//     --sliceFigure-big: 100px;
-//   }
-// }
-
-// @media (max-width: 576px) {
-//   :root {
-//     --h1-size: 38px;
-//   }
-// }
-
-// @media (max-width: 420px) {
-//   :root {
-//     --h1-size: 30px;
-//   }
-// }
+    --page-side-fields: 28px;
+  }
+}
+@media (max-width: 576px) {
+  :root {
+    --fz-1: 36px;
+    --fz-5: 22px;
+    --fz-15: 9px;
+    --page-side-fields: 20px;
+  }
+}

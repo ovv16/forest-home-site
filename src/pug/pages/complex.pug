@@ -27,9 +27,10 @@ block scripts
   //- script(defer src='./assets/scripts/animation.js')
 block content
   include ../includes/breadcrumbs.pug
-  .complex#up
-    .title-big Комплекс
-    section.complex-1
+  .complex#up.container-side-padding
+    .complex__title.row-flex
+      .title-big Комплекс
+    section.complex-1.row-flex
       .title-inner-page Особливості
       img.complex-1__img(src="./assets/images/img/complex-1-img.jpg", alt="complex-1-img")
       .complex-1__wrapper
@@ -41,9 +42,8 @@ block content
         .big-text Житловий комплекс «Forest Home» — місце, яке стане новим обличчям мікрорайону. Архітектори врахували всі побажання майбутніх мешканців, тому розробили унікальний дизайн для 8 та 10 поверхових будівель.
         .button.button-green Обрати квартиру
       img.complex-1-bg(src="./assets/images/img/complex-1-bg.svg", alt="complex-1-bg")
-
     section.complex-2
-      .complex-2__wrapper-big
+      .complex-2__wrapper-big.row-flex
         .title-inner-page Переваги
         img.complex-2__img(src="./assets/images/img/complex-2-img.jpg", alt="complex-2-img")
         .complex-2__wrapper
@@ -54,35 +54,31 @@ block content
             |  усіма
             i.italic-bold  перевагами
             |  міського життя.
-      .complex-2__items
-        .complex-2__item
-          img(src="./assets/images/img/complex-2-item-img-1.jpg", alt="complex-2-item-img-1")
-        .complex-2__item
+      .complex-2__items.row-flex
+        img.complex-2__item.complex-2__item-1(src="./assets/images/img/complex-2-item-img-1.jpg", alt="complex-2-item-img-1")
+        .complex-2__item.complex-2__item-2
           .complex-2__text
             .italic-title
               i 01/ Місцезнаходження
             .big-text Житловий комплекс стане справжнім порятунком від міської метушні та галасливих автомагістралей.
-        .complex-2__item.ml82
+        .complex-2__item.complex-2__item-3
           .complex-2__text
             .italic-title
               i 02/ Сучасне розумне планування
             .big-text У кожного мешканця є чудова можливість стати архітектором і самостійно спланувати своє житло.
-        .complex-2__item
-          img(src="./assets/images/img/complex-2-item-img-2.jpg", alt="complex-2-item-img-2")
-        .complex-2__item
-          img(src="./assets/images/img/complex-2-item-img-3.jpg", alt="complex-2-item-img-3")
-        .complex-2__item
+        img.complex-2__item.complex-2__item-4(src="./assets/images/img/complex-2-item-img-2.jpg", alt="complex-2-item-img-2")
+        img.complex-2__item.complex-2__item-5(src="./assets/images/img/complex-2-item-img-3.jpg", alt="complex-2-item-img-3")
+        .complex-2__item.complex-2__item-6
           .complex-2__text
             .italic-title
               i 03/ Величезний паркінг
             .big-text Зона для автомобілів представлена 600 підземними паркомісцями та сучасно обладнаними  гаражами на першому поверсі у кожній секції.
-        .complex-2__item.ml82
+        .complex-2__item.complex-2__item-7
           .complex-2__text
             .italic-title
               i 04/ Дизайн
             .big-text Архітектори врахували всі побажання майбутніх мешканців, тому винайшли унікальний дизайн для 10 та 8 поверхових будівель.
-        .complex-2__item
-          img(src="./assets/images/img/complex-2-item-img-4.jpg", alt="complex-2-item-img-4")
+        img.complex-2__item.complex-2__item-8(src="./assets/images/img/complex-2-item-img-4.jpg", alt="complex-2-item-img-4")
     section.complex-3
       .title-inner-page Архітектура
       img.complex-3__img(src="./assets/images/img/complex-3-img.jpg", alt="complex-3-img")
@@ -115,10 +111,6 @@ block content
           |  з вами, не треба далеко від’їжджати.
         .big-text Житловий комплекс «Forest Home» — той випадок, коли архітектори передбачили всі побажання і зуміли виконати їх. Так на території комплексу облаштовані сучасні дитячі та спортивні майданчики, а також зручні озеленені, квітучі зони відпочинку для всієї родини. Поряд з комплексом розташовані дитячі садочки, школи, паркова зона, торговий центр і ринок «Пасаж». 
       img.complex-5-bg(src="./assets/images/img/complex-5-bg.svg", alt="complex-5-bg")
-
-
-
-
 block footer
   include ../includes/footer.pug
 block header
