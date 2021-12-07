@@ -157,7 +157,7 @@
   }
 
   .menu-main {
-    padding-top: 100px;
+    padding-top: 20px;
     padding-bottom: 120px;
     height: calc(100% - 220px);
     overflow-y: auto;
@@ -171,7 +171,7 @@
       &-links {
         display: grid;
         grid-template-columns: 100%;
-        row-gap: 20px;
+        row-gap: 10px;
       }
 
       &-link {
