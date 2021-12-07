@@ -170,7 +170,7 @@
 }
 
 .menu-main__right-item {
-        overflow: hidden;
+        // overflow: hidden;
 }
 .menu-main__left-links li {
         overflow: hidden;
@@ -190,6 +190,10 @@
                 height: 100%;
                 object-fit: cover;
                 z-index: -1;
+        }
+        [data-screen-canvas]:last-child {
+                visibility: hidden;
+                opacity: 0;
         }
         &__social,
         &__scroll,
@@ -212,23 +216,25 @@
 .section-1.switching:after {
         opacity: 1;
 }
-
+.section-3 {
+        will-change: transform;
+}
 .section-6 {
         position: relative;
-        &:before {
-                content: '';
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                width: 100vw;
-                height: 100vh;
-                transform: translate(-50%,-55%);
-                background-color: #26262C;
-                z-index: -1;
-                opacity: 1;
-                transition: opacity .5s ease-in-out;
-                transition-delay: 0.5s;
-        }
+        // &:before {
+        //         content: '';
+        //         position: absolute;
+        //         left: 50%;
+        //         top: 50%;
+        //         width: 105vw;
+        //         height: 100vh;
+        //         transform: translate(-50%,-55%);
+        //         background-color: #26262C;
+        //         z-index: -1;
+        //         opacity: 1;
+        //         transition: opacity .5s;
+        //         transition-delay: 0.5s;
+        // }
         &.in-view:before {
                 opacity: 0;
         }
@@ -236,6 +242,7 @@
 
 .section-7 {
         position: relative;
+        will-change: transform;
         canvas {
                 position: absolute;
                 left: 0;
@@ -270,6 +277,7 @@
         height: 100%;
         object-fit: cover;
         pointer-events: none;
+        // transform: translateX(100%);
 }
 
 section {
@@ -310,11 +318,16 @@ animation: littleMoveR var(--moveDuration) linear infinite;
         transform: translateY(15px);
 }
 }
-
+.menu .menu-main {
+        padding-top: 40px !important; 
+}
 .menu .menu-main__left-link {
         position: relative;
         transition: .3s ease-out;
-        
+        line-height: 120% !important;
+        @include from(1025px){
+                width: max-content;       
+        }
         &:before {
                 font-style: italic;
                 position: absolute;
@@ -327,38 +340,69 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 transition: all .3s ease-in;
                 opacity: 0;
         }
-        @include from(951px){
-                &:hover {
-                        color: rgba(255,255,255,0);
-                        transform: skewX(-10deg) !important;
-                }
-                &:hover:before {
-                        opacity: 1;
-                }
-        }
+        // @include from(951px){
+        //         &:hover {
+        //                 color: rgba(255,255,255,0);
+        //                 transform: skewX(-10deg) !important;
+        //         }
+        //         &:hover:before {
+        //                 opacity: 1;
+        //         }
+        // }
 }
 
 
 
-
+[class*='complex'] .image-with-curtain-in {
+        margin-top: 50px;
+}
 .image-with-curtain-in {
         position: relative;
-        .curtain,
-        &:before {
+        .curtain
+        /*&:before*/ {
                 content: '';
                 transform-origin: bottom center;
                 position: absolute;
-                left: 0;
-                top: 0;
+                left: 0px;
+                top: -5px;
                 width: 100%;
                 height: 100%;
                 background-color: #26262C;
                 transform: scaleY(0);
                 z-index: 0;
+                will-change: transform;
                 
+        }
+        img {
+                margin-top: 50px;
+        }
+        img {
+                margin-top: 0;
         }
 }
 
 .button--calypso span {
         mix-blend-mode: initial !important;
+}
+
+
+[data-screen2-pin] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: calc(100vw + 30px);
+        height: 100vh;
+        background-color: #fff;
+        z-index: -1;
+}
+
+
+.section-3,
+.section-4,
+.section-5 {
+        background-color: transparent !important;
+}
+
+.section-7 {
+        // background-color: #fff;
 }
