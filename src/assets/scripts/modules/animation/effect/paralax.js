@@ -1,21 +1,21 @@
 import gsap from "gsap/all";
 
-export default function paralax(selector) {
+export default function paralax(selector, curtain) {
     const paralaxImages = document.querySelectorAll(selector)
     paralaxImages.forEach((image) => {
 
         const wrap = document.createElement('div');
         const complexInnerTitle = image.parentElement.querySelector('.title-inner-page');
         wrap.style.overflow = 'hidden';
+
+        
         const curtain = document.createElement('div');
         wrap.classList.add('image-with-curtain-in');
         // console.log();
-       
         curtain.classList.add('curtain');
         wrap.append(curtain);
         const imageMarginLeft = getComputedStyle(image).marginLeft;
         // const imageMarginTop = getComputedStyle(image).marginTop;
-        console.log(imageMarginLeft);
         if (complexInnerTitle === null) {
             image.parentElement.prepend(wrap);
         } else {

@@ -403,3 +403,6 @@
 //   right: 0;
 //   pointer-events: none;
 // }
+input.form-field__input:focus::placeholder {
+    opacity: 0;
+}

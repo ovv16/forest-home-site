@@ -318,7 +318,9 @@ animation: littleMoveR var(--moveDuration) linear infinite;
         transform: translateY(15px);
 }
 }
-
+.menu .menu-main {
+        padding-top: 40px !important; 
+}
 .menu .menu-main__left-link {
         position: relative;
         transition: .3s ease-out;

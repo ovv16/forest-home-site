@@ -26,13 +26,17 @@ export default function section7HoverImage() {
     });
     elements.forEach((el, index) => {
         const imageToEdit = document.querySelectorAll('.distort image')[index];
+        let isAnim = false;
         const lettersAmplitude = 40;
         el.innerHTML = el.textContent.split('').map(el => `<span style="display: inline-block;">${el.replace(' ', '&nbsp;')}</span>`).join('');
         const letters = el.querySelectorAll('span');
         el.addEventListener('mouseenter', () => {
+            if (isAnim === true) return;
             gsap.to(imageToEdit, { opacity: 1 });
             gsap.to(el, { zIndex: 3 });
-            gsap.timeline().staggerTo( letters, 0.2, {
+            gsap.timeline()
+            .add(() => isAnim = true)
+            .staggerTo( letters, 0.2, {
                 ease: 'sine.easeInOut',
                 y: -30,
                 startAt: { opacity: 1, y: 0 },
@@ -45,7 +49,9 @@ export default function section7HoverImage() {
                     from: 'center',
                     amount: 0.12
                 }
-            } );
+            })
+            .add(() => isAnim = false)
+            .set(letters, { opacity: 1, x: 0, y: 0 }, '<');
         })
         el.addEventListener('mouseleave', () => {
             gsap.to(imageToEdit, { opacity: 0 })

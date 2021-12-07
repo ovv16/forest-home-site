@@ -275,8 +275,9 @@ export default function animation(scroller) {
         },
         
     });
+    paralax('[alt="section-6__center-img"]');
     paralax('.section-4__left-bg, .section-3__right-bg');
-    paralax('.section-4__left-bg, .section-3__right-bg');
+    // paralax('.section-4__left-bg, .section-3__right-bg');
     paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
     paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
     section7HoverImage();
@@ -426,5 +427,23 @@ export default function animation(scroller) {
     }
 
     // function screen7LinksHoverEffect
-    scrollInnertia(scroller)
+    scrollInnertia(scroller);
+
+
+
+    console.log();
+
+    const withDigits = document.querySelectorAll('.section-6 .section-6__left svg, .section-6 .section-6__right svg');
+    withDigits.forEach(svg => {
+        const pathToAnimate = Array.from(svg.querySelectorAll('path:nth-child(-n+2)')).reverse();
+        svg.addEventListener('mouseenter', () => {
+            console.log();
+            gsap.to(pathToAnimate, { 
+                y: (index,t) => -10 * (index + 1),
+            })
+        })
+        svg.addEventListener('mouseleave', () => {
+            gsap.to(pathToAnimate, { y: 0 })
+        })
+    })
 }
