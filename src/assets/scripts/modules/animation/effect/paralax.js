@@ -10,10 +10,7 @@ export default function paralax(selector) {
         const curtain = document.createElement('div');
         wrap.classList.add('image-with-curtain-in');
         // console.log();
-        gsap.set(curtain, { 
-            // position: 'relative',
-            // width: image.getBoundingClientRect().width,
-        })
+       
         curtain.classList.add('curtain');
         wrap.append(curtain);
         const imageMarginLeft = getComputedStyle(image).marginLeft;
@@ -24,11 +21,20 @@ export default function paralax(selector) {
         } else {
             complexInnerTitle.insertAdjacentElement('afterend', wrap);
         }
-        gsap.set(image, { scale: 1.1 });
+        
+        // gsap.set(image, { });
+        
         // gsap.set(curtain, { marginTop: imageMarginTop })
         wrap.prepend(image);
         gsap.set(wrap, { marginLeft: imageMarginLeft, willChange: 'transform' });
-        gsap.set(image, { marginLeft: 0, autoAlpha: 0 })
+        gsap.set(image, { marginLeft: 0, autoAlpha: 0});
+        gsap.set(curtain, { 
+            // position: 'relative',
+            width: image.getBoundingClientRect().width,
+            marginRight: getComputedStyle(image).marginRight,
+            height: image.getBoundingClientRect().height,
+        })
+        // gsap.set(image, { scale: 1.1 })
         gsap.timeline({
             scrollTrigger: {
                 trigger: image,

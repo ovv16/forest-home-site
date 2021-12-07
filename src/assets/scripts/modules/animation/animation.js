@@ -97,7 +97,8 @@ export default function animation(scroller) {
         paused: true,
         defaults: {
             ease: 'power3.out',
-            duration : 2.5
+            duration : 2.5,
+            clearProps: 'transform'
         }
     })
         .fromTo('.header__left>*', { 
