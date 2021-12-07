@@ -35,7 +35,7 @@ export default function animation(scroller) {
     fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text, .section-3__left .small-text');
     fadeInUp('footer form .form-field, footer form .small-text, footer form .form-btn-wrap');
     if (window.location.pathname.match(/planning/g)) {
-        paralax('.planning-1__img');
+        // paralax('.planning-1__img');
         splitToLinesAndFadeUp('.title-inner-page');
         fadeInUp('.planning-2 .text, .planning-3 .text');
     }
