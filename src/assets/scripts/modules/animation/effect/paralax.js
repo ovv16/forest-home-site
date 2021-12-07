@@ -1,6 +1,6 @@
 import gsap from "gsap/all";
 
-export default function paralax(selector, curtain) {
+export default function paralax(selector, curtainColor) {
     const paralaxImages = document.querySelectorAll(selector)
     paralaxImages.forEach((image) => {
 
@@ -33,6 +33,7 @@ export default function paralax(selector, curtain) {
             width: image.getBoundingClientRect().width,
             marginRight: getComputedStyle(image).marginRight,
             height: image.getBoundingClientRect().height,
+            backgroundColor: curtainColor ? curtainColor : '',
         })
         // gsap.set(image, { scale: 1.1 })
         gsap.timeline({
@@ -44,7 +45,7 @@ export default function paralax(selector, curtain) {
         })
         .to(curtain, { scaleY: 1 })
         .to(curtain, { scaleY: 0, transformOrigin: '50% 0%' })
-        .to(image, { autoAlpha: 1 }, '<')
+        .to(image, { autoAlpha: 1 }, '<+0.35')
         // .add(() => curtain.remove())
         gsap.timeline({
             ease: 'none',
