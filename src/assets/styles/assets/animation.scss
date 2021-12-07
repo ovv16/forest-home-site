@@ -363,7 +363,7 @@ animation: littleMoveR var(--moveDuration) linear infinite;
                 content: '';
                 transform-origin: bottom center;
                 position: absolute;
-                left: -2px;
+                left: 0px;
                 top: -5px;
                 width: 100%;
                 height: 100%;
@@ -383,4 +383,26 @@ animation: littleMoveR var(--moveDuration) linear infinite;
 
 .button--calypso span {
         mix-blend-mode: initial !important;
+}
+
+
+[data-screen2-pin] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: calc(100vw + 30px);
+        height: 100vh;
+        background-color: #fff;
+        z-index: -1;
+}
+
+
+.section-3,
+.section-4,
+.section-5 {
+        background-color: transparent !important;
+}
+
+.section-7 {
+        // background-color: #fff;
 }

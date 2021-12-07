@@ -11,8 +11,10 @@ export default function socialIconsParalax(selector, scroller) {
         link.addEventListener('mousemove',function(evt){
             const linkPosY = link.getBoundingClientRect().top;
             const linkPosX = link.getBoundingClientRect().left;
-            const fromCenterOfEl = (linkPosX - evt.clientX) + (width / 2);
-            const fromCenterOfElY = (linkPosY - evt.clientY) + (height / 2);
+            const fromCenterOfEl = ((linkPosX - evt.clientX) + (width / 2)) * 0.25;
+            const fromCenterOfElY =((linkPosY - evt.clientY) + (height / 2)) * 0.25;
+
+            console.log(fromCenterOfEl, fromCenterOfElY);
             gsap.to(link.querySelector('svg'), { y: fromCenterOfElY  - scrollerOffset, x: fromCenterOfEl, duration: 1/25 })
         });
         link.addEventListener('mouseleave',function(evt){

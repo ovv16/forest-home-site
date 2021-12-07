@@ -249,32 +249,32 @@ export default function animation(scroller) {
             { color: '#fff' }
         )
     
-    document.querySelector('.section-6') && gsap.timeline({
-        scrollTrigger: {
-            trigger: '.section-6',
-            start: '0% 50%',
-            // end: '0% 50%',
-            onToggle: ({isActive}) => {
-                const delay = 0;
-                // isActive ? 
-                //     document.querySelector('.section-6').classList.add('in-view') :
-                //     document.querySelector('.section-6').classList.remove('in-view') ;
-                isActive ? 
-                    gsap.to('.section-6', { backgroundColor:  '#fff',delay }) :
-                    gsap.to('.section-6', { backgroundColor:   '#26262C',delay}) ;
-                isActive ? 
-                    gsap.to('.section-6 .title', { color: '#26262C', delay}) :
-                    gsap.to('.section-6 .title', { color: '#fff', delay }) ;
-                isActive ? 
-                    gsap.to('.section-5', { backgroundColor: '#fff', delay}) :
-                    gsap.to('.section-5', { backgroundColor: '#26262C', delay }) ;
-            },
-            onEnter: () => {
+    // document.querySelector('.section-6') && gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: '.section-6',
+    //         start: '0% 50%',
+    //         // end: '0% 50%',
+    //         onToggle: ({isActive}) => {
+    //             const delay = 0;
+    //             // isActive ? 
+    //             //     document.querySelector('.section-6').classList.add('in-view') :
+    //             //     document.querySelector('.section-6').classList.remove('in-view') ;
+    //             isActive ? 
+    //                 gsap.to('.section-6', { backgroundColor:  '#fff',delay }) :
+    //                 gsap.to('.section-6', { backgroundColor:   '#26262C',delay}) ;
+    //             isActive ? 
+    //                 gsap.to('.section-6 .title', { color: '#26262C', delay}) :
+    //                 gsap.to('.section-6 .title', { color: '#fff', delay }) ;
+    //             isActive ? 
+    //                 gsap.to('.section-5', { backgroundColor: '#fff', delay}) :
+    //                 gsap.to('.section-5', { backgroundColor: '#26262C', delay }) ;
+    //         },
+    //         onEnter: () => {
 
-            }
-        },
+    //         }
+    //     },
         
-    });
+    // });
     // paralax('[alt="section-6__center-img"]');
     paralax('.section-4__left-bg, .section-3__right-bg', '#fff');
     // paralax('.section-4__left-bg, .section-3__right-bg');
@@ -283,20 +283,20 @@ export default function animation(scroller) {
     section7HoverImage();
 
     
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.section-3',
-            scrub: true,
-            start: '20% bottom',
-            end: '40% bottom'
-        }
-    })
-    .from('.section-3', {
-        backgroundColor: '#fff'
-    })
-    .to('.section-2', {
-        backgroundColor: '#26262C'
-    }, '<')
+    // gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: '.section-3',
+    //         scrub: true,
+    //         start: '20% bottom',
+    //         end: '40% bottom'
+    //     }
+    // })
+    // .from('.section-3', {
+    //     backgroundColor: '#fff'
+    // })
+    // .to('.section-2', {
+    //     backgroundColor: '#26262C'
+    // }, '<')
 
 
     function handleHeader(e) {
@@ -431,19 +431,44 @@ export default function animation(scroller) {
 
 
 
-    console.log();
-
-    const withDigits = document.querySelectorAll('.section-6 .section-6__left svg, .section-6 .section-6__right svg');
-    withDigits.forEach(svg => {
-        const pathToAnimate = Array.from(svg.querySelectorAll('path:nth-child(-n+2)')).reverse();
-        svg.addEventListener('mouseenter', () => {
-            console.log();
-            gsap.to(pathToAnimate, { 
-                y: (index,t) => -10 * (index + 1),
+    function digitsSvgHover() {
+        const withDigits = document.querySelectorAll('.section-6 .section-6__left svg, .section-6 .section-6__right svg');
+        withDigits.forEach(svg => {
+            const pathToAnimate = Array.from(svg.querySelectorAll('path:nth-child(-n+2)')).reverse();
+            svg.addEventListener('mouseenter', () => {
+                console.log();
+                gsap.to(pathToAnimate, { 
+                    y: (index,t) => -10 * (index + 1),
+                })
+            })
+            svg.addEventListener('mouseleave', () => {
+                gsap.to(pathToAnimate, { y: 0 })
             })
         })
-        svg.addEventListener('mouseleave', () => {
-            gsap.to(pathToAnimate, { y: 0 })
+    }
+    digitsSvgHover();
+    function section2PinBgChange() {
+        const section = document.querySelector('.section-2');
+        const section5 = document.querySelector('.section-5');
+        const pinEl = document.createElement('div');
+        pinEl.setAttribute('data-screen2-pin', '');
+        section.append(pinEl);
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: section,
+                pin: pinEl,
+                scrub: true,
+                endTrigger: section5,
+            }
         })
-    })
+        .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1},'-=25%')
+        .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
+        .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
+        .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
+        .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
+        .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
+        .to(pinEl, { backgroundColor:  '#fff', duration: 0.1})
+        // .to(pinEl, { backgroundColor:  '#fff', duration: 0.1})
+    }
+    section2PinBgChange();
 }

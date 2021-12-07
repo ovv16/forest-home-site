@@ -26,14 +26,14 @@ export default function paralax(selector, curtainColor) {
         
         // gsap.set(curtain, { marginTop: imageMarginTop })
         wrap.prepend(image);
-        gsap.set(wrap, { marginLeft: imageMarginLeft, willChange: 'transform' });
+        gsap.set(wrap, { marginLeft: imageMarginLeft });
         gsap.set(image, { marginLeft: 0, autoAlpha: 0});
         gsap.set(curtain, { 
             // position: 'relative',
             width: image.getBoundingClientRect().width,
             marginRight: getComputedStyle(image).marginRight,
             height: image.getBoundingClientRect().height,
-            backgroundColor: curtainColor ? curtainColor : '',
+            // backgroundColor: curtainColor ? curtainColor : '',
         })
         // gsap.set(image, { scale: 1.1 })
         gsap.timeline({
@@ -45,7 +45,7 @@ export default function paralax(selector, curtainColor) {
         })
         .to(curtain, { scaleY: 1 })
         .to(curtain, { scaleY: 0, transformOrigin: '50% 0%' })
-        .to(image, { autoAlpha: 1 }, '<+0.35')
+        .to(image, { autoAlpha: 1 }, '<')
         // .add(() => curtain.remove())
         gsap.timeline({
             ease: 'none',
