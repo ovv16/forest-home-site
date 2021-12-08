@@ -4,10 +4,14 @@
       .menu-top__left
         a#menu-top-popup.menu-top__left-button.button(data-modal='consultation' href='#') Замовити дзвінок
         a.menu-top__left-tel(href='tel:+380671106104') +38 067 110 61 04
+        a#header-button.menu-top__left-button-mobile.button
+          span Обрати квартиру
       a.menu-top__logo(href='index.html')
         img(src="./assets/images/img/logo.svg", alt="logo")
       .menu-top__right
         a#menu-top-right-button.menu-top__right-button.button Обрати квартиру
+        a.menu-top__right-popup-mobile(data-call-mobile-callback-popup='')
+          img(src='./assets/images/img/popup-mobile.svg' alt='popup-mobile' data-modal='consultation')
         #menu-top-right-button-menu.menu-top__right-button-menu
           span.menu-top__right-text Закрити
           button.menu-top__right-burg
@@ -45,25 +49,25 @@
           span 06/
           a.menu-main__left-link(href='contact.html' data-title="Контакти") Контакти
     .menu-main__right
-      .menu-main__right-item
+      .menu-main__right-item.menu-main__right-item-1
         h3.subtitle відділ продажу:
         .text м. Вінниця, вул. Максимовича, 6
-      .menu-main__right-item
+      .menu-main__right-item.menu-main__right-item-2
         h3.subtitle будівництво:
         .text м. Вінниця, вул. Максимовича, 21
-      .menu-main__right-item
+      .menu-main__right-item.menu-main__right-item-3
         h3.subtitle графік роботи:
         .text.mb10 Пн-Сб: 09:00-19:00
         .text Нд: 10:00-17:00
-      .menu-main__right-item
+      .menu-main__right-item.menu-main__right-item-4
         h3.subtitle телефон:
         .text
           a(href="tel:+380671106104") +38 067 110 61 04 
-      .menu-main__right-item
+      .menu-main__right-item.menu-main__right-item-5
         h3.subtitle e-mail:
         .text
           a(href='mailto:zkforesthome@gmail.com') zkforesthome@gmail.com
-      .menu-main__right-item
+      .menu-main__right-item.menu-main__right-item-6
         h3.subtitle Соціальні мережі:
         .text
           a.mr20(href='https://www.facebook.com' target='_blank') facebook
