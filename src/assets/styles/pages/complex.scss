@@ -13,9 +13,6 @@
   .big-text {
     font-size: 19px;
   }
-  .button-green {
-    margin-top: 20px;
-  }
   &__title {
     @include row-flex();
     .title-big {

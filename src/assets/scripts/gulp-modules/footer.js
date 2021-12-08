@@ -15,4 +15,14 @@ window.addEventListener('DOMContentLoaded', () => {
     placeHolder.style.display = 'none';
     input.focus();
   });
+
+  document.querySelectorAll('.pageup').forEach(el => {
+    el.addEventListener('click', () => {
+      if (locoScroll !== undefined) {
+        locoScroll.scrollTo(0);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
+  });
 });

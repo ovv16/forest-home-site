@@ -120,6 +120,10 @@ footer {
           a {
             color: var(--white);
             text-decoration: none;
+            transition: color .3s ease-in-out;
+            &:hover {
+              color: #818181;
+            }
           }
         }
         .mb10 {

@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
     openMenuMobile = document.querySelector('#header-mobile__menu'),
     menu = document.querySelector('.menu'),
     closeMenu = document.querySelector('#menu-top-right-button-menu'),
-    closeMenuMobile = document.querySelector('#header-mobile__menu');
+    closeMenuMobile = document.querySelector('#menu-top-360__menu');
   
     openMenu.addEventListener('click', () => {
       menu.classList.add('active');

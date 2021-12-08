@@ -2,14 +2,14 @@
   .menu-top-wrapper
     .menu-top
       .menu-top__left
-        a#menu-top-popup.menu-top__left-button.button(data-modal='consultation' href='#') Замовити дзвінок
+        a#menu-top-popup.menu-top__left-button.button.button--calypso(data-modal='consultation' href='#') Замовити дзвінок
         a.menu-top__left-tel(href='tel:+380671106104') +38 067 110 61 04
-        a#header-button.menu-top__left-button-mobile.button
+        a#header-button.menu-top__left-button-mobile.button.button--calypso
           span Обрати квартиру
       a.menu-top__logo(href='index.html')
         img(src="./assets/images/img/logo.svg", alt="logo")
       .menu-top__right
-        a#menu-top-right-button.menu-top__right-button.button Обрати квартиру
+        a#menu-top-right-button.menu-top__right-button.button.button--calypso Обрати квартиру
         a.menu-top__right-popup-mobile(data-call-mobile-callback-popup='')
           img(src='./assets/images/img/popup-mobile.svg' alt='popup-mobile' data-modal='consultation')
         #menu-top-right-button-menu.menu-top__right-button-menu
@@ -25,8 +25,8 @@
         img(src='./assets/images/img/choose-flat.svg' alt='choose-flat')
       a.menu-top-360__popup-mobile(data-call-mobile-callback-popup='')
         img(src='./assets/images/img/popup-mobile.svg' alt='popup-mobile')
-      a.menu-top-360__menu
-        img(src='./assets/images/img/menu.svg' alt='menu')
+      a#menu-top-360__menu.menu-top-360__menu
+        img(src='./assets/images/img/menu-close.svg' alt='menu')
   .menu-main.row-flex.container-side-padding
     .menu-main__left
       ul.menu-main__left-links

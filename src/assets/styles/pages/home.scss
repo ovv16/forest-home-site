@@ -27,82 +27,6 @@ body {
   }
 }
 .button {
-  pointer-events: auto;
-  cursor: pointer;
-  position: relative;
-}
-.button::before,
-.button::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.button--calypso {
-  overflow: hidden;
-}
-.button--calypso span {
-  display: block;
-  position: relative;
-  mix-blend-mode: difference;
-  z-index: 10;
-}
-
-.button--calypso:hover span {
-  animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
-}
-
-@keyframes MoveScaleUpInitial {
-  to {
-    transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
-    opacity: 0;
-  }
-}
-
-@keyframes MoveScaleUpEnd {
-  from {
-    transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
-    opacity: 0;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-}
-
-.button--calypso::before {
-  content: '';
-  background: #649732;
-  width: 120%;
-  height: 0;
-  padding-bottom: 120%;
-  top: -110%;
-  left: -10%;
-  border-radius: 50%;
-  transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
-}
-
-.button--calypso:hover::before {
-  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
-}
-
-.button--calypso::after {
-  content: '';
-  background: #649732;
-  transform: translate3d(0, -100%, 0);
-  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
-}
-
-.button--calypso:hover::after {
-  transform: translate3d(0, 0, 0);
-  transition-duration: 0.05s;
-  transition-delay: 0.4s;
-  transition-timing-function: linear;
-}
-.button {
   width: 250px;
   height: 55px;
   margin-right: 50px;
@@ -117,6 +41,11 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+  pointer-events: auto;
+  cursor: pointer;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   &-green {
     width: 300px;
     height: 60px;
@@ -177,7 +106,7 @@ body {
   text-transform: uppercase;
   color: #40414F;
 }
-.title-single-page {
+.title-inner-page {
   margin-top: 30px;
   font-weight: 300;
   font-size: var(--fz-5);
@@ -552,9 +481,6 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      &:hover > svg > circle {
-        fill: #717386;
-      }
     }
   }
 }
@@ -586,7 +512,110 @@ body {
     }
   }
 }
-
+@media (min-width: 1023px) {
+  .button::before,
+  .button::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .button--calypso,
+  .button--calypso--green {
+    overflow: hidden;
+    color: #FFFFFF;
+    transition: background-color 5s ease-in-out;
+  }
+  .button--calypso span,
+  .button--calypso--green span {
+    display: block;
+    position: relative;
+    z-index: 10;
+  }
+  .button--calypso span {
+    color: #26262C;
+  }
+  .button--calypso--green span {
+    color: #FFFFFF;
+  }
+  .button--calypso:hover span,
+  .button--calypso--green:hover span {
+    animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
+    color: #FFFFFF;
+  }
+  @keyframes MoveScaleUpInitial {
+    to {
+      transform: translate3d(0,-105%,0) scale3d(1,2,1);
+      opacity: 0;
+    }
+  }
+  @keyframes MoveScaleUpEnd {
+    from {
+      transform: translate3d(0,100%,0) scale3d(1,2,1);
+      opacity: 0;
+    }
+    to {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+    }
+  }
+  .button--calypso::before,
+  .button--calypso--green::before {
+    content: '';
+    background-color: #649732;
+    width: 120%;
+    height: 0;
+    padding-bottom: 120%;
+    top: -110%;
+    left: -10%;
+    transform: translate3d(0,68%,0) scale3d(0,0,0);
+  }
+  
+  .button--calypso:hover::before,
+  .button--calypso--green:hover::before {
+    transform: translate3d(0,0,0) scale3d(1,1,1);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  }
+  .button--calypso::after,
+  .button--calypso--green::after {
+    content: '';
+    background-color: #649732;
+    transform: translate3d(0,-100%,0);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  }
+  .button--calypso:hover::after,
+  .button--calypso--green:hover::after {
+    transform: translate3d(0,0,0);
+    transition-duration: 0.05s;
+    transition-delay: 0.4s;
+    transition-timing-function: linear;
+  }
+  header {
+    .header {
+      &__left {
+        &-tel {
+          &:hover {
+            color: #000000;
+            &:after {
+              transform-origin: bottom left;
+              transform: scaleX(1);
+            }
+          }
+        }
+      }
+    }
+  }
+  .section-6 {
+    &__center {
+      &-link {
+        &:hover > svg > circle {
+          fill: #717386;
+        }
+      }
+    }
+  }
+}
 @media (max-width: 1600px) {
   .subtitle {
     margin-bottom: 10px;
