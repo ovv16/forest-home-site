@@ -278,8 +278,8 @@ export default function animation(scroller) {
     // paralax('[alt="section-6__center-img"]');
     paralax('.section-4__left-bg, .section-3__right-bg', '#fff');
     // paralax('.section-4__left-bg, .section-3__right-bg');
-    // paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
-    // paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
+    paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
+    paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
     section7HoverImage();
 
     
@@ -316,7 +316,7 @@ export default function animation(scroller) {
     function showHeader() {
         gsap.to('.header', { yPercent: 0 })
     }
-    const throttleTime = 1000;
+    const throttleTime = 100;
     const handleHeaderDeounced = throttle(handleHeader, throttleTime);
     scroller.on('scroll', handleHeaderDeounced);
 
@@ -399,7 +399,7 @@ export default function animation(scroller) {
         // })
     }
 
-    if (!window.location.pathname.match(/complex/g)) {
+    if (!window.location.pathname.match(/complex|gallery|planning/g)) {
         footerColorEffect();
     }
     
@@ -413,7 +413,7 @@ export default function animation(scroller) {
         if (document.querySelector('.section-7__item') === null) return;
         let some = 0;
         let isAnim = false;
-        const maxSkewValue = -25;
+        const maxSkewValue = -10;
         scroller.on('scroll', () => {
             if (isAnim === true) return;
             gsap.timeline()
