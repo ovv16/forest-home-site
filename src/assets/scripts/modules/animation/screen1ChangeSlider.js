@@ -1,14 +1,18 @@
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-export default function screen1ChangeSlider() {
-    const images = getImages();
-    function getImages() {
-        return  [
-            './assets/images/home/screen1/1920/2.jpg',
-            './assets/images/home/screen1/1920/3.jpg',
-            './assets/images/home/screen1/1920/4.jpg',
-            './assets/images/home/screen1/1920/6.jpg',
-        ];
-    }
+async function getImages() {
+    const url = window.location.href.match(/verstka|localhost/) ?
+        './static/screen1.php' :
+        '/wp-admin/admin-ajax.php';
+
+    const data = new FormData();
+    data.append('action', 'getmainslider');
+
+    const request = await fetch(url, { method: 'POST', body: data });
+    let array = await request.json();
+    return  array;
+}
+export default async function screen1ChangeSlider() {
+    const images = await getImages();
     const section1 = document.querySelector('.section-1');
     if (section1 === null) return;
     const sec1Canvases = {

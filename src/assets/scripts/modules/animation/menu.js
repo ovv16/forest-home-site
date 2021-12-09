@@ -1,14 +1,18 @@
 import gsap from "gsap/all";
 
-export default function menuLinksEffect() {
-    
-    const images = [
-        './assets/images/menu/Rectangle 3678.jpg',
-        './assets/images/menu/Rectangle 3685.jpg',
-        './assets/images/menu/Rectangle 3686.jpg',
-        './assets/images/menu/Rectangle 4.jpg',
-        './assets/images/menu/Rectangle 4.jpg',
-    ];
+export default async function menuLinksEffect() {
+    const url = window.location.href.match(/verstka|localhost/) ?
+        './static/screen1.php' :
+        '/wp-admin/admin-ajax.php';
+    const data = new FormData();
+    data.append('action', 'getmenuimage');
+
+    const request = await fetch(url, { method: 'POST', body: data });
+    // let array = 
+    // return  ;
+
+    const images = await request.json();
+
     const menu = document.querySelector('.menu');
     // canvas.src = images[0];
     
@@ -19,18 +23,22 @@ export default function menuLinksEffect() {
         canvas.setAttribute('data-menu-canvas', '');
         gsap.set(canvas, {xPercent: 100,});
         menu.append(canvas);
-        canvas.src = images[index];
+        canvas.src = images[index].url ? images[index].url : images[index];
         link.addEventListener('mouseenter',function(evt){
+            gsap.set(link.parentElement, { overflow: 'visible' });
             gsap.to(link, { x: 20 });
             gsap.to(canvas, { duration: 1.65, xPercent: 0, ease: 'power4.out' });
             gsap.to('.menu-main__right', { autoAlpha: 0, ease: 'power4.out' });
             gsap.to(menu.querySelectorAll(`.menu-main__left-list:not(:nth-child(${index+1}))`), { opacity: 0.5 })
         });
         link.addEventListener('mouseleave',function(evt){
-            gsap.to(link, { x: 0 })
+            gsap.to(link, { x: 0, onComplete: () => {
+                gsap.set(link.parentElement, { overflow: 'hidden' });
+            } })
             gsap.to(canvas, { duration: 1.65, xPercent: 100, ease: 'power4.out' });
             gsap.to('.menu-main__right', { autoAlpha: 1, ease: 'power4.out' })
             gsap.to(menu.querySelectorAll(`.menu-main__left-list:not(:nth-child(${index+1}))`), { opacity: 1 })
+            
         });
     })
 }
