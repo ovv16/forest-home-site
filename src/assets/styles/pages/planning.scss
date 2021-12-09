@@ -84,6 +84,9 @@
       }
     }
   }
+  &-6 {
+    --v-padding: 190px;
+  }
   &-3,
   &-5 {
     @include row-flex();

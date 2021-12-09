@@ -18,39 +18,25 @@ window.addEventListener('DOMContentLoaded', () => {
     closeMenuMobile.addEventListener('click', () => {
       menu.classList.remove('active');
     });
-
   
-  // const matchTablet = window.matchMedia('(max-width: 950px)').matches;
-  // console.log();
+  
   const openPopup = document.querySelector('#header-popup'),
-    // openPopupMobile = document.querySelector('#header-popup-mobile'),
-    // openPopupMobile320 = document.querySelector('#header-mobile__right-popup320'),
+    openPopupMenu = document.querySelector('#menu-top-popup'),
     popup = document.querySelector('#popup'),
     closePopup = document.querySelector('#popup-close');
 
     openPopup.addEventListener('click', () => {
       popup.classList.add('active');
     });
-    // openPopupMobile.addEventListener('click', () => {
-    //   popup.classList.add('active');
-    // });
-    // openPopupMobile320.addEventListener('click', () => {
-    //   popup.classList.add('active');
-    // });
+    openPopupMenu.addEventListener('click', () => {
+      popup.classList.add('active');
+    });
+  
     closePopup.addEventListener('click', () => {
       popup.classList.remove('active');
     });
 
-    // const openMenuPopup = document.querySelector('#menu-popup');
-    // openMenuPopup.addEventListener('click', () => {
-    //   popup.classList.add('active');
-    // });
     
-
-
-
-
-  
 
   function mobPopupHandler() {
     function close(el) {

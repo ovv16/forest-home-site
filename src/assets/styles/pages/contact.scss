@@ -145,6 +145,9 @@
         a {
           color: var(--white);
           text-decoration: none;
+          &:hover {
+            color: #818181;
+          }
         }
       }
       .mb10 {

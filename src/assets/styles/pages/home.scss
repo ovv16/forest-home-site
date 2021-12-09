@@ -517,9 +517,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 101;
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: all .6s ease-in-out;
   &.active {
     opacity: 1;
   }
@@ -543,7 +543,7 @@ body {
     border: 1px solid #8BB514;
     border-radius: 50px;
     background-color: #fff;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.6s ease-in-out;
   }
   form {
     width: 573px;
@@ -636,7 +636,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 9;
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: all .6s ease-in-out;
   &.active {
     opacity: 1;
   }
@@ -662,7 +662,7 @@ body {
     border: 1px solid #8BB514;
     border-radius: 50px;
     background-color: #fff;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.6s ease-in-out;
   }
   &__wrapper {
     display: flex;
@@ -715,6 +715,47 @@ body {
       color: #40414F;
       text-transform: none;
     }
+  }
+}
+.mobile-callback-popup {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  min-height: -webkit-fill-available;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-end;
+  padding: 20px 88px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 100%;
+  color: #2D2D2D;
+  visibility: hidden;
+
+  &>* {
+    text-decoration: none;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #2D2D2D;
+  }
+
+  &> :nth-child(n + 2) {
+    margin-top: 10px;
+  }
+
+  &__close {
+    background-color: #8BB514;
+    color: #F4F7F9;
   }
 }
 @media (min-width: 1023px) {
@@ -801,7 +842,20 @@ body {
       &__left {
         &-tel {
           &:hover {
-            color: #000000;
+            &:after {
+              transform-origin: bottom left;
+              transform: scaleX(1);
+            }
+          }
+        }
+      }
+    }
+  }
+  .menu {
+    .menu-top {
+      &__left {
+        &-tel {
+          &:hover {
             &:after {
               transform-origin: bottom left;
               transform: scaleX(1);
@@ -1589,6 +1643,12 @@ body {
     &__wrapper {
       margin-top: 74px;
       margin-bottom: 60px;
+    }
+  }
+  .mobile-callback-popup {
+    padding: 20px 35px;
+    &>* {
+      height: 50px;
     }
   }
 }
