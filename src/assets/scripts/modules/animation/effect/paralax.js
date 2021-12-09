@@ -26,7 +26,7 @@ export default function paralax(selector, curtainColor) {
         
         // gsap.set(curtain, { marginTop: imageMarginTop })
         wrap.prepend(image);
-        gsap.set(wrap, { marginLeft: imageMarginLeft });
+        // gsap.set(wrap, { marginLeft: imageMarginLeft });
         gsap.set(image, { marginLeft: 0, autoAlpha: 0});
         gsap.set(curtain, { 
             // position: 'relative',

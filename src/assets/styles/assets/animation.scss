@@ -359,6 +359,8 @@ animation: littleMoveR var(--moveDuration) linear infinite;
 }
 .image-with-curtain-in {
         position: relative;
+        // margin-left: calc(8.33333% + 15px);
+        // margin-right: calc(8.33333% + 15px);
         .curtain
         /*&:before*/ {
                 content: '';

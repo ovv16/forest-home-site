@@ -9,9 +9,19 @@ export default function section7HoverImage() {
         './assets/images/home/screen7/5.jpg',
         './assets/images/home/screen7/6.jpg',
     ];
+    const prodImages = [
+        '/wp-content/themes/forest-home/assets/images/home/screen7/1.jpg',
+        '/wp-content/themes/forest-home/assets/images/home/screen7/2.jpg',
+        '/wp-content/themes/forest-home/assets/images/home/screen7/3.jpg',
+        '/wp-content/themes/forest-home/assets/images/home/screen7/4.jpg',
+        '/wp-content/themes/forest-home/assets/images/home/screen7/5.jpg',
+        '/wp-content/themes/forest-home/assets/images/home/screen7/6.jpg',
+    ]
+    const isProd = window.location.href.match(/localhost|verstka/) ? false : true;
+    // const isProd = true;
     const section = document.querySelector('.section-7');
     if (section === null) return;
-    const canvas = getSvgForFilter(images);
+    const canvas = getSvgForFilter(isProd ? prodImages: images);
     document.body.insertAdjacentHTML('beforeend', canvas);
     const svg = document.querySelector('.distort');
     const svgYCorrectionValue = svg.getBoundingClientRect().height / 2;

@@ -209,31 +209,31 @@
   .menu {
     .menu-top-wrapper {
       height: 150px;
-    }
-    .menu-top {
-      height: 100px;
-      &__logo {
-        width: 100px;
+      .menu-top {
         height: 100px;
+        &__logo {
+          width: 100px;
+          height: 100px;
 
-        img {
-          max-width: 77px;
-          height: 78px;
+          svg {
+            max-width: 77px;
+            height: 78px;
+          }
         }
-      }
-      &__right {
-        &-text {
-          padding: 0 15px 0 20px;
-        }
+        &__right {
+          &-text {
+            padding: 0 15px 0 20px;
+          }
 
-        &-burg {
-          width: 40px;
-          height: 40px;
+          &-burg {
+            width: 40px;
+            height: 40px;
 
-          &-line {
-            margin: 1px 0;
-            width: 11.64px;
-            height: 1.45px;
+            &-line {
+              margin: 1px 0;
+              width: 11.64px;
+              height: 1.45px;
+            }
           }
         }
       }

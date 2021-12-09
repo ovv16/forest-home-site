@@ -103,7 +103,12 @@ formsWithRedirect.forEach(form => {
       elements: {
         $form,
         showSuccessMessage: false,
-        successAction: 'toster',
+        successAction: () => {
+          document.querySelector('.thanks-page').style.opacity = 1;
+          setTimeout(() => {
+            document.querySelector('.thanks-page').style.opacity = 0;
+          }, 5000);
+        },
         $btnSubmit: $form.querySelector('[data-btn-submit]'),
         fields: {
           name: {
@@ -155,7 +160,13 @@ forms.forEach(form => {
       elements: {
         $form,
         showSuccessMessage: false,
-        successAction: 'toster',
+        successAction: () => {
+          document.querySelector('.thanks-page').style.opacity = 1;
+          setTimeout(() => {
+            document.querySelector('.thanks-page').style.opacity = 0;
+            document.querySelector('#popup').classList.remove('active');
+          }, 5000);
+        },
         $btnSubmit: $form.querySelector('[data-btn-submit]'),
         fields: {
           name: {

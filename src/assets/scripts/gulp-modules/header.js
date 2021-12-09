@@ -20,21 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   
   
-  const openPopup = document.querySelector('#header-popup'),
-    openPopupMenu = document.querySelector('#menu-top-popup'),
-    popup = document.querySelector('#popup'),
-    closePopup = document.querySelector('#popup-close');
-
-    openPopup.addEventListener('click', () => {
-      popup.classList.add('active');
-    });
-    openPopupMenu.addEventListener('click', () => {
-      popup.classList.add('active');
-    });
   
-    closePopup.addEventListener('click', () => {
-      popup.classList.remove('active');
-    });
 
     
 
@@ -66,3 +52,21 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   mobPopupHandler();
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  const openPopup = document.querySelector('#header-popup'),
+    openPopupMenu = document.querySelector('#menu-top-popup'),
+    popup = document.querySelector('#popup'),
+    closePopup = document.querySelector('#popup-close');
+
+    openPopup.addEventListener('click', () => {
+      popup.classList.add('active');
+    });
+    openPopupMenu.addEventListener('click', () => {
+      popup.classList.add('active');
+    });
+  
+    closePopup.addEventListener('click', () => {
+      popup.classList.remove('active');
+    });
+})
