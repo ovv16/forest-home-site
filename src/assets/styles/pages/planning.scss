@@ -17,6 +17,7 @@
       @include shift-left(1);
       @include shift-right(1);
       @include size(10);
+      min-height: 700px;
     }
     &__wrapper {
       @include shift-left(6);
@@ -74,13 +75,11 @@
       padding-right: var(--page-side-fields);
       padding-top: calc(var(--v-padding) / 2);
       padding-bottom: calc(var(--v-padding) / 2);
-      img {
+      cursor: pointer;
+      .frame-class {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .img-text {
-        bottom: calc(30px + (var(--v-padding) / 2));
+        min-height: 700px;
+        pointer-events: none;
       }
     }
   }
@@ -97,9 +96,11 @@
       @include shift-left(0);
       @include size(6.5);
       @include shift-right(0);
-      img {
+      cursor: pointer;
+      .frame-class {
         width: 100%;
-        height: 100%;
+        min-height: 700px;
+        pointer-events: none;
       }
     }
     &__wrapper {
@@ -128,6 +129,7 @@
     padding-bottom: 100px;
     &-1 {
       &__img {
+        min-height: 498px;
         margin-top: 40px;
         margin-bottom: 240px;
       }
@@ -154,8 +156,8 @@
         }
       }
       &__img {
-        .img-text {
-          bottom: calc(20px + (var(--v-padding) / 2));
+        .frame-class {
+          min-height: 498px;
         }
       }
     }
@@ -170,14 +172,16 @@
           margin-top: 10px;
         }
       }
+      &__img {
+        .frame-class {
+          min-height: 498px;
+        }
+      }
     }
   }
 }
 @media (max-width: 1200px) {
   .planning {
-    .img-text {
-      bottom: 20px;
-    }
     &-1 {
       &__img {
         @include shift-left(0);
@@ -242,9 +246,6 @@
       height: 100px;
       font-size: 17px;
     }
-    .img-text {
-      font-size: 17px;
-    }
     .button-green {
       margin-top: 30px;
       width: 214px;
@@ -258,15 +259,35 @@
       }
     }
     &-1 {
+      &__img {
+        min-height: 400px;
+      }
       &__wrapper {
         @include size(8);
         @include shift-left(4);
         @include shift-right(0);
       }
     }
+    &-2,
+    &-4,
+    &-6 {
+      &__img {
+        .frame-class {
+          min-height: 434px;
+        }
+      }
+    }
+    &-3,
+    &-5 {
+      &__img {
+        .frame-class {
+          min-height: 434px;
+        }
+      }
+    }
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 578px) {
   .planning {
     padding-bottom: 60px;
     .green-round {
@@ -274,16 +295,11 @@
       height: 70px;
       font-size: 14px;
     }
-    .img-text {
-      width: 100%;
-      text-align: center;
-      font-size: 14px;
-    }
     &-1 {
       &__img {
+        min-height: 284px;
         margin-top: 20px;
         margin-bottom: 30px;
-        height: 284px;
       }
       &__wrapper {
         position: static;
@@ -302,7 +318,9 @@
     &-6 {
       margin-top: 60px;
       &__img {
-        height: 284px;
+        .frame-class {
+          min-height: 284px;
+        } 
       }
       &__wrapper {
         margin-top: 30px;
@@ -318,7 +336,9 @@
     &-5 {
       margin-top: 60px;
       &__img {
-        height: 284px;
+        .frame-class {
+          min-height: 284px;
+        }
       }
       &__wrapper {
         margin-top: 30px;

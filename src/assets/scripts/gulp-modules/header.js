@@ -69,4 +69,4 @@ window.addEventListener('DOMContentLoaded', () => {
     closePopup.addEventListener('click', () => {
       popup.classList.remove('active');
     });
-})
+});

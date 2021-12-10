@@ -29,11 +29,10 @@ export default function animation(scroller) {
 
     menuLinksEffect();
     splitToLinesAndFadeUp('.section-1__text', 2.35);
-    splitToLinesAndFadeUp('.title, .section-4__right .text');
+    splitToLinesAndFadeUp(' .title:not(.home-contact--width), .section-4__right .text');
 
 
     fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text, .section-3__left .small-text');
-    fadeInUp('footer form .form-field, footer form .small-text, footer form .form-btn-wrap');
     if (window.location.pathname.match(/planning/g)) {
         // paralax('.planning-1__img');
         splitToLinesAndFadeUp('.title-inner-page');
@@ -212,8 +211,8 @@ export default function animation(scroller) {
         })
 
     }
-    buttonMenuEffect('.header__right-burg');
-    buttonMenuEffect('.menu-top__right-burg');
+    // buttonMenuEffect('.header__right-burg');
+    // buttonMenuEffect('.menu-top__right-burg');
 
     gsap.timeline({
         scrollTrigger: {
@@ -278,8 +277,8 @@ export default function animation(scroller) {
     // paralax('[alt="section-6__center-img"]');
     paralax('.section-4__left-bg, .section-3__right-bg', '#fff');
     // paralax('.section-4__left-bg, .section-3__right-bg');
-    paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
-    paralax('.complex-1__img, .complex-2__img, .complex-3__img, .complex-4__img, .complex-5__img');
+    // paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
+    paralax('.complex-1__img img, .complex-2__img, .complex-3__img img, .complex-4__img img, .complex-5__img img');
     section7HoverImage();
 
     
@@ -399,7 +398,7 @@ export default function animation(scroller) {
         // })
     }
 
-    if (!window.location.pathname.match(/complex|gallery|planning/g)) {
+    if (!window.location.pathname.match(/complex|gallery|planning|news/g)) {
         footerColorEffect();
     }
     

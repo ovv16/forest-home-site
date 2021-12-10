@@ -23,17 +23,12 @@ block scripts
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/footer.js')
-  //- script(defer src='./assets/scripts/planning.js')
-  //- script(defer src='./assets/scripts/animation.js')
+  script(defer src='./assets/scripts/planning.js')
 block content
   include ../includes/breadcrumbs.pug
   .planning#up
     .planning__title.row-flex.container-side-padding
       .title-big 3D планування
-    //- .plan-block
-    //-   .plan-block__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, animi odio! Voluptatum excepturi fuga totam quis dolores quod eligendi vero vitae quia exercitationem eveniet, quo eum earum quae obcaecati? Atque nesciunt rerum aut vero esse sequi voluptatum vel minima? Ut quibusdam blanditiis natus error nihil libero eum placeat esse facilis magnam vel reiciendis alias ratione architecto labore, est quia possimus veniam in exercitationem? Nulla itaque repellat laudantium ducimus, dolore perferendis tempora! Delectus minus repellat voluptatum! Rerum unde ipsa quidem, dolorum veritatis cumque! Quas beatae est, excepturi cumque nisi nemo delectus, nostrum qui facere culpa tenetur illo cum blanditiis repudiandae expedita.
-    //-   .plan-block__img
-    //-     img(src="./assets/images/img/planning-1-img.jpg")
     section.planning-1.row-flex.container-side-padding
       img.planning-1__img(src="./assets/images/img/planning-1-img.jpg", alt="planning-1-img")
       .planning-1__wrapper
@@ -57,14 +52,16 @@ block content
         a(href='#').button.button--calypso--green.button-green 
           span планування
       .planning-2__img
-        img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        //- img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        iframe.frame-class(src='https://vrnet.io/view5.16a/?model=ua/bmu6/forresthome/1zhe' allowfullscreen='' allow='vr;fullscreen *;xr-spatial-tracking;xr;')
         .green-round 360°
-        .img-text Натисніть для перегляду
+        //- .img-text Натисніть для перегляду
     section.planning-3.row-flex.container-side-padding
       .planning-3__img
-        img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        //- img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        iframe.frame-class(src='https://vrnet.io/view5.16a/?model=ua/bmu6/forresthome/2a' allowfullscreen='' allow='vr;fullscreen *;xr-spatial-tracking;xr;')
         .green-round 360°
-        .img-text Натисніть для перегляду
+        //- .img-text Натисніть для перегляду
       .planning-3__wrapper
         .title-inner-page 2-кімнатна квартира 2А
         .text
@@ -91,14 +88,16 @@ block content
         a(href='#').button.button--calypso--green.button-green 
           span планування
       .planning-4__img
-        img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        //- img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        iframe.frame-class(src='https://vrnet.io/view5.16a/?model=ua/bmu6/forresthome/1i' allowfullscreen='' allow='vr;fullscreen *;xr-spatial-tracking;xr;')
         .green-round 360°
-        .img-text Натисніть для перегляду
+        //- .img-text Натисніть для перегляду
     section.planning-5.row-flex.container-side-padding
       .planning-5__img
-        img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        //- img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        iframe.frame-class(src='https://vrnet.io/view5.16a/?model=ua/bmu6/forresthome/2b' allowfullscreen='' allow='vr;fullscreen *;xr-spatial-tracking;xr;')
         .green-round 360°
-        .img-text Натисніть для перегляду
+        //- .img-text Натисніть для перегляду
       .planning-5__wrapper
         .title-inner-page 2-кімнатна квартира 2б
         .text
@@ -130,9 +129,9 @@ block content
         a(href='#').button.button--calypso--green.button-green 
           span планування
       .planning-6__img
-        img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
+        iframe.frame-class(src='https://vrnet.io/view5.16a/?model=ua/bmu6/forresthome/1k' allowfullscreen='' allow='vr;fullscreen *;xr-spatial-tracking;xr;')
+        //- img(src="./assets/images/img/planning-2-img.jpg", alt="planning-2-img")
         .green-round 360°
-        .img-text Натисніть для перегляду
 
 
 

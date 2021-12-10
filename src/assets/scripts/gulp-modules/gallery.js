@@ -10,6 +10,7 @@ $(document).ready(() => {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    // draggable: true,
 
     // autoplay: true,
     // variableWidth: true,
