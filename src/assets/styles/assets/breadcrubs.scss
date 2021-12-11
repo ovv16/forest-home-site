@@ -40,28 +40,22 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        // &:hover {
-        //     color: $mc3;
-        // }
       }
       &:last-child a {
         margin-right: 0;
         &::after {
             visibility: hidden;
         }
-        // &:hover {
-        //     text-decoration-line: underline;
-        // }
       }
       &:first-child a {
           color: #40414F;
       }
-      &:first-child a.inner-page-contact {
-        color: #EBEFF4;
-      }
-      &:first-child a.inner-page-gallery {
-        color: #EBEFF4;
-      }
+      // &:first-child a.inner-page-contact {
+      //   color: #EBEFF4;
+      // }
+      // &:first-child a.inner-page-gallery {
+      //   color: #EBEFF4;
+      // }
     }
   }
 }

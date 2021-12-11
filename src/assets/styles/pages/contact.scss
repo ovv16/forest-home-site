@@ -143,6 +143,7 @@
         line-height: 100%;
         color: var(--white);
         a {
+          width: max-content;
           color: var(--white);
           text-decoration: none;
           &:hover {

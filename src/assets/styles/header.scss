@@ -30,13 +30,12 @@ header {
         color: var(--white);
         text-decoration: none;
         transition: color 0.3s;
-        // .menu-color-dark,
-        // .complex-color-dark,
-        // .planning-color-dark,
-        // .promotions-news-color-dark,
-        // .single-page-color-dark {
-        //   color: #26262C;
-        // }
+        .complex-color-dark,
+        .planning-color-dark,
+        .promotions-news-color-dark,
+        .single-page-color-dark {
+          color: #26262C;
+        }
         &:after {
           content: "";
           position: absolute;

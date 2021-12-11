@@ -278,7 +278,7 @@ export default function animation(scroller) {
     paralax('.section-4__left-bg, .section-3__right-bg', '#fff');
     // paralax('.section-4__left-bg, .section-3__right-bg');
     // paralax('.complex-1__item img, .complex-2__item img, .complex-3__item img, .complex-4__item img, .complex-5__item img');
-    paralax('.complex-1__img img, .complex-2__img, .complex-3__img img, .complex-4__img img, .complex-5__img img');
+    paralax('.complex-1__img img, .complex-2__img img, .complex-3__img img, .complex-4__img img, .complex-5__img img');
     section7HoverImage();
 
     
