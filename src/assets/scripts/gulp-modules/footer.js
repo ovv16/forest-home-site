@@ -8,13 +8,16 @@ window.addEventListener('DOMContentLoaded', () => {
   const footer = document.querySelector('.year');
     footer.innerHTML += '&copy; ' + year();
 
-    const placeHolder = document.querySelector('.place-holder'),
-    input = document.querySelector('.input-tel');
+    const placeHolder = document.querySelector('.footer-contacts__left .place-holder'),
+      input = document.querySelector('.footer-contacts__left .input-tel');
   
     placeHolder.addEventListener('click', () => {
     placeHolder.style.display = 'none';
     input.focus();
-  });
+    });
+
+
+ 
 
   document.querySelectorAll('.pageup').forEach(el => {
     el.addEventListener('click', () => {

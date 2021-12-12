@@ -35,3 +35,11 @@ window.addEventListener('resize', () => {
   console.log('--', locoScroll);
   locoScroll.update();
 });
+
+ const placeHolderPopup = document.querySelector('.popup__block .place-holder'),
+   inputPopup = document.querySelector('.popup__block .input-tel');
+
+ placeHolderPopup.addEventListener('click', () => {
+   placeHolderPopup.style.display = 'none';
+   inputPopup.focus();
+ });

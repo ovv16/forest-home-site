@@ -7,7 +7,7 @@
   height: 100vh;
   width: 100%;
   display: none;
-  z-index: 99;
+  z-index: 90;
   // overflow: hidden;
   &.active {
     display: block;
@@ -96,8 +96,8 @@
         align-items: center;
         background-color: var(--green);
         border-radius: 35px;
+        cursor: pointer;
         transition: background-color .3s;
-        
       }
 
       &-text {
@@ -106,7 +106,6 @@
         text-transform: uppercase;
         color: var(--white);
       }
-
       &-burg {
         pointer-events: auto;
         display: flex;
@@ -118,17 +117,9 @@
         background-color: var(--white);
         border-radius: 50%;
         cursor: pointer;
-
-        &-line {
-          margin: 1.5px 0;
-          width: 16px;
-          height: 2px;
-          background-color: var(--very-dark-blue);
-        }
       }
     }
   }
-
   .menu-main {
     padding-bottom: 120px;
     // height: calc(100% - 220px);
@@ -227,12 +218,6 @@
           &-burg {
             width: 40px;
             height: 40px;
-
-            &-line {
-              margin: 1px 0;
-              width: 11.64px;
-              height: 1.45px;
-            }
           }
         }
       }
@@ -309,12 +294,6 @@
         &-burg {
           width: 45px;
           height: 45px;
-
-          &-line {
-            margin: 1px 0;
-            width: 13.09px;
-            height: 1.64px;
-          }
         }
       }
     }
