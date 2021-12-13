@@ -56,6 +56,10 @@
           line-height: 100%;
           color: #717386;
         }
+        input {
+          -webkit-appearance: none;
+          border-radius: 0;
+        }
         &__input {
           display: block;
           width: 100%;
@@ -69,6 +73,10 @@
           font-size: var(--fz-9);
           line-height: 150%;
           color: #40414F;
+          input {
+            -webkit-appearance: none;
+            border-radius: 0;
+          }
           &::placeholder {
             font-family: $default-font;
             font-style: normal;

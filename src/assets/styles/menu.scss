@@ -50,6 +50,7 @@
         text-decoration: none;
         transition: color 0.3s;
 
+
         &:after {
           content: "";
           position: absolute;
@@ -57,7 +58,7 @@
           height: 2px;
           bottom: -10px;
           left: 0;
-          background-color: var(--white);
+          background-color: #26262C;
           transform: scaleX(0);
           transform-origin: bottom right;
           transition: transform .2s;
@@ -81,6 +82,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      svg {
+        max-width: 114px;
+        height: 117px;
+      }
     }
 
     &__right {
@@ -205,7 +210,7 @@
         &__logo {
           width: 100px;
           height: 100px;
-          img {
+          svg {
             max-width: 77px;
             height: 78px;
           }
@@ -395,6 +400,8 @@
     .menu-main {
       padding-bottom: 92px;
       height: 100%;
+      margin-top: 75px;
+      align-items: start;
       &__left {
         @include shift-left(0);
         @include shift-right(0);
