@@ -64,5 +64,6 @@ window.addEventListener('DOMContentLoaded', () => {
   btnVideo.addEventListener('click',function(){
     video.play();
     btnVideo.style.display = 'none';
+    video.controls = 'controls';
   });
 });

@@ -1,6 +1,6 @@
 .wrapper-breadcrumbs {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   --v-padding: 220px;
   padding-top: var(--v-padding);
   @include row-flex();

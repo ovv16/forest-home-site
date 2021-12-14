@@ -263,42 +263,49 @@
 @media (max-width: 992px) {
   .menu {
     overflow: hidden;
-    .menu-top {
-      &__left {
+    .menu-top-wrapper {
+      .menu-top {
+        &__left {
 
-        &-button,
-        &-tel {
-          display: none;
+          &-button,
+          &-tel {
+            display: none;
+          }
+
+          &-button-mobile {
+            display: flex;
+          }
         }
 
-        &-button-mobile {
-          display: flex;
-        }
-      }
+        &__right {
+          &-button {
+            display: none;
+          }
 
-      &__right {
-        &-button {
-          display: none;
-        }
+          &-popup-mobile {
+            margin-right: 27px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+          }
 
-        &-popup-mobile {
-          margin-right: 27px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 45px;
-          height: 45px;
-          border-radius: 50%;
-          background-color: #FFFFFF;
-        }
+          &-button-menu {
+            width: 126px;
+            justify-content: space-between;
+          }
 
-        &-text {
-          padding: 0 15px 0 30px;
-        }
+          &-text {
+            padding: 0 0 0 18px;
+          }
 
-        &-burg {
-          width: 45px;
-          height: 45px;
+          &-burg {
+            width: 45px;
+            height: 45px;
+          }
         }
       }
     }
@@ -306,7 +313,9 @@
       padding-bottom: 50px;
       height: calc(100% - 150px);
       overflow-y: auto;
+      align-items: flex-start;
       &__left {
+        margin-top: 40px;
         @include shift-left(0);
         @include shift-right(6);
         @include size(6);
@@ -319,7 +328,7 @@
         }
       }
       &__right {
-        margin-top: 116px;
+        margin-top: 58px;
         @include shift-right(2);
         @include shift-left(0);
         @include size(10);

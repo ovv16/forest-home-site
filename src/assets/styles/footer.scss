@@ -184,6 +184,7 @@ footer {
     height: 55px;
     background-color: #89AB26;
     border-radius: 50%;
+    transition: background-color .3s ease-in-out;
   }
 }
 @media (max-width: 1600px) {

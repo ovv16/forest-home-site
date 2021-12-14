@@ -42,7 +42,6 @@ body {
   text-decoration: none;
   cursor: pointer;
   pointer-events: auto;
-  cursor: pointer;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -137,6 +136,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color .3s ease-in-out;
 }
 .img-text {
   position: absolute;
@@ -250,6 +250,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: background-color .3s ease-in-out;
       }
       .slick-list {
         overflow: hidden;
@@ -454,19 +455,19 @@ body {
   }
   &__left {
     @include shift-left(1);
-    @include shift-right(0);
-    @include size(2);
+    @include shift-right(1);
+    @include size(1.5);
   }
   &__right {
-    @include shift-left(0);
+    @include shift-left(1);
     @include shift-right(1);
-    @include size(2);
+    @include size(1.5);
   }
   &__center {
     position: relative;
     @include shift-left(0);
     @include shift-right(0);
-    @include size(6);
+    @include size(5);
     video {
       width: 100%;
     }
@@ -913,6 +914,40 @@ body {
       }
     }
   }
+  footer {
+    .pageup {
+      &:hover {
+        background-color: #649732;
+      }
+    }
+  }
+  .gallery {
+    .slider {
+      .slick-next,
+      .slick-prev {
+        &:hover {
+          background-color: #649732;
+        }
+      }
+    }
+  }
+  .green-round {
+    &:hover {
+      background-color: #649732;
+    }
+  }
+  .section-2 {
+    &__right {
+      &-slider {
+        .slick-next,
+        .slick-prev {
+          &:hover {
+            background-color: #649732;
+          }
+        }
+      }
+    }
+  }
 }
 @media (max-width: 1884px) and (min-width: 1599.98px) {
   .section-2 {
@@ -1285,10 +1320,7 @@ body {
 }
 @media (max-width: 992px) {
   .page__inner {
-    min-width: 320px;
     overflow-x: hidden;
-    min-height: -webkit-fill-available;
-    min-height: fill-available;
   }
   .green-round {
     width: 70px;
