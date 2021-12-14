@@ -164,8 +164,10 @@ forms.forEach(form => {
           document.querySelector('.thanks-page').style.opacity = 1;
           setTimeout(() => {
             document.querySelector('.thanks-page').style.opacity = 0;
-            document.querySelector('#popup').classList.remove('active');
           }, 5000);
+          setTimeout(() => {
+            document.querySelector('#popup').classList.remove('active');
+          }, 500);
         },
         $btnSubmit: $form.querySelector('[data-btn-submit]'),
         fields: {

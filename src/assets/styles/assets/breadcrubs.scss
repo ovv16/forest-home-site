@@ -8,11 +8,12 @@
     background-color: #26262C;
   }
   .breadcrumbs {
-    display: flex;
+    // display: flex;
     @include shift-left(1);
     @include shift-right(0);
     @include size(11);
     &-item {
+      display: inline-block;
       &__link {
         position: relative;
         margin-right: 44px;
@@ -22,23 +23,27 @@
         letter-spacing: 0.7em;
         text-transform: uppercase;
         color: #717386;
-        // .inner-page-contact {
-        //   color: #96969F;
-        // }
-        // .inner-page-gallery {
-        //   color: #96969F;
-        // }
         &::after {
-            content: "";
-            width: 4px;
-            height: 10px;
-            background-image: url("../images/img/breadcrumbs-line.svg");
-            background-size: contain;
-            background-repeat: no-repeat;
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
+          content: "";
+          width: 4px;
+          height: 10px;
+          background-image: url("../images/img/breadcrumbs-line.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: absolute;
+          right: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &.inner-page-contact {
+          &::after {
+            background-image: url("../images/img/breadcrumbs-line-2.svg");
+          }
+        }
+        &.inner-page-gallery {
+          &::after {
+            background-image: url("../images/img/breadcrumbs-line-2.svg");
+          }
         }
       }
       &:last-child a {
@@ -50,12 +55,18 @@
       &:first-child a {
           color: #40414F;
       }
-      // &:first-child a.inner-page-contact {
-      //   color: #EBEFF4;
-      // }
-      // &:first-child a.inner-page-gallery {
-      //   color: #EBEFF4;
-      // }
+      &:first-child a.inner-page-contact {
+        color: #EBEFF4;
+      }
+      &:first-child a.inner-page-gallery {
+        color: #EBEFF4;
+      }
+      &:last-child a.inner-page-contact {
+        color: #96969F;
+      }
+      &:last-child a.inner-page-gallery {
+        color: #96969F;
+      }
     }
   }
 }
@@ -76,7 +87,6 @@
 @media (max-width: 576px) {
   .wrapper-breadcrumbs {
     --v-padding: 95px;
-    // background-color: #26262C;
     .breadcrumbs {
       &-item {
         &__link {

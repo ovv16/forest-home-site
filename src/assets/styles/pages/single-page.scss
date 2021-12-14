@@ -7,11 +7,12 @@
     margin-bottom: 30px;
     font-weight: 300;
     font-size: 42px;
+    line-height: 110%;
     text-transform: uppercase;
     color: #40414F;
     @include shift-left(1);
-    @include shift-right(0);
-    @include size(11);
+    @include shift-right(6);
+    @include size(5);
   }
   &__content {
     @include shift-left(1);
@@ -183,9 +184,9 @@
     }
     &__date {
       font-size: 10px;
-      @include shift-left(0);
-      @include shift-right(0);
-      @include size(3);
+      // @include shift-left(0);
+      // @include shift-right(0);
+      // @include size(3);
     }
     &__content {
       margin-top: 20px;

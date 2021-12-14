@@ -30,11 +30,19 @@ header {
         color: var(--white);
         text-decoration: none;
         transition: color 0.3s;
-        .complex-color-dark,
-        .planning-color-dark,
-        .promotions-news-color-dark,
-        .single-page-color-dark {
+        &.complex-color-dark,
+        &.planning-color-dark,
+        &.promotions-news-color-dark,
+        &.single-page-color-dark {
           color: #26262C;
+        }
+        &.complex-color-dark,
+        &.planning-color-dark,
+        &.promotions-news-color-dark,
+        &.single-page-color-dark {
+          &::after {
+            background-color: #26262C;
+          }
         }
         &:after {
           content: "";
@@ -127,7 +135,7 @@ header {
         background: linear-gradient(180deg, rgba(38, 38, 44, 0.4) 0%, rgba(38, 38, 44, 0) 100%);
       }
       &-inner-page-gallery {
-        height: 50% !important;
+        height: 500px;
         background: linear-gradient(0deg, rgba(20, 20, 22, 0) 0%, rgba(20, 20, 22, 0.7) 88.54%);
       }
     }
@@ -163,6 +171,9 @@ header {
       }
       &__bg {
         height: 150px;
+        &-inner-page-gallery {
+          height: 357px;
+        }
       }
     }
   }
@@ -205,6 +216,11 @@ header {
             width: 13.09px;
             height: 1.64px;
           }
+        }
+      }
+      &__bg {
+        &-inner-page-gallery {
+          height: 357px;
         }
       }
     }

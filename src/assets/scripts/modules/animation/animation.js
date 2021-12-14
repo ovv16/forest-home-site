@@ -360,10 +360,11 @@ export default function animation(scroller) {
                     { skewX: 5, yPercent: -100, stagger: 0.1 }, 
                     '<'
                     )
+                .add(() => menu.classList.remove('active'))
         }
         
     }
-    menuHandler();
+    if (window.matchMedia('(min-width: 951px)').matches)  menuHandler();
     /**Menu Anim END */
 
     

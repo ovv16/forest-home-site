@@ -264,7 +264,7 @@
         position: fixed;
         left: 0;
         top: 0;
-        z-index: 1;
+        z-index: 2;
 }
 // header .header {
 //         z-index: 2000 !important;
@@ -354,9 +354,9 @@ animation: littleMoveR var(--moveDuration) linear infinite;
 
 
 
-[class*='complex'] .image-with-curtain-in {
-        margin-top: 50px;
-}
+// [class*='complex'] .image-with-curtain-in {
+//         margin-top: 50px;
+// }
 .image-with-curtain-in {
         position: relative;
         // margin-left: calc(8.33333% + 15px);
