@@ -152,6 +152,10 @@
       @include shift-left(0);
       @include shift-right(0);
       @include size(12);
+      // img {
+      //   height: 300px;
+      //   object-fit: cover;
+      // }
     }
     &__content {
       margin-top: 30px;

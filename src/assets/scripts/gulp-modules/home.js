@@ -1,4 +1,42 @@
 $(document).ready(() => {
+  
+
+  function setProgress(index) {
+    const calc = ((index + 1) / ($slider.slick('getSlick').slideCount)) * 100;
+  
+    $progressBar
+      .css('background-size', `${calc}% 100%`)
+      .attr('aria-valuenow', calc);
+  
+    $progressBarLabel.text(`${calc.toFixed(2)}% completed`);
+  }
+  
+  const $slider = $('.section-2__right-slider');
+  const $progressBar = $('.section-2__right .progress');
+  const $progressBarLabel = $( '.section-2__right .slider__label' );
+  
+  $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+    setProgress(nextSlide);
+  });
+
+
+  $('.section-2__right-slider').on('init', (slick, slick1) => {
+    if (document.documentElement.clientWidth > 992) {
+      slick1.$slideTrack[0].style.cssText += `
+      position:relative;
+      right: ${slick1.slideWidth - slick1.slideWidth * 1.2}px;
+    `;
+    }
+  });
+
+  $('.section-2__right-slider').on('init', (slick, slick1) => {
+    if (document.documentElement.clientWidth < 991) {
+      slick1.$slideTrack[0].style.cssText += `
+      position:relative;
+      right: ${slick1.slideWidth - slick1.slideWidth * 1.2}px;
+    `;
+    }
+  });
   $('.section-2__right-slider').slick({
     speed: 1000,
     slidesToShow: 3,
@@ -10,13 +48,24 @@ $(document).ready(() => {
       '<button type="button" class="slick-prev"><svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1L2 8L10 15" stroke="white" stroke-width="2"/></svg></button>',
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 1400,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
     ],
   });
+
+  setProgress(0);
+  
   $('.section-5__right-slider').slick({
     speed: 1000,
     slidesToShow: 1,

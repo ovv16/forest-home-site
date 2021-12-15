@@ -199,6 +199,9 @@ body {
   padding-bottom: var(--v-padding);
   padding-top: var(--v-padding);
   @include row-flex();
+  .progress {
+    display: none;
+  }
   &__left {
     padding-left: var(--page-side-fields);
     @include shift-left(1);
@@ -400,7 +403,7 @@ body {
       &-item {
         .frame-class {
           width: 100%;
-          min-height: 850px;
+          height: 850px;
           pointer-events: none;
         }
       }
@@ -432,12 +435,12 @@ body {
   padding-top: 150px;
   padding-bottom: 80px;
   @include row-flex();
-  text-align: center;
   .title {
     margin-bottom: 100px;
     @include shift-left(0);
     @include shift-right(0);
     @include size(12);
+    text-align: center;
   }
   &__left,
   &__right {
@@ -446,8 +449,13 @@ body {
     row-gap: 50px;
     .subtitle {
       margin-bottom: 0;
+      text-align: center;
     }
     &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       svg {
         width: fit-content;
       }
@@ -1112,7 +1120,7 @@ body {
       &-slider {
         &-item {
           .frame-class {
-            min-height: 600px;
+            height: 600px;
           }
         }
         .slick-prev {
@@ -1398,6 +1406,9 @@ body {
       }
     }
     &__right {
+      &-bg {
+        height: 500px;
+      }
       &-img {
         top: -40px;
         left: 50px;
@@ -1408,6 +1419,9 @@ body {
   }
   .section-4 {
     &__left {
+      &-bg {
+        height: 500px;
+      }
       &-img {
         top: 40px;
         right: -70px;
@@ -1439,7 +1453,7 @@ body {
       &-slider {
         &-item {
           .frame-class {
-            min-height: 500px;
+            height: 500px;
           }
         }
         .slick-prev {
@@ -1474,15 +1488,15 @@ body {
     }
     &__left {
       order: 3;
-      @include shift-left(1);
-      @include shift-right(0);
-      @include size(5);
+      @include shift-left(1.5);
+      @include shift-right(1);
+      @include size(3.5);
     }
     &__right {
       order: 4;
-      @include shift-left(0);
-      @include shift-right(1);
-      @include size(5);
+      @include shift-left(1);
+      @include shift-right(2);
+      @include size(3);
     }
     &__left,
     &__right {
@@ -1526,6 +1540,7 @@ body {
     font-size: 10px;
   }
   .section-1 {
+    height: calc(100vh - 65px);
     &__text {
       bottom: 20px;
       width: 70%;
@@ -1571,6 +1586,29 @@ body {
     }
     &__right {
       margin-top: 35px;
+      .progress {
+        display: block;
+        position: absolute;
+        bottom: 62px;
+        width: 200px;
+        height: 1px;
+        overflow: hidden;
+        background-color: #C4C4C4;
+        background-image: linear-gradient(to right, #26262C, #26262C);
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        transition: background-size .3s ease-in-out;
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0,0,0,0);
+          border: 0;
+        }
+      }
       &-slider {
         .slick-next,
         .slick-prev {
@@ -1673,7 +1711,7 @@ body {
       &-slider {
         &-item {
           .frame-class {
-            min-height: 370px;
+            height: 370px;
           }
         }
         .slick-prev {
@@ -1719,9 +1757,9 @@ body {
     }
     &__left,
     &__right {
-      @include shift-left(0);
-      @include shift-right(0);
-      @include size(6);
+      // @include shift-left(0);
+      // @include shift-right(0);
+      // @include size(6);
       &-item {
         svg {
           height: 60px;

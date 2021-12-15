@@ -15,7 +15,7 @@ export default function socialIconsParalax(selector, scroller) {
             const fromCenterOfElY =((linkPosY - evt.clientY) + (height / 2)) * 0.25;
 
             console.log(fromCenterOfEl, fromCenterOfElY);
-            gsap.to(link.querySelector('svg'), { y: fromCenterOfElY  - scrollerOffset, x: fromCenterOfEl, duration: 1/25 })
+            gsap.to(link.querySelector('svg'), { y: fromCenterOfElY, x: fromCenterOfEl, duration: 1/25 })
         });
         link.addEventListener('mouseleave',function(evt){
             gsap.to(link.querySelector('svg'), {

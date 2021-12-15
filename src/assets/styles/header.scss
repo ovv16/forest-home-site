@@ -247,7 +247,15 @@ header {
       justify-content: space-between;
       align-items: center;
       &.header-mobile-transparent {
-        background-color: transparent;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), 
+        transparent;
+        & .header-mobile__logo {
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
       }
       &__wrapper {
         display: grid;

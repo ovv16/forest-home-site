@@ -1,6 +1,4 @@
 .complex {
-  --v-padding: 150px;
-  padding-bottom: var(--v-padding);
   .big-text {
     font-size: var(--fz-big-text);
   }
@@ -162,6 +160,8 @@
     }
   }
   &-5 {
+    --v-padding: 150px;
+    padding-bottom: var(--v-padding);
     &-bg {
       left: -120px;
     }
@@ -169,7 +169,6 @@
 }
 @media (max-width: 1600px) {
   .complex {
-    --v-padding: 100px;
     .title-inner-page {
       font-size: 30px;
     }
@@ -245,6 +244,9 @@
         left: -50px;
       }
     }
+    &-5 {
+      --v-padding: 100px;
+    }
   }
 }
 @media (max-width: 1200px) {
@@ -308,6 +310,7 @@
         margin-top: 30px;
         img {
           height: 400px;
+          object-fit: cover;
         }
       }
     }
@@ -363,6 +366,7 @@
       &__items {
         img {
           height: 312px;
+          object-fit: cover;
         }
       }
       &__item {
@@ -522,6 +526,9 @@
         background-color: inherit;
         padding: 0 var(--page-side-fields);
       }
+    }
+    &-5 {
+      --v-padding: 60px;
     }
   }
 }

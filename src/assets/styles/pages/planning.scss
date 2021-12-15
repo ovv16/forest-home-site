@@ -1,5 +1,4 @@
 .planning {
-  padding-bottom: 150px;
   &__title {
     @include row-flex();
     .title-big {
@@ -17,7 +16,7 @@
       @include shift-left(1);
       @include shift-right(1);
       @include size(10);
-      min-height: 700px;
+      height: 700px;
     }
     &__wrapper {
       @include shift-left(6);
@@ -78,13 +77,24 @@
       cursor: pointer;
       .frame-class {
         width: 100%;
-        min-height: 700px;
+        height: 700px;
         pointer-events: none;
+      }
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding-right: var(--page-side-fields);
+        padding-top: calc(var(--v-padding) / 2);
+        padding-bottom: calc(var(--v-padding) / 2);
       }
     }
   }
   &-6 {
     --v-padding: 190px;
+    padding-bottom: 150px;
   }
   &-3,
   &-5 {
@@ -99,8 +109,17 @@
       cursor: pointer;
       .frame-class {
         width: 100%;
-        min-height: 700px;
+        height: 700px;
         pointer-events: none;
+      }
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        padding-top: calc(var(--v-padding) / 2);
+        padding-bottom: calc(var(--v-padding) / 2);
       }
     }
     &__wrapper {
@@ -126,10 +145,9 @@
 }
 @media (max-width: 1600px) {
   .planning {
-    padding-bottom: 100px;
     &-1 {
       &__img {
-        min-height: 498px;
+        height: 498px;
         margin-top: 40px;
         margin-bottom: 240px;
       }
@@ -157,9 +175,12 @@
       }
       &__img {
         .frame-class {
-          min-height: 498px;
+          height: 498px;
         }
       }
+    }
+    &-6 {
+      padding-bottom: 100px;
     }
     &-3,
     &-5 {
@@ -174,7 +195,7 @@
       }
       &__img {
         .frame-class {
-          min-height: 498px;
+          height: 498px;
         }
       }
     }
@@ -260,7 +281,8 @@
     }
     &-1 {
       &__img {
-        min-height: 400px;
+        height: 400px;
+        object-fit: cover;
       }
       &__wrapper {
         @include size(8);
@@ -273,7 +295,7 @@
     &-6 {
       &__img {
         .frame-class {
-          min-height: 434px;
+          height: 434px;
         }
       }
     }
@@ -281,7 +303,7 @@
     &-5 {
       &__img {
         .frame-class {
-          min-height: 434px;
+          height: 434px;
         }
       }
     }
@@ -289,7 +311,6 @@
 }
 @media (max-width: 578px) {
   .planning {
-    padding-bottom: 60px;
     .green-round {
       width: 70px;
       height: 70px;
@@ -297,7 +318,7 @@
     }
     &-1 {
       &__img {
-        min-height: 284px;
+        height: 284px;
         margin-top: 20px;
         margin-bottom: 30px;
       }
@@ -319,7 +340,7 @@
       margin-top: 60px;
       &__img {
         .frame-class {
-          min-height: 284px;
+          height: 284px;
         } 
       }
       &__wrapper {
@@ -332,12 +353,15 @@
         }
       }
     }
+    &-6 {
+      padding-bottom: 60px;
+    }
     &-3,
     &-5 {
       margin-top: 60px;
       &__img {
         .frame-class {
-          min-height: 284px;
+          height: 284px;
         }
       }
       &__wrapper {

@@ -147,6 +147,11 @@
 @media (max-width: 576px) {
   .promotions-news {
     --v-padding: 60px;
+    &__img {
+      img {
+        height: 200px;
+      }
+    }
     &__tab {
       margin-right: 20px;
     }
