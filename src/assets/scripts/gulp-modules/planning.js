@@ -4,9 +4,11 @@ window.addEventListener('DOMContentLoaded', () => {
     wrapperFrame.forEach(el => {
         el.addEventListener('click', () => {
             const greenRound = el.querySelector('.green-round'),
+                preview = el.querySelector('img'),
                 frame = el.querySelector('.frame-class');
 
             greenRound.style.display = 'none';
+            preview.style.display = 'none';
             frame.style.pointerEvents = 'auto';
         }); 
         // el.mouseleave = function(event) {

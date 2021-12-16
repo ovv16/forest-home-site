@@ -48,7 +48,7 @@ export default function section7HoverImage() {
             .add(() => isAnim = true)
             .staggerTo( letters, 0.2, {
                 ease: 'sine.easeInOut',
-                y: -30,
+                y: -50,
                 startAt: { opacity: 1, y: 0 },
                 opacity: 0,
                 yoyo: true,

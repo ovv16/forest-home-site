@@ -468,6 +468,7 @@ export default function animation(scroller) {
         .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
         .to(pinEl, { backgroundColor:  '#26262C', duration: 0.1})
         .to(pinEl, { backgroundColor:  '#fff', duration: 0.1})
+        .to(pinEl, { autoAlpha:  0, duration: 0.1})
         // .to(pinEl, { backgroundColor:  '#fff', duration: 0.1})
     }
     section2PinBgChange();

@@ -29,7 +29,7 @@ export default async function screen1ChangeSlider() {
     sec1Canvases.next.src = images[0];
     section1.append(sec1Canvases.prev);
     section1.append(sec1Canvases.next);
-    const frameDurationScreen1 = 4.5 ;
+    const frameDurationScreen1 = 7 ;
     function screen1Transition(index){
         const elToAnim = sec1Canvases.active;
         const innactiveEl = sec1Canvases.innactive;
