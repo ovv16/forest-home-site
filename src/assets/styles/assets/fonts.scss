@@ -4,8 +4,12 @@
 @include font-face("Inter", "../fonts/Inter-Regular/Inter-Regular", 500);
 // @include font-face("Inter-homepage", "../fonts/Inter-Regular", 400);
 
+// @font-face {
+//     font-family: "Inter-homepage";
+//     src: url("../fonts/Inter-Regular.ttf");
+//   }
 @font-face {
     font-family: "Inter-homepage";
-    src: url("../fonts/Inter-Regular.ttf");
+    src: url("../fonts/Inter-Medium.otf");
   }
 // @include font-face("Inter", "../fonts/Numbers-Regular/Numbers-Regular", 400);

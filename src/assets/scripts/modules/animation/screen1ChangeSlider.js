@@ -21,6 +21,7 @@ export default async function screen1ChangeSlider() {
         active: undefined,
         innactive: undefined,
     };
+    section1.style.background = 'none';
     sec1Canvases.prev.setAttribute('data-screen-canvas', '');
     sec1Canvases.next.setAttribute('data-screen-canvas', '');
     sec1Canvases.active = sec1Canvases.prev;

@@ -317,7 +317,7 @@ export default function animation(scroller) {
     }
     const throttleTime = 100;
     const handleHeaderDeounced = throttle(handleHeader, throttleTime);
-    scroller.on('scroll', handleHeaderDeounced);
+    window.matchMedia('(min-width: 1025px)').matches && scroller.on('scroll', handleHeaderDeounced);
 
     /**Menu Anim */
     function menuHandler(){

@@ -181,7 +181,11 @@
 }
 .section-1 {
         position: relative;
-        background: none !important;
+        // background: none !important;
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: center;
+        // background-image: url('');
         overflow: hidden;
         [data-screen-canvas] {
                 position: absolute;
