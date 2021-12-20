@@ -12,7 +12,10 @@ async function getImages() {
     return  array;
 }
 export default async function screen1ChangeSlider() {
-    const images = await getImages();
+    const isMobile = window.matchMedia('(max-width: 575px)').matches;
+    let images = await getImages();
+    images = isMobile ? images.mobile : images.desktop;
+    // console.log(images);
     const section1 = document.querySelector('.section-1');
     if (section1 === null) return;
     const sec1Canvases = {
