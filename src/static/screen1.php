@@ -15,10 +15,10 @@ $array = [
             "https://forest-home.vn.ua/wp-content/uploads/2021/12/6.jpg"
         ],
         "mobile": [
-            null,
-            null,
-            null,
-            null
+            "https://forest-home.vn.ua/wp-content/uploads/2021/12/2.jpg",
+            "https://forest-home.vn.ua/wp-content/uploads/2021/12/3.jpg",
+            "https://forest-home.vn.ua/wp-content/uploads/2021/12/4.jpg",
+            "https://forest-home.vn.ua/wp-content/uploads/2021/12/6.jpg"
         ]
     }';
 ?>

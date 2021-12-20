@@ -35,8 +35,8 @@ export default function animation(scroller) {
     fadeInUp('.footer-contacts__right-item, .section-2__left .text, .section-3__left .text,.section-5 .text, .section-5 .small-text, .section-3__left .small-text');
     if (window.location.pathname.match(/planning/g)) {
         // paralax('.planning-1__img');
-        splitToLinesAndFadeUp('.title-inner-page');
-        fadeInUp('.planning-2 .text, .planning-3 .text');
+        // splitToLinesAndFadeUp('.title-inner-page');
+        // fadeInUp('.planning-2 .text, .planning-3 .text');
     }
 
 
@@ -401,6 +401,28 @@ export default function animation(scroller) {
 
     if (!window.location.pathname.match(/complex|gallery|planning|news/g)) {
         footerColorEffect();
+    }
+    if (window.location.pathname.match(/planning/g)) {
+       const planBlocks = document.querySelectorAll('.planning-1__wrapper, .planning-2__wrapper, .planning-3__wrapper, .planning-4__wrapper, .planning-5__wrapper, .planning-6__wrapper')
+       planBlocks.forEach(block => {
+           gsap.timeline({
+               scrollTrigger: {
+                   trigger: block,
+                   once: true,
+                   start: '25% bottom'
+               }
+           })
+           .fromTo(block, 
+            { autoAlpha: 0 }, 
+            { autoAlpha: 1 })
+            .fromTo(block.children, 
+                { autoAlpha: 0, y: -50 }, 
+                { stagger: 0.25, ease: 'power2.out', autoAlpha: 1, y: 0 }, 
+                '<')
+            .fromTo(block.parentElement.querySelector('[class*="img"]'), 
+            { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
+             { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 2, ease: 'power2.out', }, '<')
+       })
     }
     
 

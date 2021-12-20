@@ -1,6 +1,7 @@
 import gsap from "gsap/all";
 
 export default async function menuLinksEffect() {
+    if (window.matchMedia('(max-width: 575px)').matches) return;
     const url = window.location.href.match(/verstka|localhost/) ?
         './static/screen1.php' :
         '/wp-admin/admin-ajax.php';
