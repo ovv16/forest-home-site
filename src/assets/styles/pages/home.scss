@@ -1831,3 +1831,8 @@ body {
     }
   }
 }
+
+
+body.home header .header__bg {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+}
