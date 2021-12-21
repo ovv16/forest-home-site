@@ -1,27 +1,27 @@
 import gsap from "gsap/all";
 import { TweenMax } from "gsap/gsap-core";
-export default function section7HoverImage() {
-    const images = [
-        './assets/images/home/screen7/1.jpg',
-        './assets/images/home/screen7/2.jpg',
-        './assets/images/home/screen7/3.jpg',
-        './assets/images/home/screen7/4.jpg',
-        './assets/images/home/screen7/5.jpg',
-        './assets/images/home/screen7/6.jpg',
-    ];
-    const prodImages = [
-        '/wp-content/themes/forest-home/assets/images/home/screen7/1.jpg',
-        '/wp-content/themes/forest-home/assets/images/home/screen7/2.jpg',
-        '/wp-content/themes/forest-home/assets/images/home/screen7/3.jpg',
-        '/wp-content/themes/forest-home/assets/images/home/screen7/4.jpg',
-        '/wp-content/themes/forest-home/assets/images/home/screen7/5.jpg',
-        '/wp-content/themes/forest-home/assets/images/home/screen7/6.jpg',
-    ]
+export default async function section7HoverImage() {
+    // if (window.matchMedia('(max-width: 575px)').matches) return;
+    const url = window.location.href.match(/verstka|localhost/) ?
+        './static/screen1.php' :
+        '/wp-admin/admin-ajax.php';
+    const data = new FormData();
+    data.append('action', 'getmenuimage');
+
+    const request = await fetch(url, { method: 'POST', body: data });
+    // let array = 
+    // return  ;
+
+    const images = await request.json();
+
+    images.push({
+        url: '/wp-content/themes/forest-home/assets/images/home/screen7/6.jpg'
+    });
     const isProd = window.location.href.match(/localhost|verstka/) ? false : true;
     // const isProd = true;
     const section = document.querySelector('.section-7');
     if (section === null) return;
-    const canvas = getSvgForFilter(isProd ? prodImages: images);
+    const canvas = getSvgForFilter(images);
     document.body.insertAdjacentHTML('beforeend', canvas);
     const svg = document.querySelector('.distort');
     const svgYCorrectionValue = svg.getBoundingClientRect().height / 2;
@@ -81,7 +81,7 @@ function getSvgForFilter(images){
                 ${(function(){
                     const acc = [];
                     images.forEach(el => {
-                        acc.push(`<image y="50" class="distort__img" xlink:href="${el}" width="300" height="220" style="opacity: 0;"></image>`)
+                        acc.push(`<image y="50" class="distort__img" xlink:href="${el.url}" width="300" height="220" style="opacity: 0;"></image>`)
                     });
                     return acc.join('');
                 })()}
