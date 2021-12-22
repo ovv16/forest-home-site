@@ -37,22 +37,31 @@ export default async function screen1ChangeSlider() {
     function screen1Transition(index){
         const elToAnim = sec1Canvases.active;
         const innactiveEl = sec1Canvases.innactive;
-        // console.log(elToAnim ===  innactiveEl);
         window.screen1Tl = gsap.timeline()
             .add(() => {
+                elToAnim.onload = () => {
+                    gsap.timeline()
+                        .fromTo(elToAnim, 
+                                { autoAlpha: 0 },
+                            {scale: 1, autoAlpha: 1, duration: 1.5 }
+                        )
+                        .fromTo(innactiveEl, 
+                            { autoAlpha: 1 },
+                            { autoAlpha: 0, duration: 1.5 }, 
+                            '<')
+                        .fromTo(elToAnim, { scale: 1 }, { scale: 1.1, duration: frameDurationScreen1 },'<')
+                        .fromTo(elToAnim, { scale: 1.1 }, { scale: 1, duration: frameDurationScreen1 })
+                        .add(() => {
+                            const nextIndex = index === images.length - 1 ? 0 : index+1;
+                            screen1Transition(nextIndex);
+                            sec1Canvases.active = sec1Canvases.active === sec1Canvases.next ? sec1Canvases.prev : sec1Canvases.next;
+                            sec1Canvases.innactive = sec1Canvases.active === sec1Canvases.next ? sec1Canvases.prev : sec1Canvases.next;
+                            // section1.classList.remove('switching')
+                        })
+                }
                 elToAnim.src = images[index];
             })
-            .to(elToAnim, {scale: 1, autoAlpha: 1, duration: 1.5 })
-            .to(innactiveEl, { autoAlpha: 0, duration: 1.5 }, '<')
-            .fromTo(elToAnim, { scale: 1 }, { scale: 1.1, duration: frameDurationScreen1 },'<')
-            .fromTo(elToAnim, { scale: 1.1 }, { scale: 1, duration: frameDurationScreen1 })
-            .add(() => {
-                const nextIndex = index === images.length - 1 ? 0 : index+1;
-                screen1Transition(nextIndex);
-                sec1Canvases.active = sec1Canvases.active === sec1Canvases.next ? sec1Canvases.prev : sec1Canvases.next;
-                sec1Canvases.innactive = sec1Canvases.active === sec1Canvases.next ? sec1Canvases.prev : sec1Canvases.next;
-                // section1.classList.remove('switching')
-            })
+            
     }
     screen1Transition(0);
     ScrollTrigger.create({
