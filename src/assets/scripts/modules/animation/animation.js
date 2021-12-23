@@ -13,19 +13,23 @@ import socialIconsParalax from './socialIconsParalax';
 
 export default function animation(scroller) {
     gsap.registerPlugin(ScrollTrigger);
-    scroller.on("scroll", ScrollTrigger.update);
-    
-    ScrollTrigger.scrollerProxy(document.body, {
-        scrollTop(value) {
-            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-            return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-        },
-        pinType: document.querySelector(".page__inner").style.transform ? "transform" : "fixed"
-    });
-    ScrollTrigger.addEventListener('refresh', () => window.locoScroll.update());
-    ScrollTrigger.refresh();
+
+
+    if (window.matchMedia('(min-width: 576px)').matches) {
+        scroller.on("scroll", ScrollTrigger.update);
+        
+        ScrollTrigger.scrollerProxy(document.body, {
+            scrollTop(value) {
+                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+            },
+            pinType: document.querySelector(".page__inner").style.transform ? "transform" : "fixed"
+        });
+        ScrollTrigger.addEventListener('refresh', () => window.locoScroll.update());
+        ScrollTrigger.refresh();
+    }
 
     menuLinksEffect();
     splitToLinesAndFadeUp('.section-1__text', 2.35);
@@ -340,8 +344,8 @@ export default function animation(scroller) {
                     { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
                     { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' }
                 )
-                .fromTo(rightBlocks, { skewX: 5, yPercent: -100, }, { skewX: 0, yPercent: 0, stagger: 0.1 }, '<')
-                .fromTo(links, { skewX: 5, yPercent: -100, }, { skewX: 0, yPercent: 0, stagger: 0.1 }, '<')
+                .fromTo(rightBlocks, {yPercent: -100, }, {  yPercent: 0, stagger: 0.1 }, '<')
+                .fromTo(links, { yPercent: -100, }, { yPercent: 0, stagger: 0.1 }, '<')
         }
         function closeMenu() {
             gsap.timeline()
@@ -351,13 +355,13 @@ export default function animation(scroller) {
                     { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' },
                 )
                 .fromTo(rightBlocks, 
-                    { skewX: 0, yPercent: 0, }, 
-                    {  skewX: 5, yPercent: -100,stagger: 0.1 }, 
+                    {yPercent: 0, }, 
+                    {  yPercent: -100,stagger: 0.1 }, 
                     '<'
                     )
                 .fromTo(links, 
-                    { skewX: 0, yPercent: 0, }, 
-                    { skewX: 5, yPercent: -100, stagger: 0.1 }, 
+                    { yPercent: 0, }, 
+                    { yPercent: -100, stagger: 0.1 }, 
                     '<'
                     )
                 .add(() => menu.classList.remove('active'))
@@ -368,7 +372,7 @@ export default function animation(scroller) {
     /**Menu Anim END */
 
     
-    clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, complex-4__item img, complex-5__item img');
+    clipPathEntry('.complex-2__item img, .complex-5__img, complex-3__item img, .complex-4__item img, .complex-5__item img');
     paralaxNoOverflow('.complex-5-bg, .complex-1-bg, .complex-2-bg, .complex-3-bg, .complex-4-bg');
     
     socialIconsParalax('.section-1__social a', scroller);

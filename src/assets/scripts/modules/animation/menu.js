@@ -18,7 +18,7 @@ export default async function menuLinksEffect() {
     // canvas.src = images[0];
     
     const links = document.querySelectorAll('.menu-main__left-list:nth-child(-n+5) .menu-main__left-link');
-    console.log(links);
+    // console.log(links);
     links.forEach((link, index) => {
         const canvas = document.createElement('img');
         canvas.setAttribute('data-menu-canvas', '');

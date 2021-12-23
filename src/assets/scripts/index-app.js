@@ -27,8 +27,9 @@ const locoScroll = new LocomotiveScroll({
 // locoScroll.destroy();
 global.locoScroll = locoScroll;
 
-
-animation(locoScroll);
+window.addEventListener('load',function(evt){
+  animation(locoScroll);
+});
 /*
  * smooth scroll end
  */
@@ -44,7 +45,7 @@ const formsWithTel = ['[data-home-footer]'];
 
 formsWithTel.forEach(form => {
   const $form = document.querySelector(form);
-  console.log(form);
+  // console.log(form);
   if ($form) {
     /* eslint-disable */
     new FormMonster({
@@ -151,8 +152,8 @@ formsWithRedirect.forEach(form => {
 
 forms.forEach(form => {
   const $form = document.querySelector(form);
-  console.log(form);
-  console.log($form);
+  // console.log(form);
+  // console.log($form);
   if ($form) {
     /* eslint-disable */
     new FormMonster({

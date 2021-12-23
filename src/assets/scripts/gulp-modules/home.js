@@ -81,7 +81,7 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', () => {
-  console.log('--', locoScroll);
+  // console.log('--', locoScroll);
   locoScroll.update();
 });
 

@@ -34,9 +34,11 @@ export default async function screen1ChangeSlider() {
     section1.append(sec1Canvases.prev);
     section1.append(sec1Canvases.next);
     const frameDurationScreen1 = 7 ;
+
     function screen1Transition(index){
         const elToAnim = sec1Canvases.active;
         const innactiveEl = sec1Canvases.innactive;
+        const slidesEfectTl = gsap.timeline()
         window.screen1Tl = gsap.timeline()
             .add(() => {
                 elToAnim.onload = () => {
@@ -49,8 +51,8 @@ export default async function screen1ChangeSlider() {
                             { autoAlpha: 1 },
                             { autoAlpha: 0, duration: 1.5 }, 
                             '<')
-                        .fromTo(elToAnim, { scale: 1 }, { scale: 1.1, duration: frameDurationScreen1 },'<')
-                        .fromTo(elToAnim, { scale: 1.1 }, { scale: 1, duration: frameDurationScreen1 })
+                        .fromTo(elToAnim, { scale: 1 }, { scale: isMobile ? 1 : 1.1, duration: frameDurationScreen1 },'<')
+                        .fromTo(elToAnim, { scale: isMobile ? 1 : 1.1 }, { scale: 1, duration: frameDurationScreen1 })
                         .add(() => {
                             const nextIndex = index === images.length - 1 ? 0 : index+1;
                             screen1Transition(nextIndex);
