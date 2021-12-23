@@ -1,7 +1,7 @@
 import gsap from "gsap/all";
 import { TweenMax } from "gsap/gsap-core";
 export default async function section7HoverImage() {
-    // if (window.matchMedia('(max-width: 575px)').matches) return;
+    if (window.matchMedia('(max-width: 575px)').matches) return;
     const url = window.location.href.match(/verstka|localhost/) ?
         './static/screen1.php' :
         '/wp-admin/admin-ajax.php';
@@ -27,8 +27,14 @@ export default async function section7HoverImage() {
     const svgYCorrectionValue = svg.getBoundingClientRect().height / 2;
     const svgXCorrectionValue = 30;
     const elements = document.querySelectorAll('.section-7__item a');
+    section.addEventListener('mouseleave', () => {
+        gsap.set(svg ,{ display: 'none' })
+    })
+    section.addEventListener('mouseenter', () => {
+        gsap.set(svg ,{ display: 'initial' })
+    })
     section.addEventListener('mousemove',function(evt){
-        gsap.to(svg, {
+        gsap.set(svg, {
             duration: 1 / 60,
             x: evt.clientX + svgXCorrectionValue,
             y: evt.clientY - svgYCorrectionValue
