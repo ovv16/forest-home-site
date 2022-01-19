@@ -7,7 +7,6 @@ import FormMonster from '../../pug/components/form/form';
 import SexyInput from '../../pug/components/input/input';
 import animation from './modules/animation/animation.js';
 
-
 /** ******************************* */
 /*
  * smooth scroll start
@@ -27,7 +26,7 @@ const locoScroll = new LocomotiveScroll({
 // locoScroll.destroy();
 global.locoScroll = locoScroll;
 
-window.addEventListener('load',function(evt){
+window.addEventListener('load', function(evt) {
   animation(locoScroll);
 });
 /*
@@ -39,7 +38,8 @@ window.addEventListener('load',function(evt){
  * form handlers start
  */
 const forms = ['[data-home-connection]', '[data-home-popup]'];
-const formsWithRedirect = ['[data-popup-form]'];
+// const formsWithRedirect = ['[data-popup-form]'];
+const formsWithRedirect = ['[data-home-contact]'];
 
 const formsWithTel = ['[data-home-footer]'];
 
