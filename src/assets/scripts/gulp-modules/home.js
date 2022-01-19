@@ -1,24 +1,19 @@
 $(document).ready(() => {
-  
-
   function setProgress(index) {
-    const calc = ((index + 1) / ($slider.slick('getSlick').slideCount)) * 100;
-  
-    $progressBar
-      .css('background-size', `${calc}% 100%`)
-      .attr('aria-valuenow', calc);
-  
+    const calc = ((index + 1) / $slider.slick('getSlick').slideCount) * 100;
+
+    $progressBar.css('background-size', `${calc}% 100%`).attr('aria-valuenow', calc);
+
     $progressBarLabel.text(`${calc.toFixed(2)}% completed`);
   }
-  
+
   const $slider = $('.section-2__right-slider');
   const $progressBar = $('.section-2__right .progress');
-  const $progressBarLabel = $( '.section-2__right .slider__label' );
-  
-  $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+  const $progressBarLabel = $('.section-2__right .slider__label');
+
+  $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
     setProgress(nextSlide);
   });
-
 
   $('.section-2__right-slider').on('init', (slick, slick1) => {
     if (document.documentElement.clientWidth > 992) {
@@ -65,7 +60,7 @@ $(document).ready(() => {
   });
 
   setProgress(0);
-  
+
   $('.section-5__right-slider').slick({
     speed: 1000,
     slidesToShow: 1,
@@ -85,32 +80,33 @@ window.addEventListener('resize', () => {
   locoScroll.update();
 });
 
- const placeHolderPopup = document.querySelector('.popup__block .place-holder'),
-   inputPopup = document.querySelector('.popup__block .input-tel');
+//  const placeHolderPopup = document.querySelector('.popup__block .place-holder'),
+//    inputPopup = document.querySelector('.popup__block .input-tel');
 
- placeHolderPopup.addEventListener('click', () => {
-   placeHolderPopup.style.display = 'none';
-   inputPopup.focus();
- });
-
+//  placeHolderPopup.addEventListener('click', () => {
+//    placeHolderPopup.style.display = 'none';
+//    inputPopup.focus();
+//  });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const wrapperFrameSlider = document.querySelectorAll('.section-5__right-slider-item, .section-5__right .green-round');
-      
-  wrapperFrameSlider.forEach(el => {
-      el.addEventListener('click', () => {
-          const greenRoundSlider = document.querySelector('.section-5__right .green-round'),
-              frameSlider = el.querySelector('.frame-class');
+  const wrapperFrameSlider = document.querySelectorAll(
+    '.section-5__right-slider-item, .section-5__right .green-round',
+  );
 
-          greenRoundSlider.style.display = 'none';
-          frameSlider.style.pointerEvents = 'auto';
-      }); 
+  wrapperFrameSlider.forEach(el => {
+    el.addEventListener('click', () => {
+      const greenRoundSlider = document.querySelector('.section-5__right .green-round'),
+        frameSlider = el.querySelector('.frame-class');
+
+      greenRoundSlider.style.display = 'none';
+      frameSlider.style.pointerEvents = 'auto';
+    });
   });
 
-  const btnVideo  = document.querySelector('.section-6__center-link'),
+  const btnVideo = document.querySelector('.section-6__center-link'),
     video = document.querySelector('.section-6__center video');
 
-  btnVideo.addEventListener('click',function(){
+  btnVideo.addEventListener('click', function() {
     video.play();
     btnVideo.style.display = 'none';
     video.controls = 'controls';

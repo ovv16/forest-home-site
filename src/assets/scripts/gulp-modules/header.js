@@ -4,25 +4,20 @@ window.addEventListener('DOMContentLoaded', () => {
     menu = document.querySelector('.menu'),
     closeMenu = document.querySelector('#menu-top-right-button-menu'),
     closeMenuMobile = document.querySelector('#menu-top-360__menu');
-  
-    openMenu.addEventListener('click', () => {
-      menu.classList.add('active');
-    });
-    openMenuMobile.addEventListener('click', () => {
-      menu.classList.add('active');
-    });
-  
-    closeMenu.addEventListener('click', () => {
-      menu.classList.remove('active');
-    });
-    closeMenuMobile.addEventListener('click', () => {
-      menu.classList.remove('active');
-    });
-  
-  
-  
 
-    
+  openMenu.addEventListener('click', () => {
+    menu.classList.add('active');
+  });
+  openMenuMobile.addEventListener('click', () => {
+    menu.classList.add('active');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    menu.classList.remove('active');
+  });
+  closeMenuMobile.addEventListener('click', () => {
+    menu.classList.remove('active');
+  });
 
   function mobPopupHandler() {
     function close(el) {
@@ -59,14 +54,22 @@ window.addEventListener('DOMContentLoaded', () => {
     popup = document.querySelector('#popup'),
     closePopup = document.querySelector('#popup-close');
 
-    openPopup.addEventListener('click', () => {
-      popup.classList.add('active');
-    });
-    openPopupMenu.addEventListener('click', () => {
-      popup.classList.add('active');
-    });
-  
-    closePopup.addEventListener('click', () => {
-      popup.classList.remove('active');
-    });
+  openPopup.addEventListener('click', () => {
+    popup.classList.add('active');
+  });
+  openPopupMenu.addEventListener('click', () => {
+    popup.classList.add('active');
+  });
+
+  closePopup.addEventListener('click', () => {
+    popup.classList.remove('active');
+  });
+});
+
+//Плейсхолдер на телефоне попапа
+const placeHolderPopup = document.querySelector('.popup__block .place-holder'),
+  inputPopup = document.querySelector('.popup__block .input-tel');
+placeHolderPopup.addEventListener('click', () => {
+  placeHolderPopup.style.display = 'none';
+  inputPopup.focus();
 });
