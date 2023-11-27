@@ -1,4 +1,5 @@
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 async function getImages() {
     const url = window.location.href.match(/verstka|localhost/) ?
         './static/screen1.php' :
@@ -9,9 +10,48 @@ async function getImages() {
 
     const request = await fetch(url, { method: 'POST', body: data });
     let array = await request.json();
-    return  array;
+    return array;
 }
+
 export default async function screen1ChangeSlider() {
+    // ovv start
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 767.98) {
+        const video = document.getElementById('video');
+        const soundButton = document.getElementById('toggle-sound-button');
+        const offIcon = document.querySelector('.section-1__video-button-off');
+        const onIcon = document.querySelector('.section-1__video-button-on');
+        function toggleSound() {
+            if (video.muted) {
+                video.muted = false;
+                offIcon.style.display = 'none';
+                onIcon.style.display = 'block';
+            } else {
+                video.muted = true;
+                offIcon.style.display = 'block';
+                onIcon.style.display = 'none';
+            }
+        }
+        soundButton.addEventListener('click', toggleSound);
+        const options = {
+            threshold: 0.5
+        };
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }
+        const observer = new IntersectionObserver(handleIntersection, options);
+        observer.observe(video);
+        return;
+    }
+    // ovv end
+
+    
     const isMobile = window.matchMedia('(max-width: 575px)').matches;
     let images = await getImages();
     images = isMobile ? images.mobile : images.desktop;
