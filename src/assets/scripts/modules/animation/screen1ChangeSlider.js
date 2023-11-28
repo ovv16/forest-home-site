@@ -21,6 +21,9 @@ export default async function screen1ChangeSlider() {
         const soundButton = document.getElementById('toggle-sound-button');
         const offIcon = document.querySelector('.section-1__video-button-off');
         const onIcon = document.querySelector('.section-1__video-button-on');
+
+        let hasUserInteracted = false;
+
         function toggleSound() {
             if (video.muted) {
                 video.muted = false;
@@ -32,21 +35,21 @@ export default async function screen1ChangeSlider() {
                 onIcon.style.display = 'none';
             }
         }
-        soundButton.addEventListener('click', toggleSound);
-        const options = {
-            threshold: 0.5
-        };
-        function handleIntersection(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
+
+        function handleUserInteraction() {
+            if (!hasUserInteracted) {
+                // Взаємодія користувача: запускаємо відтворення відео
+                video.play();
+                hasUserInteracted = true;
+            }
         }
-        const observer = new IntersectionObserver(handleIntersection, options);
-        observer.observe(video);
+
+        soundButton.addEventListener('click', toggleSound);
+        video.addEventListener('play', () => {
+            // Відтворення розпочалося, можна виконати додаткові дії, якщо потрібно
+        });
+        video.addEventListener('touchstart', handleUserInteraction);
+        video.addEventListener('click', handleUserInteraction);
         return;
     }
     // ovv end
